@@ -1,6 +1,6 @@
 # **a/A Fullstack Project**
 
-## Spotify-Clone
+## Jamify
 
 + Frontend:
     - React/Javascript

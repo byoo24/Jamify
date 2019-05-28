@@ -1,5 +1,5 @@
 {
-  "name": "spotify-clone",
+  "name": "jamify",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "postinstall": "webpack",
     "start": "webpack --watch --mode=development"
   },
   "keywords": [],
@@ -23,11 +23,17 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "webpack": "^4.32.0",
     "webpack-cli": "^3.3.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "none": "8.4.0",
+    "npm": "6.1.0"
+  }
 }

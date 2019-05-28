@@ -1,0 +1,86 @@
+#nav {
+    display: block;
+    position: fixed;
+    width: 100%;
+    right: 0;
+    left: 0;
+    background-color: $standard_black;
+    background-color: lighten($standard_black, 0.6);
+    z-index: 100;
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        width: $desktop_container;
+        margin: 0 auto;
+        padding: 0 15px;
+
+        div.logo {
+            display: flex;
+            align-items: center;
+
+            .fa-spotify {
+                position: absolute;
+                font-size: 40px;
+                font-weight: 400;
+                line-height: inherit;
+                margin-right: 5px;
+            }
+
+            .brand {
+                font-size: 23px;
+                padding-left: 45px;
+            }
+        }
+
+        .nav-main{
+            display: flex;
+            align-items: center;
+            color: $standard_white;
+            margin: 0;
+            padding: 0;
+
+            a {
+                padding-right: 10px;
+
+                &:last-child {
+                    padding-right: 0;
+                }
+
+                &:hover {
+                    color: $spotify_green;
+                }
+            }
+
+            .nav-welcome {
+                margin-right: 20px;
+            }
+
+            .nav-logout {
+                padding: 5px 10px;
+                background: $spotify_green;
+                font-size: 16px;
+                color: $standard_white;
+                transition: background-color .3s;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: darken($spotify_green, 10);
+                }
+            }
+        }
+
+        a {
+            display: block;
+            height: 80px;
+            font-weight: 700;
+            line-height: 80px;
+            color: $standard_white;
+            text-decoration: none;
+        }
+
+    } // #nav-container
+}

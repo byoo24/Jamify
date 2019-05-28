@@ -1,0 +1,88 @@
+.hero-home {
+    display: grid;
+    position: relative;
+    min-height: 100vh;
+    color: $standard_white;
+    background-image: linear-gradient(to bottom, #f45f81, #f79260);
+    overflow: hidden;
+
+    .hero-home-bg {
+        position: absolute;
+        background: image-url("landing_page/hero-burst.svg") no-repeat;
+        background-position: top -410px center;
+        width: 1600px;
+        height: 1500px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: auto;
+        color: $standard_white;
+        text-align: center;
+        text-decoration: none;
+
+        h1 {
+            font-size: 75px;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        h4 {
+            font-size: 18px;
+            font-weight: 400;
+            margin: 1em 0;
+        }
+
+        a {
+            font-size: 14px;
+            border-radius: 500px;
+            padding: 16px 48px 18px;
+            margin: 16px auto 0;
+            font-weight: 700;
+            color: $standard_white;
+            text-decoration: none;
+            background-color: $spotify_green;
+        }
+    }
+} //.hero-home
+
+
+
+#site-info{
+    .info-container{
+        width: $desktop_container;
+        margin: 0 auto;
+    }
+
+    .info-header {
+            h1 { font-size: 48px; }
+            h4 { font-size: 18px; }
+        }
+
+    .info-items {
+        display: block;
+        width: 100%;
+        min-height: 600px;
+        ul {
+            display: block;
+            
+            li {
+                box-sizing: border-box;
+                float: left;
+                width: 100%;
+                height: 100%;
+
+                .icon{ display: block; width: calc($desktop_container * 33%); height: 100%; background-size: contain; background-position: center; background-repeat: no-repeat;}
+                .react-icon { background-image: image-url("icons/React-icon.svg"); }
+                .redux-icon { background-image: image-url("icons/Redux-icon.svg"); }
+                .ruby-icon { background-image: image-url("icons/Ruby-icon.svg"); }
+                .rails-icon { background-image: image-url("icons/Rails-icon.svg"); }
+            }
+        }
+    }
+
+} //#site-info

@@ -1,0 +1,22 @@
+.Root__now-playing-bar {
+    grid-area: player;
+    background-color: lighten($spotify_black2, 1.25);
+
+    .now-playing-bar-container {
+        background-color: lighten($spotify_black, 1.25);
+        border-top: 1px solid $standard_black;
+        display: flex;
+        flex-direction: column;
+        // height: 620px;
+        // user-select: none;
+
+        // .now-playing-bar {
+        //     align-items: center;
+        //     display: flex;
+        //     flex-direction: row;
+        //     justify-content: space-between;
+        //     // height: 90px;
+        //     // padding: 0 16px;
+        // }
+    }
+}

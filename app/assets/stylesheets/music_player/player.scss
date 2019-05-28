@@ -1,0 +1,18 @@
+@import 'navbar/navbar';
+@import 'main_view/main_view';
+@import 'now_playing/now_playing';
+
+
+
+#player-container {
+    display: grid;
+    position: relative;
+    grid-template-areas: 
+        'navbar main'
+        'player player';
+    grid-template-rows:   620px auto;
+    grid-template-columns:  230px auto;
+    background-color: $standard_black;
+    width: 100vw;
+    min-height: 100vh;
+} // .player-container

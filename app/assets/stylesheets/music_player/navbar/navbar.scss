@@ -1,0 +1,15 @@
+.Root__navbar {
+    grid-area: navbar;
+    display: flex;
+    flex-direction: column;
+    // width: 230px;
+    background-color: $standard_black;
+    background-color: lighten($standard_black, 0.8);
+    overflow-y: auto;
+
+    // .navbar {
+    //     flex: 1;
+    //     flex-direction: column;
+    //     padding-top: 24px;
+    // }
+}
