@@ -8,7 +8,7 @@
 
 
 puppy = User.new
-puppy.username = "puppy";
+puppy.username = "puppylover";
 puppy.password = "husky123";
 puppy.email = "puppy@email.com";
 puppy.save!
