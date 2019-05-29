@@ -11,12 +11,24 @@ class Login extends React.Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.loginDemo = this.loginDemo.bind(this);
     }
 
     update(field) {
         return e => this.setState({
             [field]: e.target.value
         });
+    }
+
+    loginDemo(e) {
+        const demo = {
+            username: "puppy",
+            password: "husky123",
+            email: "puppy@email.com"
+        };
+
+        this.props.login(demo)
+            .then(() => this.props.history.push('/browse'));
     }
 
     handleSubmit(e) {
@@ -35,7 +47,7 @@ class Login extends React.Component {
                 </div>
                 <div className="login-content">
                     <span id="login-to-continue">To continue, log in to Jamify</span>
-                    <Link to="/" className="demo-login">DEMO LOGIN</Link>
+                    <a className="demo-login" onClick={() => this.loginDemo()}>DEMO LOGIN</a>
                     <span className="or">OR</span>
 
                     <form className="login-form" onSubmit={this.handleSubmit}>

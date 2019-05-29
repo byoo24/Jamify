@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
+import { demoLogin } from '../../util/session_api_util';
 import Login from './login';
 
 const msp = (state) => ({
@@ -8,7 +9,8 @@ const msp = (state) => ({
 
 
 const mdp = (dispatch) => ({
-    login: user => dispatch(login(user))
+    login: user => dispatch(login(user)),
+    demoLogin: () => dispatch(demoLogin())
 });
 
 

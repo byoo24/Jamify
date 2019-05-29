@@ -84,6 +84,7 @@
                         display: block;
 
                         .logo {
+                            margin-bottom: 1em;
 
                             a{
                                 display: flex;
@@ -123,6 +124,7 @@
 
                         .navbar-text{
                             display: inline-block;
+                            font-size: 16px;
                         }
                     }
                 }
