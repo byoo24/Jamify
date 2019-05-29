@@ -22,7 +22,7 @@ class Login extends React.Component {
 
     loginDemo(e) {
         const demo = {
-            username: "puppy",
+            username: "puppylover",
             password: "husky123",
             email: "puppy@email.com"
         };
