@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import Navbar from './navbar/navbar';
+import Navbar from './navbar/navbar_container';
 import NowPlaying from './now_playing/now_playing';
 import MainView from './main_view/main_view';
 
@@ -21,7 +21,7 @@ class MusicPlayer extends React.Component {
     render() {
   
         return (
-            <div id="player-container">
+            <div className="Root__top-container">
                 <button onClick={() => this.logoutUser()} className="temp-logout">Logout</button>
                 <Navbar />
                 <MainView />

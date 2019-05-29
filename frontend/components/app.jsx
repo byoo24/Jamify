@@ -15,6 +15,8 @@ export default () => (
         <AuthRoute path="/signup" component={SignUp} />
         <AuthRoute path="/login" component={Session} />
         <ProtectedRoute path="/browse" component={MusicPlayer} />
+        <ProtectedRoute path="/search" component={MusicPlayer} />
+        <ProtectedRoute path="/collection" component={MusicPlayer} />
     </>
 );
 

@@ -7,9 +7,142 @@
     background-color: lighten($standard_black, 0.8);
     overflow-y: auto;
 
-    // .navbar {
-    //     flex: 1;
-    //     flex-direction: column;
-    //     padding-top: 24px;
-    // }
-}
+    a {
+        text-decoration: none;
+        color: $standard_white;
+    }
+
+    .navbar-container {
+        display:flex;
+        flex-direction: column;
+        flex: 1;
+        // height: 100%;
+        // padding-top: 24px;
+        color: $standard_white;
+        font-size: 18px;
+    
+        ul.navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+            
+            li {
+                display: block;
+                width: 100%;
+                height: 100%;
+
+                &.logo-container {
+                    display: none;
+                }
+            
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    color: $spotify_gray;
+                    text-decoration: none;
+                    border-right: 1px solid $spotify_gray_dark;
+
+
+                    .navbar-text {
+                        display: none;
+                    }
+
+                    &:hover {
+                        color: $standard_white;
+                    }
+
+                    
+                } // a
+
+                &:last-child a{ border-right: none; }
+
+            } // li
+
+        } // ul.navbar
+
+        .navbar-user {
+            display: none;
+        }
+
+        @media screen and (min-width: $screen_tablet) {
+            padding: 20px 0;
+            justify-content: space-between;
+            
+            ul.navbar {
+                display: block;
+                height: inherit;
+
+                li {
+                    display: block;
+                    width: inherit;
+                    height: inherit;
+
+                    &.logo-container {
+                        display: block;
+
+                        .logo {
+
+                            a{
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                text-decoration: none;
+                                color: $standard_white;
+
+                                .fab {
+                                    font-size: 2.2em;
+                                    padding-right: 5px;
+                                }
+
+                                .brand {
+                                    font-size: 1.5em;
+                                }
+                            }
+                        } // .logo
+                    } // .logo-container
+
+                    
+                    
+                    a {
+                        display: block;
+                        padding: 0.5em 1em;
+                        border-left: 3px solid $standard_black;
+                        border-right: none;
+
+                        &.active {
+                            color: $standard_white;
+                            border-left: 3px solid $spotify_green;
+                        }
+
+                        .fas{
+                            padding-right: 1em;
+                        }
+
+                        .navbar-text{
+                            display: inline-block;
+                        }
+                    }
+                }
+            } // ul.navbar
+
+            .navbar-user {
+                display: block;
+                padding: 1em;
+                border-top: 1px solid $spotify_gray;
+                a {
+                    display: flex;
+                    align-items: center;
+                    font-size: 16px;
+
+                    .far {
+                        font-size: 1.25em;
+                        padding-right: 10px;
+                    }
+                }
+            }
+        } // @media screen
+    } // .navbar-container
+} // .Root__navbar

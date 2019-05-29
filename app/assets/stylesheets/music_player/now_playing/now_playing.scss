@@ -1,6 +1,7 @@
 .Root__now-playing-bar {
     grid-area: player;
     background-color: lighten($spotify_black2, 1.25);
+    width: 100%;
 
     .now-playing-bar-container {
         background-color: lighten($spotify_black, 1.25);
@@ -10,13 +11,13 @@
         // height: 620px;
         // user-select: none;
 
-        // .now-playing-bar {
-        //     align-items: center;
-        //     display: flex;
-        //     flex-direction: row;
-        //     justify-content: space-between;
-        //     // height: 90px;
-        //     // padding: 0 16px;
-        // }
+        .now-playing-bar {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            // height: 90px;
+            // padding: 0 16px;
+        }
     }
 }
