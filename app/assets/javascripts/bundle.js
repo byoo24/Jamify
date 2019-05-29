@@ -1032,6 +1032,7 @@ function (_React$Component) {
       password: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.loginDemo = _this.loginDemo.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1045,19 +1046,35 @@ function (_React$Component) {
       };
     }
   }, {
+    key: "loginDemo",
+    value: function loginDemo(e) {
+      var _this3 = this;
+
+      var demo = {
+        username: "puppy",
+        password: "husky123",
+        email: "puppy@email.com"
+      };
+      this.props.login(demo).then(function () {
+        return _this3.props.history.push('/browse');
+      });
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this3 = this;
+      var _this4 = this;
 
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.login(user).then(function () {
-        return _this3.props.history.push('/browse');
+        return _this4.props.history.push('/browse');
       });
     }
   }, {
     key: "render",
     value: function render() {
+      var _this5 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1066,9 +1083,11 @@ function (_React$Component) {
         className: "login-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "login-to-continue"
-      }, "To continue, log in to Jamify"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/",
-        className: "demo-login"
+      }, "To continue, log in to Jamify"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "demo-login",
+        onClick: function onClick() {
+          return _this5.loginDemo();
+        }
       }, "DEMO LOGIN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "or"
       }, "OR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
@@ -1131,7 +1150,9 @@ function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login */ "./frontend/components/session_form/login.jsx");
+/* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/session_api_util */ "./frontend/util/session_api_util.js");
+/* harmony import */ var _login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login */ "./frontend/components/session_form/login.jsx");
+
 
 
 
@@ -1146,11 +1167,14 @@ var mdp = function mdp(dispatch) {
   return {
     login: function login(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["login"])(user));
+    },
+    demoLogin: function demoLogin() {
+      return dispatch(Object(_util_session_api_util__WEBPACK_IMPORTED_MODULE_2__["demoLogin"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(_login__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(_login__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 

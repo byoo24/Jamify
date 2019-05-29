@@ -7,27 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-const genre_pop = Genre.new
-genre_pop.category = "R&B"
-
-const bruno_mars = Artist.new
-bruno_mars.name = "Bruno Mars"
-bruno_mars.genre_id = 
-
-
-
-Bruno Mars
-    24K Magic
-        24K Magic
-        Chunky
-        Perm
-        Finesse
-    
-    Unorthodox Jukebox
-        Young Girls
-        Locked Out of Heaven
-        Gorilla
-        Treasure
-
-
-Jay-Z
+puppy = User.new
+puppy.username = "puppy";
+puppy.password = "husky123";
+puppy.email = "puppy@email.com";
+puppy.save!
