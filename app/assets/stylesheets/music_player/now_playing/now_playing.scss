@@ -4,20 +4,31 @@
     width: 100%;
 
     .now-playing-bar-container {
+        height: 100%;
         background-color: lighten($spotify_black, 1.25);
         border-top: 1px solid $standard_black;
         display: flex;
         flex-direction: column;
-        // height: 620px;
-        // user-select: none;
 
         .now-playing-bar {
             align-items: center;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            // height: 90px;
-            // padding: 0 16px;
-        }
-    }
-}
+
+            .now-playing-bar__left {
+                
+                .now-playing {
+                    
+                }
+
+            } // .now-playing-bar__left
+            .now-playing-bar__center {
+
+            } // .now-playing-bar__center
+            .now-playing-bar__right {
+
+            } // .now-playing-bar__right
+        } // .now-playing-bar
+    } // .now-playing-bar-container
+} // .Root__now-playing-bar

@@ -15,6 +15,10 @@ class Login extends React.Component {
         this.loginDemo = this.loginDemo.bind(this);
     }
 
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
+
     update(field) {
         return e => this.setState({
             [field]: e.target.value

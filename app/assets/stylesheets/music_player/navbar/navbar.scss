@@ -132,8 +132,9 @@
 
             .navbar-user {
                 display: block;
-                padding: 1em;
-                border-top: 1px solid $spotify_gray;
+                margin: 0 1em;
+                padding: 1em 0;
+                border-top: 1px solid $spotify_gray_dark;
                 a {
                     display: flex;
                     align-items: center;

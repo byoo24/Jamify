@@ -1,0 +1,25 @@
+.thumbnail-album {
+    display: block;
+    position: relative;
+    width: 56px;
+    height: 56px;
+
+    .music-icon {
+        display: block;
+        width: inherit;
+        height: inherit;
+    }
+
+    
+
+} // .thumbnail-album
+
+.cover-art-image {
+    display:block;
+    position: absolute;
+    top: 0;
+    width: inherit;
+    height: inherit;
+    background: image-url("music_player/ed_sheeran_jb.jpg") no-repeat;
+    background-size: cover !important;
+}

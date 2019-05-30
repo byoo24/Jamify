@@ -26,7 +26,6 @@ class Footer extends React.Component {
                                 <li>Rails</li>
                                 <li>Ruby</li>
                                 <li>JBuilder</li>
-                                <li>Webpack</li>
                             </ul>
                         </div>
                         <div className="home-footer-col">
@@ -35,6 +34,7 @@ class Footer extends React.Component {
                                 <li>Heroku</li>
                                 <li>AWS</li>
                                 <li>Fontawesome</li>
+                                <li>Google Fonts</li>
                             </ul>
                         </div>
                     </div>
