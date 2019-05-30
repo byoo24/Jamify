@@ -216,6 +216,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _logo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../logo */ "./frontend/components/logo.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -236,6 +237,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Footer =
 /*#__PURE__*/
 function (_React$Component) {
@@ -250,7 +252,29 @@ function (_React$Component) {
   _createClass(Footer, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Footer");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+        className: "home-footer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "home-footer-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "home-footer-row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "home-footer-col"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_logo__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "footer-logo-description"
+      }, "A Spotify Clone")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "home-footer-col"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "footer-title"
+      }, "Frontend"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "React"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Redux"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "SCSS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Webpack"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "home-footer-col"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "footer-title"
+      }, "Backend"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Rails"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Ruby"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "JBuilder"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Webpack"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "home-footer-col"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "footer-title"
+      }, "External Sources"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Heroku"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "AWS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Fontawesome"))))));
     }
   }]);
 
@@ -456,25 +480,7 @@ function (_React$Component) {
         className: "hero-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Music for everyone."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Millions of songs. No credit card needed."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/browse"
-      }, "Launch Web Player")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-        id: "site-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "info-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "info-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Spotify Clone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "a/A Fullstack Project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/browse"
-      }, "Launch Web Player")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "info-items"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("figure", {
-        className: "icon react-icon"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("figcaption", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("figure", {
-        className: "icon redux-icon"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("figcaption", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("figure", {
-        className: "icon ruby-icon"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("figcaption", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("figure", {
-        className: "icon rails-icon"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("figcaption", null)))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+      }, "Launch Web Player")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
     }
   }]);
 

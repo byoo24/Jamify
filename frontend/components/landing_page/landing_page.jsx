@@ -25,40 +25,6 @@ class LandingPage extends React.Component {
                     </div>
                 </section>
 
-                <section id="site-info">
-                    <div className="info-container">
-                        <div className="info-header">
-                            <h1>Spotify Clone</h1>
-                            <h4>a/A Fullstack Project</h4>
-                            <Link to="/browse">Launch Web Player</Link>
-                        </div>
-                        <div className="info-items">
-                            <ul>
-                                <li>
-                                    <figure className="icon react-icon">
-                                    </figure>
-                                    <figcaption></figcaption>
-                                </li>
-                                <li>
-                                    <figure className="icon redux-icon">
-                                    </figure>
-                                    <figcaption></figcaption>
-                                </li>
-                                <li>
-                                    <figure className="icon ruby-icon">
-                                    </figure>
-                                    <figcaption></figcaption>
-                                </li>
-                                <li>
-                                    <figure className="icon rails-icon">
-                                    </figure>
-                                    <figcaption></figcaption>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </section>
                 <Footer />
             </>
         );

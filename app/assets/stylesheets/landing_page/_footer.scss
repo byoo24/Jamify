@@ -1,0 +1,53 @@
+.home-footer {
+    color: $standard-white;
+    background: $standard-black;
+    padding: 40px 20px;
+
+    .home-footer-container {
+        .home-footer-row {
+            display: flex;
+            justify-content: space-around;
+
+            .logo {
+                a {
+                    display: flex;
+                    align-items: center;
+                    color: $standard-white;
+                    font-size: 24px;
+                    text-decoration: none;
+
+                    .fa-spotify {
+                        font-size: 36px;
+                        padding-right: 10px;
+                    }
+                }
+            } // .logo
+
+            .footer-logo-description {
+                display: block;
+                color: $spotify_gray;
+                margin: 10px auto;
+                font-size: 14px;
+                font-style: italic;
+                font-weight: 300;
+                text-align: center;
+            }
+
+            .footer-title {
+                color: #919496;
+                font-size: 12px;
+                margin: 20px 0;
+                letter-spacing: .08em;
+            }
+
+            ul {
+                li {
+                    padding: 4px 0;
+                    margin-bottom: .75em;
+                }
+            }
+
+        }
+    } // .home-footer-container
+
+}

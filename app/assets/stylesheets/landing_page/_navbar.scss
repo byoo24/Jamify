@@ -43,6 +43,7 @@
 
             a {
                 padding-right: 10px;
+                font-weight: 400;
 
                 &:last-child {
                     padding-right: 0;
@@ -54,13 +55,15 @@
             }
 
             .nav-welcome {
+                font-size: 22px;
+                font-weight: 300;
                 margin-right: 20px;
             }
 
             .nav-logout {
                 padding: 5px 10px;
                 background: $spotify_green;
-                font-size: 16px;
+                font-size: 14px;
                 color: $standard_white;
                 transition: background-color .3s;
                 border: none;
@@ -70,8 +73,8 @@
                 &:hover {
                     background-color: darken($spotify_green, 10);
                 }
-            }
-        }
+            } // .nav-logout
+        } // .nav-main
 
         a {
             display: block;
