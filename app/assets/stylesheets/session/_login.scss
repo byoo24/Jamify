@@ -52,6 +52,7 @@
             text-decoration: none;
             transition-property: background-color, border-color, color, box-shadow, filter;
             transition-duration: .3s;
+            cursor: pointer;
 
             &:hover {
                 background-color: lighten($facebook_blue, 5);
@@ -94,11 +95,12 @@
             justify-content: space-between;
             margin: 20px 0;
 
-            .submit-form {
+            .login-row-container,
+            .signup-row-container {
                 display: block;
                 
-
-                .btn-submit {
+                .btn-login,
+                .btn-signup {
                     color: $standard_white;
                     background-color: $spotify_green;
                     font-size: 14px;
@@ -118,6 +120,19 @@
                     &:hover {
                         background-color: lighten($spotify_green,5);
                     }
+                } //btn-signup
+
+
+            } //.signup-row-container
+
+            .signup-row-container {
+                width: 100%;
+
+                .btn-signup{
+                    display:block;
+                    margin: 0 auto 14px;
+                    max-width: 320px;
+                    width: 100%;
                 }
             }
 
@@ -141,7 +156,45 @@
                 top: 0;
                 font-weight: 700;
             }
+
+
+            .login-link{
+                text-decoration: none;
+                font-weight: 300;
+            }
         }
+
+        .yes-account {
+            display: block;
+            position: relative;
+            font-size: 16px;
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px 0 0;
+            font-weight: 300;
+
+            &:before {
+                content: "";
+                position: absolute;
+                border-top: 1px solid $gray_anchor;
+                width: 100%;
+                left: 0;
+                top: 0;
+                font-weight: 700;
+            }
+
+            .login-link{
+                color: $spotify_green;
+                text-decoration: none;
+                padding-left: 5px;
+
+                &:hover {
+                    color: lighten($spotify_green,5);
+                }
+            }
+        }
+
+
 
         .sign-up-btn {
             display: block;

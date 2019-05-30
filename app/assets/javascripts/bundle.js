@@ -941,7 +941,9 @@ function (_React$Component) {
         className: "now-playing-bar-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "now-playing-bar"
-      })));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("audio", {
+        controls: true
+      }))));
     }
   }]);
 
@@ -979,6 +981,37 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./frontend/components/session_form/_input.jsx":
+/*!*****************************************************!*\
+  !*** ./frontend/components/session_form/_input.jsx ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = (function (props) {
+  var type = props.type,
+      className = props.className,
+      placeholder = props.placeholder,
+      update = props.update,
+      field = props.field,
+      errors = props.errors,
+      required = props.required; // debugger;
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: type,
+    className: className,
+    placeholder: placeholder,
+    onChange: update(field)
+  });
+});
+
+/***/ }),
+
 /***/ "./frontend/components/session_form/login.jsx":
 /*!****************************************************!*\
   !*** ./frontend/components/session_form/login.jsx ***!
@@ -992,6 +1025,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _logo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../logo */ "./frontend/components/logo.jsx");
+/* harmony import */ var _input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_input */ "./frontend/components/session_form/_input.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -1016,6 +1050,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Login =
 /*#__PURE__*/
 function (_React$Component) {
@@ -1029,7 +1064,8 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Login).call(this, props));
     _this.state = {
       username: "",
-      password: ""
+      password: "" //debugger
+
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.loginDemo = _this.loginDemo.bind(_assertThisInitialized(_this));
@@ -1051,7 +1087,7 @@ function (_React$Component) {
       var _this3 = this;
 
       var demo = {
-        username: "puppy",
+        username: "puppylover",
         password: "husky123",
         email: "puppy@email.com"
       };
@@ -1075,6 +1111,35 @@ function (_React$Component) {
     value: function render() {
       var _this5 = this;
 
+      var errors = this.props.errors;
+      var invalidUsername = null;
+      var invalidPassword = null;
+      var classUsername = 'form-control';
+      var classPassword = 'form-control';
+      var invalidUsernamePassword = errors[0] && errors[0].indexOf('Incorrect') != -1 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "alert alert-warning"
+      }, errors[0]) : null;
+
+      if (errors.includes('username')) {
+        invalidUsername = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "invalid-input"
+        }, "Please enter your Jamify username.");
+        classUsername = 'form-control invalid';
+      } else {
+        invalidUsername = null;
+        classUsername = 'form-control';
+      }
+
+      if (errors.includes('password')) {
+        invalidPassword = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "invalid-input"
+        }, "Please enter your password.");
+        classPassword = 'form-control invalid';
+      } else {
+        invalidPassword = null;
+        classPassword = 'form-control';
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1090,7 +1155,7 @@ function (_React$Component) {
         }
       }, "DEMO LOGIN"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "or"
-      }, "OR"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, "OR"), invalidUsernamePassword, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "login-form",
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -1098,20 +1163,18 @@ function (_React$Component) {
         className: "sr-only"
       }, "Username"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        className: "form-control",
+        className: classUsername,
         placeholder: "Username",
-        onChange: this.update('username'),
-        required: true
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        onChange: this.update('username')
+      }), invalidUsername, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "login-password",
         className: "sr-only"
       }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
-        className: "form-control",
+        className: classPassword,
         placeholder: "Password",
-        onChange: this.update('password'),
-        required: true
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onChange: this.update('password')
+      }), invalidPassword, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "submit-row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "checkbox-label"
@@ -1120,9 +1183,9 @@ function (_React$Component) {
       }), "Remember me", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "checkbox-control"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "submit-form"
+        className: "login-row-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn-submit"
+        className: "btn-login"
       }, "LOG IN")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "no-account"
       }, "Don't have an account?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -1262,6 +1325,52 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var errors = this.props.errors;
+      var invalidUsername = null;
+      var invalidPassword = null;
+      var invalidEmail = null;
+      var classUsername = 'form-control';
+      var classPassword = 'form-control';
+      var classEmail = 'form-control';
+      var invalidUsernamePassword;
+
+      if (errors.includes('Incorrect')) {
+        invalidUsernamePassword = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "alert alert-warning"
+        }, errors[0]);
+      } // const invalidUsernamePassword = errors[0] && errors[0].indexOf('Incorrect') != -1 ? <div className="alert alert-warning">{errors[0]}</div> : null;
+
+
+      if (errors.includes('username')) {
+        invalidUsername = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "invalid-input"
+        }, "Please enter your Jamify username.");
+        classUsername = 'form-control invalid';
+      } else {
+        invalidUsername = null;
+        classUsername = 'form-control';
+      }
+
+      if (errors.includes('password')) {
+        invalidPassword = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "invalid-input"
+        }, "Please enter your password.");
+        classPassword = 'form-control invalid';
+      } else {
+        invalidPassword = null;
+        classPassword = 'form-control';
+      }
+
+      if (errors.includes('email')) {
+        invalidEmail = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "invalid-input"
+        }, "Please enter an email.");
+        classEmail = 'form-control invalid';
+      } else {
+        invalidEmail = null;
+        classEmail = 'form-control';
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1270,7 +1379,7 @@ function (_React$Component) {
         className: "login-content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         id: "sign-up-with-email"
-      }, "Sign up with your email address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, "Sign up with your email address"), invalidUsernamePassword, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "signup-form",
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -1279,30 +1388,27 @@ function (_React$Component) {
       }, "Username"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         id: "signup-username",
-        className: "form-control",
+        className: classUsername,
         placeholder: "Username",
-        onChange: this.update('username'),
-        required: true
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        onChange: this.update('username')
+      }), invalidUsername, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "signup-email",
         className: "sr-only"
       }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "email",
+        type: "text",
         id: "signup-email",
-        className: "form-control",
+        className: classEmail,
         placeholder: "Email",
-        onChange: this.update('email'),
-        required: true
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        onChange: this.update('email')
+      }), invalidEmail, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "signup-password",
         className: "sr-only"
       }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "password",
-        className: "form-control",
+        className: classPassword,
         placeholder: "Password",
-        onChange: this.update('password'),
-        required: true
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        onChange: this.update('password')
+      }), invalidPassword, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "register-dob"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "register-age"
@@ -1386,15 +1492,15 @@ function (_React$Component) {
       }), "Non-binary")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "submit-row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "submit-form"
+        className: "signup-row-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn-submit"
-      }, "SIGN UP")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        className: "no-account"
-      }, "Already have an account?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "btn-signup"
+      }, "SIGN UP")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "yes-account"
+      }, "Already have an account?", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/login",
-        className: "sign-up-btn"
-      }, "Login")));
+        className: "login-link"
+      }, "Login"))));
     }
   }]);
 
@@ -1566,7 +1672,7 @@ var sessionErrorsReducer = function sessionErrorsReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SESSION_ERRORS"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])([], state, action.errors);
+      return action.errors;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return [];

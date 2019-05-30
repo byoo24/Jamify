@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../logo';
+import Input from './_input';
 
 class Login extends React.Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class Login extends React.Component {
             username: "",
             password: ""
         }
-
+        //debugger
         this.handleSubmit = this.handleSubmit.bind(this);
         this.loginDemo = this.loginDemo.bind(this);
     }
@@ -19,6 +20,8 @@ class Login extends React.Component {
             [field]: e.target.value
         });
     }
+
+
 
     loginDemo(e) {
         const demo = {
@@ -40,6 +43,30 @@ class Login extends React.Component {
 
 
     render() {
+        const { errors } = this.props;
+        let invalidUsername = null;
+        let invalidPassword = null;
+        let classUsername = 'form-control';
+        let classPassword = 'form-control';
+
+        const invalidUsernamePassword = errors[0] && errors[0].indexOf('Incorrect') != -1 ? <div className="alert alert-warning">{errors[0]}</div> : null;
+
+        if (errors.includes('username')) {
+            invalidUsername = <div className="invalid-input">Please enter your Jamify username.</div>
+            classUsername = 'form-control invalid';
+        } else {
+            invalidUsername = null;
+            classUsername = 'form-control';
+        }
+
+        if (errors.includes('password')) {
+            invalidPassword = <div className="invalid-input">Please enter your password.</div>
+            classPassword = 'form-control invalid';
+        } else {
+            invalidPassword = null;
+            classPassword = 'form-control';
+        }
+
         return (
             <div className="login-container">
                 <div className="login-header">
@@ -50,20 +77,23 @@ class Login extends React.Component {
                     <a className="demo-login" onClick={() => this.loginDemo()}>DEMO LOGIN</a>
                     <span className="or">OR</span>
 
+
+                    { invalidUsernamePassword }
+
                     <form className="login-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="login-username" className="sr-only">Username</label>
-                        <input type="text" 
-                                className="form-control" 
+                        <input type="text"
+                                className={classUsername}
                                 placeholder="Username" 
-                                onChange={this.update('username')}
-                                required/>
+                                onChange={this.update('username')} />
+                            { invalidUsername }
 
                         <label htmlFor="login-password" className="sr-only">Password</label>
                         <input type="password" 
-                                className="form-control" 
+                            className={classPassword} 
                                 placeholder="Password" 
-                                onChange={this.update('password')}
-                                required/>
+                                onChange={this.update('password')} /> 
+                            { invalidPassword }
 
                         <div className="submit-row">
                             <label className="checkbox-label">
@@ -71,8 +101,8 @@ class Login extends React.Component {
                                 <span className="checkbox-control"></span>
                             </label>
 
-                            <label className="submit-form">
-                                <button className="btn-submit">LOG IN</button>
+                            <label className="login-row-container">
+                                <button className="btn-login">LOG IN</button>
                             </label>
                         </div>
                     </form>

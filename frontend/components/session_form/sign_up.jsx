@@ -32,6 +32,46 @@ class SignUp extends React.Component {
     }
 
     render() {
+
+        const { errors } = this.props;
+        let invalidUsername = null;
+        let invalidPassword = null;
+        let invalidEmail = null;
+        let classUsername = 'form-control';
+        let classPassword = 'form-control';
+        let classEmail = 'form-control';
+        let invalidUsernamePassword;
+
+        if (errors.includes('Incorrect')) {
+            invalidUsernamePassword = <div className="alert alert-warning">{errors[0]}</div>
+        }
+        
+        // const invalidUsernamePassword = errors[0] && errors[0].indexOf('Incorrect') != -1 ? <div className="alert alert-warning">{errors[0]}</div> : null;
+
+        if (errors.includes('username')) {
+            invalidUsername = <div className="invalid-input">Please enter your Jamify username.</div>
+            classUsername = 'form-control invalid';
+        } else {
+            invalidUsername = null;
+            classUsername = 'form-control';
+        }
+
+        if (errors.includes('password')) {
+            invalidPassword = <div className="invalid-input">Please enter your password.</div>
+            classPassword = 'form-control invalid';
+        } else {
+            invalidPassword = null;
+            classPassword = 'form-control';
+        }
+
+        if (errors.includes('email')) {
+            invalidEmail = <div className="invalid-input">Please enter an email.</div>
+            classEmail = 'form-control invalid';
+        } else {
+            invalidEmail = null;
+            classEmail = 'form-control';
+        }
+
         return (
             <div className="login-container">
                 <div className="login-header">
@@ -40,30 +80,31 @@ class SignUp extends React.Component {
                 <div className="login-content">
                     <span id="sign-up-with-email">Sign up with your email address</span>
                     
+                    { invalidUsernamePassword }
 
                     <form className="signup-form" onSubmit={this.handleSubmit}>
                         <label htmlFor="signup-username" className="sr-only">Username</label>
                         <input type="text"
                                 id="signup-username"
-                                className="form-control"
+                                className={classUsername}
                                 placeholder="Username"
-                                onChange={this.update('username')}
-                                required />
+                                onChange={this.update('username')} />
+                            { invalidUsername }
 
                         <label htmlFor="signup-email" className="sr-only">Email</label>
-                        <input type="email" 
+                        <input type="text" 
                                 id="signup-email"
-                                className="form-control" 
+                                className={classEmail}
                                 placeholder="Email" 
-                                onChange={this.update('email')}
-                                required />
+                                onChange={this.update('email')} />
+                            { invalidEmail }
 
                         <label htmlFor="signup-password" className="sr-only">Password</label>
                         <input type="password" 
-                                className="form-control" 
+                                className={classPassword} 
                                 placeholder="Password"
-                                onChange={this.update('password')}
-                                required />
+                                onChange={this.update('password')} />
+                            { invalidPassword }
 
                         <div className="register-dob">
                             <label htmlFor="register-age">Date of birth</label>
@@ -124,14 +165,16 @@ class SignUp extends React.Component {
 
                         <div className="submit-row">
 
-                            <label className="submit-form">
-                                <button className="btn-submit">SIGN UP</button>
+                            <label className="signup-row-container">
+                                <button className="btn-signup">SIGN UP</button>
                             </label>
                         </div>
                     </form>
 
-                    <h3 className="no-account">Already have an account?</h3>
-                    <Link to="/login" className="sign-up-btn">Login</Link>
+                    <p className="yes-account">
+                        Already have an account?
+                        <Link to="/login" className="login-link">Login</Link>
+                    </p>
 
                 </div>
             </div>

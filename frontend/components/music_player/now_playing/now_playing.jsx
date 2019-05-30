@@ -9,7 +9,9 @@ class NowPlaying extends React.Component {
             <div className="Root__now-playing-bar">
                 <footer className="now-playing-bar-container">
                     <div className="now-playing-bar">
-                        
+                        <audio controls>
+                            
+                        </audio>
                     </div>
                 </footer>
             </div>

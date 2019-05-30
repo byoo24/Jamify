@@ -1,5 +1,27 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700&display=swap');
-$font_main: 'Montserrat', sans-serif;
+@font-face {
+    font-family: "Circular";
+    src: url("https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-black.woff2")
+    format("woff2");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Circular";
+    src: url("https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-bold.woff2")
+    format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Circular";
+    src: url("https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-book.woff2")
+    format("woff2");
+    font-weight: 300;
+}
+
+
+
+$font_main: 'Circular', sans-serif;
