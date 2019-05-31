@@ -1,13 +1,50 @@
+@import '_partials/entire_player';
 @import '_partials/album_thumbnail';
 @import 'navbar/navbar';
 @import 'main_view/main_view';
-@import 'now_playing/now_playing';
+@import 'now_playing/now_playing_left';
+@import 'now_playing/now_playing_center';
+@import 'now_playing/now_playing_right';
 
+
+.bg-gradient {
+    position: absolute;
+    width:100vw;
+    height:100vh;
+    z-index: 1;
+}
+.green-gradient {
+    background-image: linear-gradient(to right bottom, rgb(54, 95, 99), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+}
+
+.dark-red-gradient {
+    background-image: linear-gradient(to right bottom, rgb(145, 39, 8), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+}
+
+.blue-gradient {
+    background-image: linear-gradient(to right bottom, rgb(30, 50, 100), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+}
+
+.indigo-gradient {
+    background-image: linear-gradient(to right bottom, rgb(55, 81, 98), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+}
+
+.burgundy-gradient {
+    background-image: linear-gradient(to right bottom, rgb(104, 49, 56), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+}
+
+.red-gradient {
+    background-image: linear-gradient(to right bottom, rgb(137, 16, 42), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+}
+
+.gray-gradient {
+    background-image: linear-gradient(to right bottom, rgb(69, 75, 84), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+}
 
 
 .Root__top-container {
     display: grid;
-    position: relative;
+    position: fixed;
     grid-template-areas: 
         'main'
         'player'
@@ -16,7 +53,9 @@
     grid-template-rows: auto 50px 50px;
     width: 100vw;
     height: 100vh;
-    background-color: $standard_black;
+    // background-color: $standard_black;
+    // background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1030;
 
     @media all and (min-width: $screen_tablet) {
         grid-template-areas: 
@@ -29,3 +68,63 @@
 } // .player-container
 
 
+.Root__now-playing-bar {
+    grid-area: player;
+    background-color: lighten($spotify_black2, 1.25);
+    width: 100%;
+
+    .now-playing-bar-container {
+        height: 100%;
+        background-color: lighten($spotify_black, 1.25);
+        border-top: 1px solid $standard_black;
+        display: flex;
+        flex-direction: column;
+
+        .now-playing-bar {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+
+            
+            
+            
+        } // .now-playing-bar
+    } // .now-playing-bar-container
+} // .Root__now-playing-bar
+
+
+
+.progress-bar {
+    display: block;
+    position:relative;
+    width: 100%;
+
+    .progress-bar-wrapper {
+        display: flex;
+        height: 4px;
+        width: 100%;
+        border-radius: 2px;
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        background-color: $spotify_gray_dark;
+
+        .progress-bar-empty {
+            overflow: hidden;
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+
+            .progress-bar-fill {
+                transform: translateX(-100%);
+                width: 100%;
+                border-radius: 2px;
+                height: 4px;
+                background-color: $spotify_gray;
+                will-change: transform;
+            } // .progress-bar.empty
+        } // .progress-bar-empty
+    } // .progress-bar-wrapper
+} // .progress-bar

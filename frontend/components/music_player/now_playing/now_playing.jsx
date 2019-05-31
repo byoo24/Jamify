@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AlbumThumbnail from '../_partials/albumThumbnail';
 
+import NowPlayingLeft from './_parts/now_playing_left';
+import NowPlayingCenter from './_parts/now_playing_center';
+import NowPlayingRight from './_parts/now_playing_right';
 class NowPlaying extends React.Component {
 
 
@@ -11,15 +14,9 @@ class NowPlaying extends React.Component {
             <div className="Root__now-playing-bar">
                 <footer className="now-playing-bar-container">
                     <div className="now-playing-bar">
-                        <div className="now-playing-bar__left">
-                            <div className="now-playing">
-                                <Link to="/browse" className="now-playing-cover-art">
-                                    <AlbumThumbnail />
-                                </Link>
-                            </div>
-                        </div>
-                        <div className="now-playing-bar__center"></div>
-                        <div className="now-playing-bar__right"></div>
+                        <NowPlayingLeft />
+                        <NowPlayingCenter />
+                        <NowPlayingRight />
                         <audio id="now-playing-player">
                             
                         </audio>

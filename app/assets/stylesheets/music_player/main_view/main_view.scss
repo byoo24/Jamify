@@ -1,9 +1,63 @@
+@import "_sub_views/browse/featured.scss";
+
 .Root__main_view {
     grid-area: main;
-    background-color: red;
     width: 100%;
-
+    // background: white;
     display: flex;
     flex-direction: column;
     min-height: 0;
+    overflow:hidden;
+}
+
+
+.sub-nav {
+    display: block;
+    margin: 1.5em auto;
+    ul.sub-nav-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        li {
+            display: block;
+
+            .sub-nav-item {
+                display: block;
+                position: relative;
+                font-size: 12px;
+                letter-spacing: 2.4px;
+                margin: 10px;
+                padding: 5px 10px;
+                opacity: .6;
+                color: $standard_white;
+                text-transform: uppercase;
+                border: 0;
+                text-decoration: none;
+                transition: opacity .2s ease-in-out;
+
+                &:hover{
+                    opacity: 1;
+                }
+
+                &.active {
+                    color: $standard_white;
+                    opacity: 1;
+
+                    &:after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 100%;
+                        width: 30px;
+                        height: 2px;
+                        left: 50%;
+                        transform: translate(-50%, 0);
+                        background-color: $spotify_green;
+                    }
+                }
+
+            }
+        }
+    }
 }

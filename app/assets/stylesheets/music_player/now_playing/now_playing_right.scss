@@ -1,0 +1,49 @@
+.now-playing-bar-right {
+    display: flex;
+    justify-content: flex-end;
+    width: 30%;
+    min-width: 180px;
+    padding: 0 20px;
+
+    .now-playing-bar-right-extra-controls {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .control-btn {
+            display: block;
+            position: relative;
+            color: $spotify_gray;
+            font-size: 14px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            background-color: transparent;
+
+            &:hover {
+                color: lighten($spotify_gray, 30);
+            }
+            
+        }
+
+
+        .control-btn-active{
+            color: $spotify_green;
+
+            &:hover {
+                color: lighten($spotify_green, 15);
+            }
+        }
+
+        
+        .queue-list {
+
+        }
+
+        .volume-bar {
+            display: flex;
+            align-items: center;
+            width: 136px;
+        }
+    }
+} // .now-playing-bar-right

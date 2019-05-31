@@ -1,0 +1,13 @@
+.box-shadow {
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+.ellipsis-one-line {
+    display:inline-block;
+    overflow: hidden;
+    // width:100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    // padding-right: 1px;
+    // margin-right: -1px;
+}

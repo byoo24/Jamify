@@ -1,7 +1,5 @@
 import React from 'react';
-// import NavLink from './_partials/_navLink';
-import { Link } from 'react-router-dom';
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../logo';
 
 

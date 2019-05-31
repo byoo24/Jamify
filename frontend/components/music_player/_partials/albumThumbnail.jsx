@@ -5,7 +5,7 @@ class AlbumThumbnail extends React.Component {
     render() {
         const { image_url } = this.props;
         return(
-            <div className="thumbnail-album">
+            <div className="thumbnail-album box-shadow">
                 <div className="music-icon">
                     <i className="fas fa-music"></i>
                 </div>

@@ -4,7 +4,8 @@
     flex-direction: column;
     // width: 230px;
     background-color: $standard_black;
-    background-color: lighten($standard_black, 0.8);
+    // background-color: lighten($standard_black, 0.8);
+    background: rgba(0,0,0,0.75);
     overflow-y: auto;
 
     a {
@@ -16,8 +17,6 @@
         display:flex;
         flex-direction: column;
         flex: 1;
-        // height: 100%;
-        // padding-top: 24px;
         color: $standard_white;
         font-size: 18px;
     
@@ -77,8 +76,11 @@
 
                 li {
                     display: block;
+                    position: relative;
+                    box-sizing: border-box;
                     width: inherit;
                     height: inherit;
+                    // border-left: 3px solid red;
 
                     &.logo-container {
                         display: block;
@@ -108,15 +110,30 @@
                     
                     
                     a {
-                        display: block;
+                        display: flex;
+                        justify-content: flex-start;
+                        position: relative;
                         padding: 0.5em 1em;
-                        border-left: 3px solid $standard_black;
+                        // border-left: 3px solid $standard_black;
                         border-right: none;
 
                         &.active {
                             color: $standard_white;
-                            border-left: 3px solid $spotify_green;
+                            // border-left: 3px solid $spotify_green;
+
+                            &:after{
+                                content: "";
+                                display: block;
+                                position: absolute;
+                                width: 4px;
+                                top: 5px;
+                                bottom: 5px;
+                                left: 0;
+                                background-color: $spotify_green;
+                            }
                         }
+
+                        
 
                         .fas{
                             padding-right: 1em;
@@ -124,10 +141,11 @@
 
                         .navbar-text{
                             display: inline-block;
-                            font-size: 16px;
+                            font-size: 14px;
+                            font-weight: 300;
                         }
                     }
-                }
+                } // li
             } // ul.navbar
 
             .navbar-user {
@@ -143,6 +161,10 @@
                     .far {
                         font-size: 1.25em;
                         padding-right: 10px;
+                    }
+
+                    .navbar-username {
+                        font-weight: 300;
                     }
                 }
             }

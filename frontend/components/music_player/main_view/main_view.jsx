@@ -1,14 +1,15 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 // Browse
-import Featured from './sub_views/browse/featured';
+import Browse from './sub_views/browse/browse';
 
 // Search
 import Recent from './sub_views/search/recent';
 
 // Collection
-import Playlists from './sub_views/collection/playlists';
+import Collection from './sub_views/collection/collection';
+
 
 class MainView extends React.Component {
     render() {
@@ -16,8 +17,8 @@ class MainView extends React.Component {
         return (
             <div className="Root__main_view">
                 <Switch>
-                    <Route path="/browse" component={Featured} />
-                    <Route path="/collection" component={Playlists} />
+                    <Route path="/browse" component={Browse} />
+                    <Route path="/collection" component={Collection} />
                     <Route path="/search" component={Recent} />
                 </Switch>
             </div>
