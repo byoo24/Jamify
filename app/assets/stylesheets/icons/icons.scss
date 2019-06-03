@@ -1,0 +1,66 @@
+.player-btn {
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    color: $spotify_gray;
+    position: relative;
+    outline: none;
+
+    &:hover { color: $standard_white; }
+
+    &.active {
+        color: $spotify_green;
+        &:hover{ color: lighten($spotify_green, 15); }
+    }
+
+    &.circled:after {
+        content: "";
+        position: absolute;
+        top:0; right:0; bottom:0; left:0;
+        border-radius: 500px;
+        border: 1px solid $spotify_gray;
+
+        &:hover {
+            color: $standard_white;
+        }
+    }
+}
+
+
+.player-icon {
+    font-size: 16px;
+    font-family: glue1-spoticon;
+    font-style: normal;
+    font-weight: 400;
+    line-height: inherit;
+    vertical-align: bottom;
+    display: inline-block;
+    text-decoration: inherit;
+    transition-property: color, scale, background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+
+   
+
+    &.player-icon-play:hover,
+    &.player-icon.pause:hover,
+    &.circled:hover {
+        transform: scale(1.1);
+    }
+}
+
+
+
+.player-icon-shuffle:before { content: "\f144"; }
+.player-icon-backward:before { content: "\f146" }
+.player-icon-play:before { content: "\f132" }
+.player-icon-pause:before { content: "\f130" }
+.player-icon-forward:before { content: "\f148" }
+.player-icon-repeat:before { content: "\f13e" }
+.player-icon-repeatonce:before { content: "\f200" }
+.player-icon-queue:before { content: "\f13a" }
+.player-icon-mute:before { content: "\f15e" }
+
+.player-icon-track:before { content: "\f156" }
+.player-icon-video:before { content: "\f26B" }

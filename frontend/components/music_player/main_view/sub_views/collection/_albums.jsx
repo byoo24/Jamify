@@ -1,7 +1,17 @@
 import React from 'react';
 
-export default () => {
-    return (
-        <h1>COLLECTION ALBUMS</h1>
-    );
-};
+
+
+class Albums extends React.Component {
+    componentDidMount(){
+        this.props.changeBg('dark-red-gradient');
+    }
+
+    render() {
+        return(
+            <h1>Collection Album</h1>
+        )
+    }
+}
+
+export default Albums;

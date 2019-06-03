@@ -13,6 +13,8 @@
 #  dob_year        :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  country         :string
+#  phone_number    :string
 #
 
 class User < ApplicationRecord
@@ -23,7 +25,18 @@ class User < ApplicationRecord
     attr_reader :password
     after_initialize :ensure_session_token
 
-    has_many :playlists
+
+    has_many :playlists,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Playlist
+
+    has_many :follower_playlists
+    has_many :following_playlists,
+        through: :follower_playlists,
+        source: :playlist
+
+
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)

@@ -8,7 +8,10 @@ import Browse from './sub_views/browse/browse';
 import Recent from './sub_views/search/recent';
 
 // Collection
-import Collection from './sub_views/collection/collection';
+import Collection from './sub_views/collection/collection_container';
+
+// Playlist
+import Playlist from './sub_views/playlists/playlistShow';
 
 
 class MainView extends React.Component {
@@ -20,6 +23,7 @@ class MainView extends React.Component {
                     <Route path="/browse" component={Browse} />
                     <Route path="/collection" component={Collection} />
                     <Route path="/search" component={Recent} />
+                    <Route path="/playlist/:playlistId" component={Playlist} />
                 </Switch>
             </div>
         )

@@ -32,7 +32,7 @@ class SignUp extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.signup(user)
-            .then( () => this.props.history.push('/browse'));
+            .then( () => this.props.history.push('/browse/featured'));
     }
 
     render() {

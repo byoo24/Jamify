@@ -21,12 +21,16 @@
 
 @import "site/site";
 
-@import "site/errors";
+@import "site/buttons";
+@import "icons/icons";
+@import "thumbnails/thumbnails";
 
+// Modal
+@import "modal/modal";
 
 // Landing Page
 @import "landing_page/landing_page";
-
+@import "page_not_found/404";
 
 // Session
 @import "session/session";

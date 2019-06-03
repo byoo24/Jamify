@@ -1,0 +1,72 @@
+.collection-header {
+
+    .btn-wrap{
+        height: 40px;
+
+        .add-new-playlist {
+            display: block;
+            margin: 0 auto;
+            font-size: 10px;
+            font-weight: 300;
+            // height: 40px;
+            padding: 10px 16px;
+            transition: font-size .1s;
+    
+            &:hover {
+                font-size: 11px;
+            }
+        }
+    }
+
+    .sub-nav {
+        display: block;
+        margin: 1.5em auto;
+
+        ul.sub-nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            li {
+                display: block;
+
+                .sub-nav-item {
+                    display: block;
+                    position: relative;
+                    font-size: 12px;
+                    letter-spacing: 2.4px;
+                    margin: 10px;
+                    padding: 5px 10px;
+                    opacity: .6;
+                    color: $standard_white;
+                    text-transform: uppercase;
+                    border: 0;
+                    text-decoration: none;
+                    transition: opacity .2s ease-in-out;
+
+                    &:hover{
+                        opacity: 1;
+                    }
+
+                    &.active {
+                        color: $standard_white;
+                        opacity: 1;
+
+                        &:after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            top: 100%;
+                            width: 30px;
+                            height: 2px;
+                            left: 50%;
+                            transform: translate(-50%, 0);
+                            background-color: $spotify_green;
+                        }
+                    }
+
+                }
+            }
+        }
+    } //.sub-nav
+} // .collection-header

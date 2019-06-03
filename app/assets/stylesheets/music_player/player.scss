@@ -1,5 +1,4 @@
 @import '_partials/entire_player';
-@import '_partials/album_thumbnail';
 @import 'navbar/navbar';
 @import 'main_view/main_view';
 @import 'now_playing/now_playing_left';
@@ -7,38 +6,65 @@
 @import 'now_playing/now_playing_right';
 
 
-.bg-gradient {
+#backdrop {
+    display: block;
     position: absolute;
-    width:100vw;
-    height:100vh;
+    background-color: $spotify_black2;
+    width: 100vw;
+    height: 100vh;
+}
+
+#bg-gradient {
+    position: relative;
+    width: 100%;
+    height: 100%;
     z-index: 1;
 }
+
+
+
+
 .green-gradient {
-    background-image: linear-gradient(to right bottom, rgb(54, 95, 99), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+    background-image: linear-gradient(to right bottom, rgb(54, 95, 99), rgb(0, 0, 0)), 
+                    linear-gradient(transparent, rgb(0, 0, 0) 70%);
 }
 
 .dark-red-gradient {
-    background-image: linear-gradient(to right bottom, rgb(145, 39, 8), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+    background-image: linear-gradient(to right bottom, rgb(145, 39, 8), rgb(0, 0, 0)), 
+                    linear-gradient(transparent, rgb(0, 0, 0) 70%);
 }
 
+
 .blue-gradient {
-    background-image: linear-gradient(to right bottom, rgb(30, 50, 100), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+    background-image: linear-gradient(to right bottom, rgb(30, 50, 100), rgb(0, 0, 0)), 
+                    linear-gradient(transparent, rgb(0, 0, 0) 70%);
 }
 
 .indigo-gradient {
-    background-image: linear-gradient(to right bottom, rgb(55, 81, 98), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+    background-image: linear-gradient(to right bottom, rgb(55, 81, 98), rgb(0, 0, 0)), 
+                    linear-gradient(transparent, rgb(0, 0, 0) 70%);
 }
 
 .burgundy-gradient {
-    background-image: linear-gradient(to right bottom, rgb(104, 49, 56), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+    opacity: 1 !important;
+    background-image: linear-gradient(to right bottom, rgb(104, 49, 56), rgb(0, 0, 0)), 
+                    linear-gradient(transparent, rgb(0, 0, 0) 70%);
 }
 
 .red-gradient {
-    background-image: linear-gradient(to right bottom, rgb(137, 16, 42), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+    background-image: linear-gradient(to right bottom, rgb(137, 16, 42), rgb(0, 0, 0)), 
+                    linear-gradient(transparent, rgb(0, 0, 0) 70%);
 }
 
 .gray-gradient {
-    background-image: linear-gradient(to right bottom, rgb(69, 75, 84), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
+    background-image: linear-gradient(to right bottom, rgb(69, 75, 84), rgb(0, 0, 0)), 
+                    linear-gradient(transparent, rgb(0, 0, 0) 70%);
+}
+
+
+.black-gradent {
+    background-image: linear-gradient(to right bottom, rgb(37, 34, 48), rgb(0, 0, 0)), 
+                    linear-gradient(transparent, rgb(0, 0, 0) 70%);
 }
 
 

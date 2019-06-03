@@ -13,6 +13,8 @@
 #  dob_year        :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  country         :string
+#  phone_number    :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

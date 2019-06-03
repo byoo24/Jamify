@@ -1,0 +1,43 @@
+.page-not-found {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+
+    .page-not-found-img {
+        background: image-url('404/mac-web.png') no-repeat;
+        background-size: cover;
+        width: 614px;
+        height:352px;
+    }
+
+    .page-not-found-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+
+        .page-not-found-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            h1, h3 {
+                display: block;
+                color: $standard_white;
+                // text-align: center;
+                margin: 0.35em 0;
+            }
+
+            h3 {
+                color: $spotify_gray;
+            }
+
+            .page-not-found-btn {
+                // display: inline;
+                margin: 1em;
+                text-align: center;
+            }
+        }
+    }
+}

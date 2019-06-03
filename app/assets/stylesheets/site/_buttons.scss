@@ -1,0 +1,53 @@
+.btn {
+    font-size: 11px;
+    line-height: 16px;
+    color: $spotify_gray;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    transition-property: font-size, background-color;
+    color: $standard_white;
+    display: inline-block;
+    margin-top: 16px;
+    margin-bottom: 0;
+    outline: none;
+    text-align: center;
+    border: 0;
+    border-radius: 500px;
+    padding: 13px;
+    min-width: 130px;
+
+}
+
+    
+.btn-green {
+    background-color: $spotify_green;
+
+    &:hover {
+        background-color: lighten($spotify_green, 5%);
+    }
+}
+
+.alert {
+    border-width: 0;
+    font-size: 12px;
+    padding: 14px 14px 12px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.alert-warning {
+    background-color: #f59b23;
+    border-color: #f59b23;
+    color: $standard_white;
+}
+
+
+.invalid {
+    border: 1px solid#eb1e32 !important;
+}
+
+
+.invalid-input {
+    color: #eb1e32;
+    margin: 10px;
+}

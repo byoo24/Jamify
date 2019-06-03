@@ -1,7 +1,15 @@
 import React from 'react';
 
-export default () => {
-    return (
-        <h1>COLLECTION ARTISTS</h1>
-    );
-};
+class Artists extends React.Component {
+    componentDidMount() {
+        this.props.changeBg('indigo-gradient');
+    }
+
+    render() {
+        return (
+            <h1>Collection Album</h1>
+        )
+    }
+}
+
+export default Artists;

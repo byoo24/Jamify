@@ -10,7 +10,6 @@ class Login extends React.Component {
             username: "",
             password: ""
         }
-        //debugger
         this.handleSubmit = this.handleSubmit.bind(this);
         this.loginDemo = this.loginDemo.bind(this);
     }
@@ -35,7 +34,7 @@ class Login extends React.Component {
         };
 
         this.props.login(demo)
-            .then(() => this.props.history.push('/browse'));
+            .then(() => this.props.history.push('/browse/featured'));
     }
 
     handleSubmit(e) {

@@ -6,6 +6,11 @@ class Featured extends React.Component {
         super(props);
     }
 
+    componentDidMount(){
+        this.props.changeBg('indigo-gradient');
+    }
+
+
     render() {
         return(
             <div className="main-menu">

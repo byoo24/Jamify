@@ -16,7 +16,9 @@ class Artist < ApplicationRecord
     belongs_to :genre
 
     has_many :albums
-    has_many :songs
+    has_many :songs,
+        through: :albums,
+        source: :songs
 
     has_many :featured_songs,
         foreign_key: :featured_id,

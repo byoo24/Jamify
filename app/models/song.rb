@@ -12,18 +12,24 @@
 #  produced_by  :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  artist_id    :integer          not null
 #
 
 class Song < ApplicationRecord
     validates :title, :album_id, :artist_id, :genre_id, presence: true
 
+    belongs_to :genre
+
     belongs_to :album
-    belongs_to :artist
+    has_one :artist,
+        through: :album,
+        source: :artist
 
     belongs_to :featured_artist,
         foreign_key: :featured_id,
         class_name: :Artist
 
-    belongs_to :genre
+    has_many :playlist_songs
+    has_many :playlists,
+        through: :playlist_songs,
+        source: :playlist
 end

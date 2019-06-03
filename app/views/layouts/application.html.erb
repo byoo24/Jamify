@@ -11,6 +11,7 @@
   <% if current_user %>
     <script>
       window.user = <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
+      
     </script>
   <% end %>
 
@@ -20,3 +21,4 @@
     <%= yield %>
   </body>
 </html>
+

@@ -1,7 +1,15 @@
 import React from 'react';
 
-export default () => {
-    return (
-        <h1>COLLECTION FAVORITE SONGS</h1>
-    );
-};
+class Tracks extends React.Component {
+    componentDidMount() {
+        this.props.changeBg('blue-gradient');
+    }
+
+    render() {
+        return (
+            <h1>Collection Album</h1>
+        )
+    }
+}
+
+export default Tracks;

@@ -32,7 +32,7 @@ class Navbar extends React.Component {
                             <Logo />
                         </li>
                         <li>
-                            <NavLink  to='/browse' activeClassName="active">
+                            <NavLink  to='/browse/featured' activeClassName="active">
                                 <i className="fas fa-home"></i>
                                 <span className="navbar-text navbar-search">Home</span>
                             </NavLink>
@@ -44,7 +44,7 @@ class Navbar extends React.Component {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='/collection' activeClassName="active">
+                            <NavLink to='/collection/playlists' activeClassName="active">
                                 <i className="fas fa-book"></i>
                                 <span className="navbar-text navbar-library">Your Library</span>
                             </NavLink>

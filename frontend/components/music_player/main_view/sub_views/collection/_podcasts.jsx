@@ -1,7 +1,16 @@
 import React from 'react';
 
-export default () => {
-    return (
-        <h1>COLLECTION PODCASTS</h1>
-    );
-};
+
+class Podcasts extends React.Component {
+    componentDidMount() {
+        this.props.changeBg('burgundy-gradient');
+    }
+
+    render() {
+        return (
+            <h1>Collection Podcasts</h1>
+        )
+    }
+}
+
+export default Podcasts;

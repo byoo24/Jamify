@@ -13,6 +13,8 @@
 #  dob_year        :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  country         :string
+#  phone_number    :string
 #
 
 require 'test_helper'

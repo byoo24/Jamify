@@ -20,7 +20,7 @@ class LandingPage extends React.Component {
                         <div className="hero-container">
                             <h1>Music for everyone.</h1>
                             <h4>Millions of songs. No credit card needed.</h4>
-                            <Link to="/browse">Launch Web Player</Link>
+                            <Link to="/browse/featured">Launch Web Player</Link>
                         </div>
                     </div>
                 </section>

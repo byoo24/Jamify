@@ -22,7 +22,9 @@ class MusicPlayer extends React.Component {
   
         return (
             <>
-                <div className="bg-gradient red-gradient"></div>
+                <div id="backdrop">
+                    <div id="bg-gradient" className=""></div>
+                </div>
                 <div className="Root__top-container">
                     <button onClick={() => this.logoutUser()} className="temp-logout">Logout</button>
                     <Navbar />

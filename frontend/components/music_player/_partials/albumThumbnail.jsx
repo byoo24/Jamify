@@ -5,12 +5,12 @@ class AlbumThumbnail extends React.Component {
     render() {
         const { image_url } = this.props;
         return(
-            <div className="thumbnail-album box-shadow">
-                <div className="music-icon">
-                    <i className="fas fa-music"></i>
+            <>
+                <div className="album-icon-container">
+                    <i className="album-icon album-icon-music"></i>
                 </div>
-                <div className="cover-art-image"></div>
-            </div>
+                <div className="album-cover-thumbnail"></div>
+            </>
         );
     }
 }

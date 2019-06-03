@@ -8,7 +8,7 @@ export default () => {
     return(
         <div className="now-playing-bar-left">
             <div className="now-playing">
-                <Link to="/browse" className="now-playing-cover-art">
+                <Link to="/browse" className="album-thumbnail box-shadow now-playing-thumbnail">
                     <AlbumThumbnail />
                 </Link>
 
@@ -16,7 +16,7 @@ export default () => {
                     <div className="now-playing-track-title ellipsis-one-line">
                         <Link to="/browse" className="now-playing-track-title ellipsis-one-line">
                             I Don't Care (with Justin Bieber)
-                                                </Link>
+                        </Link>
                     </div>
                     <div className="now-playing-track-artist ellipsis-one-line">
                         <Link to="/browse" className="now-playing-track-artist ellipsis-one-line">

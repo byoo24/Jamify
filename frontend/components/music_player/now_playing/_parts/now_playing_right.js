@@ -7,10 +7,10 @@ export default () => {
         <div className="now-playing-bar-right">
             <div className="now-playing-bar-right-extra-controls">
                 <div className="queue-list">
-                    <button className="control-btn fas fa-stream" title="Queue"></button>
+                    <button className="player-btn player-icon player-icon-queue" title="Queue"></button>
                 </div>
                 <div className="volume-bar">
-                    <button className="control-btn fas fa-volume-up" aria-label="Mute"></button>
+                    <button className="player-btn player-icon player-icon-mute" aria-label="Mute"></button>
                     <div className="progress-bar">
                         <div className="progress-bar-wrapper">
                             <div className="progress-bar-empty">

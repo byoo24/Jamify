@@ -7,11 +7,11 @@ export default () => {
         <div className="now-playing-bar-center">
             <div className="player-controls">
                 <div className="player-controls-buttons">
-                    <button className="player-btn player-shuffle fas fa-random" title="Enable Shuffle"></button>
-                    <button className="player-btn player-backward fas fa-step-backward" title="Previous"></button>
-                    <button className="player-btn player-play far fa-play-circle" title="Pause"></button>
-                    <button className="player-btn player-forward fas fa-step-forward" title="Next"></button>
-                    <button className="player-btn player-repeat fas fa-redo-alt" title="Enable repeat"></button>
+                    <button className="player-btn player-icon player-icon-shuffle" title="Enable Shuffle"></button>
+                    <button className="player-btn player-icon player-icon-backward" title="Previous"></button>
+                    <button className="player-btn player-icon player-icon-play circled" title="Pause"></button>
+                    <button className="player-btn player-icon player-icon-forward" title="Next"></button>
+                    <button className="player-btn player-icon player-icon-repeat" title="Enable repeat"></button>
                 </div>
             </div>
             <div className="playback-bar">

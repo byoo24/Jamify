@@ -2,7 +2,6 @@ import React from 'react';
 
 export default (props) => {
     const { type, className, placeholder, update, field, errors, required } = props;
-    // debugger;
     return(
         <input
             type={type}
