@@ -24,7 +24,6 @@ class addPlaylistForm extends React.Component {
         let newPlaylistId = null;
         this.props.createPlaylist(this.state)
         .then((promise) => {
-            debugger
             newPlaylistId = promise.playlist.id; 
         }).then(() => this.props.closeModal())
           .then(() => this.props.history.push(`/playlist/${newPlaylistId}`));
