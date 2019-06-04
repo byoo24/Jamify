@@ -21,4 +21,6 @@ class Album < ApplicationRecord
         source: :genre
 
     has_many :songs
+
+    has_one_attached :cover_img
 end

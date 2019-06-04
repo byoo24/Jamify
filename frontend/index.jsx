@@ -21,9 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const store = configureStore(preloadedState);
 
+
+    // Delete user
+    // delete window.user;
+
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-    // window.getAlbumsFromArtist = getAlbumsFromArtist;
 
     
     ReactDOM.render(

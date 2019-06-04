@@ -2,14 +2,14 @@
 #
 # Table name: genres
 #
-#  id         :bigint           not null, primary key
-#  category   :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :bigint           not null, primary key
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  category_name :string
 #
 
 class Genre < ApplicationRecord
-    validates :category, presence: true
+    validates :category_name, presence: true
 
     has_many :songs
 
@@ -17,4 +17,7 @@ class Genre < ApplicationRecord
     has_many :albums,
         through: :artists,
         source: :albums
+
+
+    has_one_attached :genre_cover
 end

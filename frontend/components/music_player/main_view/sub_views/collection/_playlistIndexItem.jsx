@@ -1,16 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class PlaylistIndexItem extends React.Component {
 
     
 
     render() {
-        const {name} = this.props.playlist;
+        const {id, name} = this.props.playlist;
         return(
-            <h1>{name}</h1>
+
+
+            <div className="album-wrap">
+                <Link to={`playlist/${id}`} className="album-medium">
+                    <div className="album-icon-container box-shadow">
+                        <div className="album-icon album-icon-music"></div>
+                    </div>
+                </Link>
+                <div className="mo-info">
+                    <span className="playlist-title">{name}</span>
+
+                </div>
+            </div>
         )
     }
 }
 
 
 export default PlaylistIndexItem;
+

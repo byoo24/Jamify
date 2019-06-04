@@ -20,6 +20,29 @@
 } // .thumbnail-album
 
 
+.album-medium {
+    display: block;
+    position: relative;
+    width: 220px;
+    height: 220px;
+    font-size: 45px;
+    color: $spotify_gray;
+    background-color: $spotify_black;
+    text-decoration: none;
+
+    .album-cover-medium {
+        display:block;
+        position: absolute;
+        opacity: 1;
+        top: 0;
+        width: inherit;
+        height: inherit;
+        background: image-url("music_player/ed_sheeran_jb.jpg") no-repeat;
+        background-size: cover !important;
+    }
+
+} // .thumbnail-album
+
 
 
 .album-large {
@@ -47,6 +70,10 @@
     }
 }
 
+
+.box-shadow {
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
 
 
 .album-icon-music:before { content: '\f001'; }
