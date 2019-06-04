@@ -12,8 +12,8 @@ class PlaylistIndexItem extends React.Component {
 
             <div className="album-wrap">
                 <Link to={`playlist/${id}`} className="album-medium">
-                    <div className="album-icon-container box-shadow">
-                        <div className="album-icon album-icon-music"></div>
+                    <div className="icon-container box-shadow">
+                        <div className="icon icon-music"></div>
                     </div>
                 </Link>
                 <div className="mo-info">

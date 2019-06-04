@@ -6,7 +6,7 @@ import PlaylistIndexItem from './_playlistIndexItem';
 class PlaylistIndex extends React.Component {
 
     componentDidMount() {
-        this.props.changeBg('black-gradient');
+        this.props.changeBg('red-gradient');
         this.props.fetchPlaylists();
     }
 
@@ -17,7 +17,7 @@ class PlaylistIndex extends React.Component {
             return (
                 <li key={playlist.id}><PlaylistIndexItem playlist={playlist} /></li>
             )
-        })
+        });
 
         return(
             <div className="playlist-index">

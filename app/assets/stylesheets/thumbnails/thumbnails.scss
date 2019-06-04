@@ -19,7 +19,7 @@
 
 } // .thumbnail-album
 
-
+.genre-medium,
 .album-medium {
     display: block;
     position: relative;
@@ -37,7 +37,7 @@
         top: 0;
         width: inherit;
         height: inherit;
-        background: image-url("music_player/ed_sheeran_jb.jpg") no-repeat;
+        // background: image-url("music_player/ed_sheeran_jb.jpg") no-repeat;
         background-size: cover !important;
     }
 
@@ -56,14 +56,14 @@
     text-decoration: none;
 }
 
-.album-icon-container {
+.icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: inherit;
     height: inherit;
 
-    .album-icon {
+    .icon {
         display:block;
         font-family: 'Font Awesome 5 Free';
         font-weight: 900;
@@ -76,4 +76,4 @@
 }
 
 
-.album-icon-music:before { content: '\f001'; }
+.icon-music:before { content: '\f001'; }

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     resources :songs, only:[:show]
 
-    resources :genres, only: [:index, :show] do
+    resources :genres, only: [:index] do
       resources :artists, only: [:index]
       resources :albums, only: [:index]
       resources :songs, only: [:index]

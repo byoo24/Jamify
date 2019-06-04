@@ -1,20 +1,10 @@
-class GenresController < ApplicationController
+class Api::GenresController < ApplicationController
 
     def index
         @genres = Genre.all
-
         if @genres
-            render "api/genres/index"
+            render :index
         end
     end
 
-    def show
-        @genre = Genre.find(params[:id])
-
-        if @genre
-            render "api/genres/show"
-        else
-            render json: ['That genre doesn\'t exist.'], status: 422
-        end
-    end
 end
