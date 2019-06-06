@@ -11,9 +11,7 @@ class ArtistShow extends React.Component {
     }
 
     componentDidMount() {
-        if(!this.props.artist) {
-            this.props.fetchArtist(this.props.match.params.artistId);
-        }
+        this.props.fetchArtist(this.props.match.params.artistId);
         this.props.fetchAlbumsFromArtist(this.props.match.params.artistId);
 
     }

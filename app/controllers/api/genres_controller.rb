@@ -1,7 +1,7 @@
 class Api::GenresController < ApplicationController
 
     def index
-        @genres = Genre.all
+        @genres = Genre.limit(4).with_attached_genre_cover
         if @genres
             render :index
         end

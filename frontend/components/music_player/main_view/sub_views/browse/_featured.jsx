@@ -20,6 +20,8 @@ class Featured extends React.Component {
     render() {
         const { albums, artists } = this.props;
 
+        const artistThumbStyle = { borderRadius: '500px', overflow: 'hidden' };
+
         const listAlbums = albums.map((album) => {
             return (
                 <li key={album.id}>
@@ -43,7 +45,7 @@ class Featured extends React.Component {
                 <li key={artist.id}>
 
                     <div className="album-wrap">
-                        <Link to={{ pathname: `/artist/${artist.id}` }} className="album-medium" >
+                        <Link to={{ pathname: `/artist/${artist.id}` }} className="album-medium" style={artistThumbStyle} >
                             <div className="icon-container box-shadow">
                                 <div className="icon icon-music"></div>
                             </div>

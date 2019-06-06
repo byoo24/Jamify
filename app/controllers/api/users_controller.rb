@@ -26,7 +26,7 @@ class Api::UsersController < ApplicationController
                 login!(@user)
                 render "api/users/show"
             else
-                render json: ['Incorrect username/password.'], status: 422
+                render json: ['That username already exists. Please try again.'], status: 422
             end
         end
     end

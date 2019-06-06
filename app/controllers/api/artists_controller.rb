@@ -1,7 +1,7 @@
 class Api::ArtistsController < ApplicationController
 
     def index
-        @rand_artists = Artist.all.sample(8)
+        @rand_artists = Artist.limit(8).with_attached_artist_images
         if @rand_artists
             render :index
         else
@@ -12,7 +12,7 @@ class Api::ArtistsController < ApplicationController
 
 
     def show
-        @artist = Artist.find(params[:id])
+        @artist = Artist.find(params[:id]).with_attached_artist_images
 
         if @artist
             render :show

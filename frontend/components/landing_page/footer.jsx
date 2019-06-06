@@ -18,6 +18,7 @@ class Footer extends React.Component {
                                 <li>Redux</li>
                                 <li>SCSS</li>
                                 <li>Webpack</li>
+                                <li>Fontawesome</li>
                             </ul>
                         </div>
                         <div className="home-footer-col">
@@ -33,8 +34,9 @@ class Footer extends React.Component {
                             <ul>
                                 <li>Heroku</li>
                                 <li>AWS</li>
-                                <li>Fontawesome</li>
-                                <li>Google Fonts</li>
+                                <li>BPM Surpreme</li>
+                                <li>Font: Circular</li>
+                                <li>Font: Spoticon</li>
                             </ul>
                         </div>
                     </div>

@@ -90,6 +90,7 @@ class NowPlaying extends React.Component {
         this.setState({ volumeStatus: 'unmute' })
         this.setState({ volume: newVolume });
         audio.volume = newVolume;
+        console.log(newVolume);
     }
 
     toggleMute() {

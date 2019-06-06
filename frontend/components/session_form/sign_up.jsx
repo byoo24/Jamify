@@ -16,6 +16,7 @@ class SignUp extends React.Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.loginDemo = this.loginDemo.bind(this);
     }
 
     componentWillUnmount() {
@@ -35,6 +36,17 @@ class SignUp extends React.Component {
             .then( () => this.props.history.push('/browse/featured'));
     }
 
+    loginDemo(e) {
+        const demo = {
+            username: "puppylover",
+            password: "husky123",
+            email: "puppy@email.com"
+        };
+
+        this.props.login(demo)
+            .then(() => this.props.history.push('/browse/featured'));
+    }
+
     render() {
 
         const { errors } = this.props;
@@ -44,11 +56,12 @@ class SignUp extends React.Component {
         let classUsername = 'form-control';
         let classPassword = 'form-control';
         let classEmail = 'form-control';
-        let invalidUsernamePassword;
+        let invalidUsernamePassword = null;
 
-        if (errors.includes('Incorrect')) {
+        if (errors[0] && errors[0].includes('Please try again.')) {
             invalidUsernamePassword = <div className="alert alert-warning">{errors[0]}</div>
         }
+        
         
         // const invalidUsernamePassword = errors[0] && errors[0].indexOf('Incorrect') != -1 ? <div className="alert alert-warning">{errors[0]}</div> : null;
 
@@ -84,6 +97,9 @@ class SignUp extends React.Component {
                     <Logo />
                 </div>
                 <div className="login-content">
+                    <a className="demo-login" onClick={() => this.loginDemo()}>DEMO LOGIN</a>
+                    <span className="or">OR</span>
+
                     <span id="sign-up-with-email">Sign up with your email address</span>
                     
                     { invalidUsernamePassword }
