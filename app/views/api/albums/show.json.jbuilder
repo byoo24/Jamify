@@ -1,3 +1,2 @@
-json.set! @album.id do
-    json.extract! @album, :id, :title, :cover_url, :copyright, :artist_id
-end
+    json.extract! @album, :id, :title, :copyright, :artist_id
+    json.cover_image url_for(@album.cover_image)

@@ -22,5 +22,5 @@ class Album < ApplicationRecord
 
     has_many :songs
 
-    has_one_attached :cover_img
+    has_one_attached :cover_image
 end

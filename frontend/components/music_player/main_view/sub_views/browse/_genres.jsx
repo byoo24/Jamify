@@ -2,6 +2,7 @@ import React from 'react';
 import { fetchGenres } from '../../../../../actions/genre_actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import artistReducer from '../../../../../reducers/artists/artists_reducer';
 
 
 class Genres extends React.Component {

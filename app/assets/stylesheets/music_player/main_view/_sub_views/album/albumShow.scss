@@ -1,0 +1,56 @@
+.album-show {
+    .album-show-container {
+        display: flex;
+        color: $standard_white;
+        padding: 30px;
+
+        .album-info {
+            width: 25%;
+
+            img {
+                display: block;
+                width: 100%;
+                margin: 15px 0;
+            }
+
+            h1 {
+                text-align: center;
+                line-height: 45px;
+            }
+        }
+
+        .music-playlist {
+            box-sizing: border-box;
+            color: $standard_white;
+            width: 75%;
+            padding: 30px;
+
+            .music-playlist-container{
+                
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: transparent;
+                    transition: background-color .3s;
+                    cursor: default;
+
+                    .song-left {
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        height: 40px;
+                    }
+
+                    .song-title {
+                        margin-left: 15px;
+                    }
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, .5);
+                    }
+                }
+            }
+        }
+    }
+}

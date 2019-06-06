@@ -41,16 +41,14 @@ class Browse extends React.Component {
                         </ul>
                     </div>
 
-                    <section className="browse-view"> 
-                        <Switch>
-                            <Route exact path="/browse/featured" render={() => <Featured changeBg={this.changeBg} />} />
-                            <Route exact path="/browse/podcasts" render={() => <Podcasts changeBg={this.changeBg} />} />
-                            <Route exact path="/browse/charts" render={() => <Charts changeBg={this.changeBg} />} />
-                            <Route exact path="/browse/genres" render={() => <Genres changeBg={this.changeBg} />} />
-                            <Route exact path="/browse/newreleases" render={() => <NewReleases changeBg={this.changeBg} />} />
-                            <Route exact path="/browse/discover" render={() => <Discover changeBg={this.changeBg} />} />
-                        </Switch>
-                    </section>
+                    <Switch>
+                        <Route exact path="/browse/featured" render={() => <Featured changeBg={this.changeBg} />} />
+                        <Route exact path="/browse/podcasts" render={() => <Podcasts changeBg={this.changeBg} />} />
+                        <Route exact path="/browse/charts" render={() => <Charts changeBg={this.changeBg} />} />
+                        <Route exact path="/browse/genres" render={() => <Genres changeBg={this.changeBg} />} />
+                        <Route exact path="/browse/newreleases" render={() => <NewReleases changeBg={this.changeBg} />} />
+                        <Route exact path="/browse/discover" render={() => <Discover changeBg={this.changeBg} />} />
+                    </Switch>
                 </div>
             </div>
         );

@@ -6,8 +6,9 @@ import { fetchPlaylist } from '../../../../../actions/playlist_actions';
 class PlaylistShow extends React.Component {
 
     componentDidMount() {
+        const currentUserId = this.props.currentUserId;
         const playlistId = this.props.match.params.playlistId;
-        this.props.fetchPlaylist(playlistId);
+        this.props.fetchPlaylist(currentUserId, playlistId);
     }
 
     render() {
@@ -41,14 +42,15 @@ class PlaylistShow extends React.Component {
 const msp = (state, ownProps) => {
     const playlistId = ownProps.match.params.playlistId;
     return {
-        playlist: state.entities.playlists[playlistId]
+        playlist: state.entities.playlists[playlistId],
+        currentUserId: state.session.currentUser.id
     }
 }
 
 
 const mdp = dispatch => {
     return {
-        fetchPlaylist: id => dispatch(fetchPlaylist(id))
+        fetchPlaylist: (currentUserId, playlistId) => dispatch(fetchPlaylist(currentUserId, playlistId))
     }
 }
 

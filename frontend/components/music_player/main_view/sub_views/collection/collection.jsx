@@ -47,15 +47,13 @@ class Collection extends React.Component {
                     
                 </div>
 
-                <section className="browse-view">
-                    <Switch>
-                        <Route exact path="/collection/playlists" render={() => <PlaylistIndex changeBg={this.changeBg} />} />
-                        <Route exact path="/collection/tracks" render={() => <FavoriteSongs changeBg={this.changeBg} />} />
-                        <Route exact path="/collection/albums" render={() => <Albums changeBg={this.changeBg} />} />
-                        <Route exact path="/collection/artists" render={() => <Artists changeBg={this.changeBg} />} />
-                        <Route exact path="/collection/podcasts" render={() => <Podcasts changeBg={this.changeBg} />} />
-                    </Switch>
-                </section>
+                <Switch>
+                    <Route exact path="/collection/playlists" render={() => <PlaylistIndex changeBg={this.changeBg} />} />
+                    <Route exact path="/collection/tracks" render={() => <FavoriteSongs changeBg={this.changeBg} />} />
+                    <Route exact path="/collection/albums" render={() => <Albums changeBg={this.changeBg} />} />
+                    <Route exact path="/collection/artists" render={() => <Artists changeBg={this.changeBg} />} />
+                    <Route exact path="/collection/podcasts" render={() => <Podcasts changeBg={this.changeBg} />} />
+                </Switch>
             </div>
         );
     }

@@ -1,4 +1,6 @@
 import React from 'react';
+import EmptyState from '../empty_state';
+
 
 
 class Podcasts extends React.Component {
@@ -8,7 +10,13 @@ class Podcasts extends React.Component {
 
     render() {
         return (
-            <h1>Collection Podcasts</h1>
+            <div className="collection-podcasts">
+                <EmptyState
+                    title={"Podcasts you’ve liked live here"}
+                    subtitle={"Looking for something new?"}
+                    iconType="podcast"
+                />
+            </div>
         )
     }
 }

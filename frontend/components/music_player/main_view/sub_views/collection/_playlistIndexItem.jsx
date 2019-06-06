@@ -11,7 +11,7 @@ class PlaylistIndexItem extends React.Component {
 
 
             <div className="album-wrap">
-                <Link to={`playlist/${id}`} className="album-medium">
+                <Link to={{pathname: `/playlist/${id}`}} className="album-medium">
                     <div className="icon-container box-shadow">
                         <div className="icon icon-music"></div>
                     </div>
@@ -27,4 +27,5 @@ class PlaylistIndexItem extends React.Component {
 
 
 export default PlaylistIndexItem;
+
 

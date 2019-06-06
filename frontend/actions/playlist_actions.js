@@ -32,8 +32,8 @@ export const deletePlaylist = playlistId => ({
 
 
 
-export const fetchPlaylist = playlistId => dispatch => (
-    PlaylistAPIUtil.fetchPlaylist(playlistId).then(
+export const fetchPlaylist = (currentUserId, playlistId) => dispatch => (
+    PlaylistAPIUtil.fetchPlaylist(currentUserId, playlistId).then(
         playlist => dispatch(receivePlaylist(playlist))
     )
 );
@@ -45,16 +45,16 @@ export const fetchPlaylist = playlistId => dispatch => (
 // );
 
 
-export const fetchPlaylists = () => dispatch => (
-    PlaylistAPIUtil.fetchPlaylists().then(
+export const fetchPlaylists = (currentUserId) => dispatch => (
+    PlaylistAPIUtil.fetchPlaylists(currentUserId).then(
         playlists => dispatch(receivePlaylists(playlists))
     )
 );
 
-export const createPlaylist = playlist => {
+export const createPlaylist = (currentUserId, playlist) => {
     return dispatch => {
         return ( 
-            PlaylistAPIUtil.createPlaylist(playlist).then(
+            PlaylistAPIUtil.createPlaylist(currentUserId, playlist).then(
                 promise => {
                     return dispatch(receivePlaylist(promise))
                 }

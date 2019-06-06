@@ -1,4 +1,5 @@
 import React from 'react';
+import EmptyState from '../empty_state';
 
 
 class Charts extends React.Component {
@@ -9,7 +10,13 @@ class Charts extends React.Component {
 
     render() {
         return (
-            <h1>BROWSE CHARTS</h1>
+            <div className="collection-artists">
+                <EmptyState
+                    title={"Featured charts will appear here."}
+                    subtitle={"Find the best of the best here."}
+                    iconType="archive"
+                />
+            </div>
         )
     }
 }

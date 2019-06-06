@@ -30,6 +30,7 @@ function ModalPlaylists({modal, closeModal}) {
 
 
 const msp = state => ({
+    // currentUserId: state.session.currentUser.id,
     modal: state.ui.modal
 });
 

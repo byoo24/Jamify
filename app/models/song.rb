@@ -15,7 +15,7 @@
 #
 
 class Song < ApplicationRecord
-    validates :title, :album_id, :artist_id, :genre_id, presence: true
+    validates :title, :album_id, :genre_id, presence: true
 
     belongs_to :genre
 
@@ -26,10 +26,13 @@ class Song < ApplicationRecord
 
     belongs_to :featured_artist,
         foreign_key: :featured_id,
-        class_name: :Artist
+        class_name: :Artist,
+        optional: true
 
     has_many :playlist_songs
     has_many :playlists,
         through: :playlist_songs,
         source: :playlist
+
+    has_one_attached :audio_file
 end

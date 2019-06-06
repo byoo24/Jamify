@@ -17,16 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentUser: window.user.currentUser
             }
         };
+
+        // Delete user
+        delete window.user;
     }
 
     const store = configureStore(preloadedState);
 
 
-    // Delete user
-    // delete window.user;
 
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch;
 
     
     ReactDOM.render(

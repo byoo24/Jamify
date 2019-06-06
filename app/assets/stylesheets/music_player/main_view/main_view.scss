@@ -1,6 +1,14 @@
 @import "_sub_views/browse/featured.scss";
+
 @import "_sub_views/collection/collection.scss";
+@import "_sub_views/collection/podcasts.scss";
+@import "_sub_views/collection/tracks.scss";
+@import "_sub_views/collection/artists.scss";
+@import "_sub_views/collection/albums.scss";
+
 @import "_sub_views/playlist/playlist.scss";
+@import "_sub_views/artist/artist.scss";
+@import "_sub_views/album/albumShow.scss";
 
 .Root__main_view {
     grid-area: main;

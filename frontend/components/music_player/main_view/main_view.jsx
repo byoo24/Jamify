@@ -13,6 +13,12 @@ import Collection from './sub_views/collection/collection_container';
 // Playlist
 import Playlist from './sub_views/playlists/playlistShow';
 
+// Artist
+import Artist from './sub_views/artists/artistShow';
+
+// Artist
+import Album from './sub_views/albums/albumShow';
+
 
 class MainView extends React.Component {
     render() {
@@ -23,7 +29,9 @@ class MainView extends React.Component {
                     <Route path="/browse" component={Browse} />
                     <Route path="/collection" component={Collection} />
                     <Route path="/search" component={Recent} />
-                    <Route path="/playlist/:playlistId" component={Playlist} />
+                    <Route exact path="/playlist/:playlistId" component={Playlist} />
+                    <Route exact path="/artist/:artistId" component={Artist} />
+                    <Route exact path="/album/:albumId" component={Album} />
                 </Switch>
             </div>
         )

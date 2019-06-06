@@ -22,7 +22,9 @@ class addPlaylistForm extends React.Component {
 
     newPlaylist() {
         let newPlaylistId = null;
-        this.props.createPlaylist(this.state)
+        const currentUserId = this.props.currentUserId;
+
+        this.props.createPlaylist(currentUserId, this.state)
         .then((promise) => {
             newPlaylistId = promise.playlist.id; 
         }).then(() => this.props.closeModal())
@@ -72,8 +74,8 @@ const msp = state => {
 
 const mdp = dispatch => ({
     closeModal: () => dispatch(closeModal()),
-    createPlaylist: data => {
-        return dispatch(createPlaylist(data))
+    createPlaylist: (currentUserId, data) => {
+        return dispatch(createPlaylist(currentUserId, data))
     }
 });
 

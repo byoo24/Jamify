@@ -151,12 +151,13 @@
             .navbar-user {
                 display: block;
                 margin: 0 1em;
-                padding: 1em 0;
                 border-top: 1px solid $spotify_gray_dark;
+
                 a {
                     display: flex;
                     align-items: center;
                     font-size: 16px;
+                    padding: 12px 10px;
 
                     .far {
                         font-size: 1.25em;
@@ -165,6 +166,21 @@
 
                     .navbar-username {
                         font-weight: 300;
+                    }
+                }
+
+                .user-logout {
+                    display: block;
+                    padding: 12px 10px;
+                    font-weight: 300;
+                    cursor: pointer;
+
+                    .fas {
+                        padding-right: 10px;
+                    }
+
+                    &:hover {
+                        color: darken(red, 15%);
                     }
                 }
             }

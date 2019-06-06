@@ -1,21 +1,22 @@
 class Api::AlbumsController < ApplicationController
 
     def index
-        @artist_id = params[:artist_id]
-
-        if @artist_id
-            @albums = Album.all.where(artist_id: @artist_id)
-            render "api/albums/index"
+        @rand_albums = Album.all.sample(8)
+        
+        if @rand_albums
+            render :index
         else
-            render json: ['That artist deson\'t exist'], status: 422
+            render json: @rand_albums.errors.full_messages, status: 422
         end
     end
+
+    
 
     def show
         @album = Album.find(params[:id])
         
         if @album
-            render "api/albums/show"
+            render :show
         else
             render json: ['That album doesn\'t exist.'], status: 422
         end

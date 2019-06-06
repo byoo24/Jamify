@@ -1,4 +1,5 @@
 import React from 'react';
+import EmptyState from '../empty_state';
 
 
 class Discover extends React.Component {
@@ -8,7 +9,13 @@ class Discover extends React.Component {
 
     render() {
         return (
-            <h1>BROWSE Discover</h1>
+            <div className="collection-artists">
+                <EmptyState
+                    title={"Explore new music."}
+                    subtitle={"We have a song for every occasion."}
+                    iconType="astronaut"
+                />
+            </div>
         )
     }
 }

@@ -5,6 +5,8 @@
 @import 'now_playing/now_playing_center';
 @import 'now_playing/now_playing_right';
 
+@import 'empty_state';
+
 
 #backdrop {
     display: block;
@@ -137,20 +139,27 @@
         transform: translateY(-50%);
         background-color: $spotify_gray_dark;
 
-        .progress-bar-empty {
-            overflow: hidden;
-            width: 100%;
-            height: 4px;
-            border-radius: 2px;
+        .progress-bar-input {
+            display: block;
+            width: 100%;            
+        }
 
-            .progress-bar-fill {
-                transform: translateX(-100%);
-                width: 100%;
-                border-radius: 2px;
-                height: 4px;
-                background-color: $spotify_gray;
-                will-change: transform;
-            } // .progress-bar.empty
-        } // .progress-bar-empty
+        
+
+        // .progress-bar-empty {
+        //     overflow: hidden;
+        //     width: 100%;
+        //     height: 4px;
+        //     border-radius: 2px;
+
+        //     .progress-bar-fill {
+        //         transform: translateX(-100%);
+        //         width: 100%;
+        //         border-radius: 2px;
+        //         height: 4px;
+        //         background-color: $spotify_gray;
+        //         will-change: transform;
+        //     } // .progress-bar.empty
+        // } // .progress-bar-empty
     } // .progress-bar-wrapper
 } // .progress-bar

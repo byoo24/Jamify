@@ -1,4 +1,6 @@
 import React from 'react';
+import EmptyState from '../empty_state';
+
 
 class Artists extends React.Component {
     componentDidMount() {
@@ -7,7 +9,13 @@ class Artists extends React.Component {
 
     render() {
         return (
-            <h1>Collection Album</h1>
+            <div className="collection-artists">
+                <EmptyState
+                    title={"Your artists will appear here."}
+                    subtitle={"Follow artists you love to add them to Your Library."}
+                    iconType="astronaut"
+                />
+            </div>
         )
     }
 }

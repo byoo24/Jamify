@@ -1,5 +1,6 @@
 .playlist-index {
     color: $spotify_gray;
+    padding: 20px;
 
     .playlist-index-container {
         display: flex;
@@ -13,6 +14,7 @@
             margin: 10px;
 
             .album-wrap {
+                margin: 10px;
                 
                 .mo-info {
                     padding: 1.1em 0;

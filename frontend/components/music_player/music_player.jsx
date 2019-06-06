@@ -10,13 +10,9 @@ import MainView from './main_view/main_view';
 class MusicPlayer extends React.Component {
     constructor(props) {
         super(props);
-        this.logoutUser = this.logoutUser.bind(this);
     }
 
-    logoutUser() {
-        this.props.logout()
-            .then(() => this.props.history.push('/'));
-    }
+    
 
     render() {
   
@@ -26,7 +22,6 @@ class MusicPlayer extends React.Component {
                     <div id="bg-gradient" className=""></div>
                 </div>
                 <div className="Root__top-container">
-                    <button onClick={() => this.logoutUser()} className="temp-logout">Logout</button>
                     <Navbar />
                     <MainView />
                     <NowPlaying />

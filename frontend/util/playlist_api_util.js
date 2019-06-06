@@ -1,8 +1,8 @@
 
 
 
-export const fetchPlaylist = playlistId => {
-    const currentUserId = window.user.currentUser.id;
+export const fetchPlaylist = (currentUserId, playlistId) => {
+    // const currentUserId = window.user.currentUser.id;
 
     return $.ajax({
         method: 'GET',
@@ -10,8 +10,8 @@ export const fetchPlaylist = playlistId => {
     });
 }
 
-export const fetchPlaylists = () => {
-    const currentUserId = window.user.currentUser.id;
+export const fetchPlaylists = (currentUserId) => {
+    // const currentUserId = window.user.currentUser.id;
 
     return $.ajax({
         method: 'GET',
@@ -20,8 +20,8 @@ export const fetchPlaylists = () => {
 }
 
 
-export const createPlaylist = playlist => {
-    const currentUserId = window.user.currentUser.id;
+export const createPlaylist = (currentUserId, playlist) => {
+    // const currentUserId = window.user.currentUser.id;
 
     return(
         $.ajax({
@@ -33,19 +33,3 @@ export const createPlaylist = playlist => {
 };
 
 
-
-
-// export const updatePlaylist = (user_id, id) => (
-//     $.ajax({
-//         method: 'PATCH',
-//         url: `api/users/${user_id}/playlists/${id}`
-//     })
-// );
-
-
-// export const destroyPlaylist = (user_id, id) => (
-//     $.ajax({
-//         method: 'DESTROY',
-//         url: `api/users/${user_id}/playlists/${id}`
-//     })
-// );

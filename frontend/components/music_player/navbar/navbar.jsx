@@ -6,6 +6,12 @@ import Logo from '../../logo';
 class Navbar extends React.Component {
     constructor(props) {
         super(props);
+        this.logoutUser = this.logoutUser.bind(this);
+    }
+
+    logoutUser() {
+        this.props.logout()
+            .then(() => this.props.history.push('/'));
     }
 
     render() {
@@ -16,6 +22,12 @@ class Navbar extends React.Component {
                     <i className="far fa-user"></i>
                     <span className="navbar-username">{currentUser.username}</span>
                 </Link>
+
+                <span 
+                    onClick={() => this.logoutUser()} 
+                    className="user-logout">
+                    <i className="fas fa-door-open"></i>
+                        logout</span>
             </div>
         ) : (
             null
