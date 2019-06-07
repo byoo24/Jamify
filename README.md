@@ -1,6 +1,6 @@
-<div style="text-align:center">
+<p style="text-align:center">
   <img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/logo.png" width="300">
-</div>
+</p>
 
 # Table of Contents
 * [Introduction](#introduction)
@@ -53,11 +53,11 @@ One of the most unique features taught at App Academy is *User Authentication*. 
 
 ## Signup and Login pages:
 
-<div style="text-align:center">
+<p style="text-align:center">
   <img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/signup.png" width="250" />
   <img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/login.png" width="250" />
   <img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/login_errors.png" width="250" />
-</div>
+</p>
 
 
 
