@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/logo.png" width:"300">
+<img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/logo.png" width="300">
 
 
 # Table of Contents
