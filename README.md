@@ -1,4 +1,6 @@
-![Jamify](https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/logo.png)
+<div style="text-align:center">
+  <img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/logo.png" width="300">
+</div>
 
 # Table of Contents
 * [Introduction](#introduction)
@@ -34,7 +36,7 @@ For App Academy's FullStack Project, I chose to clone `Spotify`. The app has a f
 
 
 ## External Sources
-* [Spotify Color Palette](https://developer.spotify.com/branding-guidelines/)
+* [Spotify Branding Guidelines](https://developer.spotify.com/branding-guidelines/)
 * [Heroku](https://www.heroku.com/)
 * [Amazon Web Services](https://aws.amazon.com/)
 * [BPM Surpreme](https://www.bpmsupreme.com/)
@@ -51,17 +53,20 @@ One of the most unique features taught at App Academy is *User Authentication*. 
 
 ## Signup and Login pages:
 
-<p float="left">
-  <img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/signup.png" width="200" />
-  <img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/login.png" width="200" />
-  <img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/login_errors.png" width="200" />
-</p>
+<div style="text-align:center">
+  <img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/signup.png" width="250" />
+  <img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/login.png" width="250" />
+  <img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/login_errors.png" width="250" />
+</div>
 
 
 
 
 ## Browse:
+<img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/look_and_feel.png" width="720">
 
 ## Empty State:
+<img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/empty_state.png" width="720">
 
 ## Add Playlist:
+<img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/add_playlist.png" width="720">
