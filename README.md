@@ -1,11 +1,5 @@
-<h1 style="text-align:center">Jamify</h1>
-<p style="text-align:center">A Spotify Clone</p>
+<img src="https://raw.githubusercontent.com/byoo24/Jamify/master/readme_imgs/logo.png" width:"300">
 
-- - -
-
-<p style="text-align:center">
-<img src="https://developer.spotify.com/assets/branding-guidelines/icon1@2x.png" width="300" style="display:inline">
-</p>
 
 # Table of Contents
 * [Introduction](#introduction)
