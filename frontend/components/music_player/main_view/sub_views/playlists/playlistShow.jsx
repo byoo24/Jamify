@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchPlaylist } from '../../../../../actions/playlist_actions';
+import EmptyState from '../empty_state';
 
 class PlaylistShow extends React.Component {
 
@@ -9,6 +10,17 @@ class PlaylistShow extends React.Component {
         const currentUserId = this.props.currentUserId;
         const playlistId = this.props.match.params.playlistId;
         this.props.fetchPlaylist(currentUserId, playlistId);
+        this.changeBg("burgundy-gradient");
+    }
+
+
+    changeBg(classBg) {
+        const bg = document.getElementById('bg-gradient');
+        bg.className = '';
+
+        if (classBg) {
+            bg.classList.add(classBg);
+        }
     }
 
     render() {
@@ -17,9 +29,9 @@ class PlaylistShow extends React.Component {
         const title = playlist ? playlist.name : null;
         
         return(
-            <div className="playlist-show">
-                <div className="playlist-container">
-                    <div className="playlist-left">
+            <div className="album-show">
+                <div className="album-show-container">
+                    <div className="album-info">
                         <Link to="/browse" className="album-large">
                             <div className="icon-container">
                                 <div className="icon icon-music"></div>
@@ -28,8 +40,12 @@ class PlaylistShow extends React.Component {
                         <h1>{title}</h1>
                     </div>
 
-                    <div className="playlist-right">
-
+                    <div className="music-playlist">
+                        <EmptyState
+                            title={"It looks a big empty here."}
+                            subtitle={"Browse and find music you love."}
+                            iconType="astronaut"
+                        />
                     </div>
                 </div>
             </div>

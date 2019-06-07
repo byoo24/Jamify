@@ -12,8 +12,8 @@ class Api::ArtistsController < ApplicationController
 
 
     def show
-        @artist = Artist.find(params[:id]).with_attached_artist_images
-
+        @artist = Artist.with_attached_artist_images.find(params[:id])
+        
         if @artist
             render :show
         else
@@ -29,7 +29,6 @@ class Api::ArtistsController < ApplicationController
     def album_index
         artist_id = params[:artist_id]
         @albums = Artist.find(artist_id).albums.with_attached_cover_image
-
         if @albums
             render :album_index
         else

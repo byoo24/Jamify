@@ -12,6 +12,7 @@ class ArtistShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchArtist(this.props.match.params.artistId);
+        debugger
         this.props.fetchAlbumsFromArtist(this.props.match.params.artistId);
 
     }
@@ -26,6 +27,7 @@ class ArtistShow extends React.Component {
         
         const {artist, albums} = this.props;
         let artistName = null, bgCover = null, albumList;
+        let artistId = this.props.match.params.artistId;
 
         if (artist) {
             artistName = artist.name;
@@ -34,8 +36,12 @@ class ArtistShow extends React.Component {
             }
         }
 
-        if (albums) {
-            albumList = albums.map((album) => {
+        
+        debugger
+
+        if (albums.length > 0) {
+            albumList = albums.filter((album) => album.artist_id == artistId);
+            albumList = albumList.map((album) => {
                 return (
                     <li key={album.id}>
                         <div className="album-wrap">

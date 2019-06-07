@@ -1,0 +1,29 @@
+.search-header {
+    .search-input{
+        position: fixed;
+        background-color: #282828;
+        padding: 16px;
+        top: 0;
+        left: 230px;
+        right: 0;
+
+        .search-input-container {
+            padding: 0 32px;
+            margin: 0 auto;
+            max-width: 1480px;
+
+            .SearchInputBox {
+                font-size: 36px;
+                line-height: 44px;
+                letter-spacing: -.005em;
+                color: #fff;
+                text-transform: none;
+                box-sizing: border-box;
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+}

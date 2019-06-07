@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-// import AlbumThumbnail from '../_partials/albumThumbnail';
 
 import NowPlayingLeft from './_parts/now_playing_left';
 import NowPlayingCenter from './_parts/now_playing_center.jsx';
@@ -10,6 +9,7 @@ import { connect } from 'react-redux';
 import { fetchAlbum } from '../../../actions/album_actions';
 import { fetchArtist } from '../../../actions/artist_actions';
 import { setVolume, playCurrentSong, pauseCurrentSong } from '../../../actions/player_actions';
+import { nextSong, previousSong } from '../../../actions/queue_actions';
 
 
 class NowPlaying extends React.Component {
@@ -25,9 +25,10 @@ class NowPlaying extends React.Component {
             artist_name: "",
             volumeStatus: "unmute",
             volume: 0.5,
-            prevVolume: 0.5
+            prevVolume: 0.5,
+            queueIndex: 0
         }
-
+        
         this.controls = React.createRef();
 
         this.playAudio = this.playAudio.bind(this);
@@ -37,6 +38,8 @@ class NowPlaying extends React.Component {
         this.setCurrentTime = this.setCurrentTime.bind(this);
         this.setVolume = this.setVolume.bind(this);
         this.toggleMute = this.toggleMute.bind(this);
+        this.playNext = this.playNext.bind(this);
+        this.playPrevious = this.playPrevious.bind(this);
     }
 
     componentDidUpdate(prevProps) {
@@ -76,7 +79,6 @@ class NowPlaying extends React.Component {
 
     setCurrentTime(e) {
         let audio = this.controls.current;
-        // let stringTime = e.target + '%';
         let newTime = Number(e.target.value) / 100 * this.state.durationTime;
         console.log(newTime);
 
@@ -136,6 +138,29 @@ class NowPlaying extends React.Component {
         this.setState({ playStatus: status });
     }
 
+    playNext() {
+        if (this.state.queueIndex === this.props.queue.length - 1) {
+            return;
+        }
+
+        let newIndex = this.state.queueIndex + 1;
+        
+        this.setState({ queueIndex: newIndex });
+        this.props.playCurrentSong(this.props.queue[newIndex]);
+    }
+
+    playPrevious() {
+        if (this.state.queueIndex === 0) {
+            return;
+        }
+
+        let newIndex = this.state.queueIndex - 1;
+        this.setState({ queueIndex: newIndex });
+        this.props.playCurrentSong(this.props.queue[newIndex]);
+    }
+
+
+
 
     playAudio() {
         let audio = this.controls.current;
@@ -159,9 +184,6 @@ class NowPlaying extends React.Component {
         const { currentSong } = this.props;
         const { audio_url } = currentSong;
 
-        // let durationTime = this.convertTime(this.state.durationTime);
-        // let currentTime = this.convertTime(this.state.currentTime);
-
         
         return(
             <div className="Root__now-playing-bar">
@@ -178,7 +200,9 @@ class NowPlaying extends React.Component {
                             durationTime={this.state.durationTime}
                             currentTime={this.state.currentTime}
                             scrubberPercent={this.state.scrubberPercent}
-                            setCurrentTime={this.setCurrentTime} />
+                            setCurrentTime={this.setCurrentTime}
+                            playNext={this.playNext}
+                            playPrevious={this.playPrevious} />
 
                         <NowPlayingRight 
                             volume={this.state.volume}
@@ -192,12 +216,6 @@ class NowPlaying extends React.Component {
                             
                         </audio>
 
-                        {/* <div>
-                            <button onClick = "document.getElementById('now-playing-player').play()">Play</button>
-                            <button onClick = "document.getElementById('now-playing-player').pause()">Pause</button>
-                            <button onClick = "document.getElementById('now-playing-player').volume += 0.2">Vol+</button>
-                            <button onClick = "document.getElementById('now-playing-player').volume -= 0.2">Vol-</button>
-                        </div> */}
                     </div>
                 </footer>
             </div>
@@ -211,17 +229,27 @@ class NowPlaying extends React.Component {
 
 
 
-const msp = (state) => ({
-    currentSong: state.musicPlayer.currentSong,
-    playStatus: state.musicPlayer.controls.playStatus,
-    volume: state.musicPlayer.controls.volume
-});
+const msp = (state) => {
+    
+    return{
+        currentSong: state.musicPlayer.currentSong,
+        playStatus: state.musicPlayer.controls.playStatus,
+        volume: state.musicPlayer.controls.volume,
+        queue: state.musicPlayer.queue,
+        queueIndex: 0
+
+    }
+};
 
 
 const mdp = (dispatch) => ({
     setVolume: (volume) => dispatch(setVolume(volume)),
     fetchAlbum: albumId => dispatch(fetchAlbum(albumId)),
-    fetchArtist: artistId => dispatch(fetchArtist(artistId))
+    fetchArtist: artistId => dispatch(fetchArtist(artistId)),
+    playCurrentSong: song => dispatch(playCurrentSong(song)),
+    nextSong: num => dispatch(nextSong(num)),
+    previousSong: num => dispatch(previousSong(num))
+
 })
 
 

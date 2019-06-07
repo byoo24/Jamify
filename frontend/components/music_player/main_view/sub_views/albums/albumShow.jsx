@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { fetchAlbum } from '../../../../../actions/album_actions';
 import { fetchSongsFromAlbum } from  '../../../../../actions/song_actions';
 import { playCurrentSong } from '../../../../../actions/player_actions';
+import { receiveSongList } from '../../../../../actions/queue_actions';
 import { withRouter, Link } from 'react-router-dom';
 
 class AlbumShow extends React.Component {
 
     constructor(props){
         super(props);
+        this.playAlbum = this.playAlbum.bind(this);
         // this.playThisSong = this.playThisSong.bind(this);
     }
 
@@ -34,6 +36,23 @@ class AlbumShow extends React.Component {
         }
     }
 
+    playAlbum() {
+        
+        const albumId = this.props.match.params.albumId;
+        let songList;
+        const that = this;
+
+        if (this.props.songs instanceof Object) {
+            songList = Object.values(this.props.songs);
+        } else {
+            songList = this.props.songs;
+        }
+
+        const stuff = songList.filter((song) => (
+            song.album_id == that.props.match.params.albumId
+        ));
+        this.props.receiveSongList(stuff);
+    }
     // playThisSong(song) {
     //     return this.props.playCurrentSong(song);
     // }
@@ -55,9 +74,9 @@ class AlbumShow extends React.Component {
         if (album && songs) {
             songsList = filteredSongs.map((song) => {
                 return (
-                    <li key={song.id} onClick={() => this.props.playCurrentSong(song)}>
+                    <li key={song.id} onDoubleClick={() => this.props.playCurrentSong(song)}>
                         <span className="song-left">
-                            <i className="player-icon player-icon-play"></i>
+                            <i className="player-icon fas fa-headphones-alt" onClick={() => this.props.playCurrentSong(song)}></i>
 
                             <span className="song-title">
                                 {song.title}
@@ -68,13 +87,16 @@ class AlbumShow extends React.Component {
             })
         }
 
+        
+
         return (
             <div className="album-show">
                 <div className="album-show-container">
                     <div className="album-info">
                         <img src={coverImg} alt="" />
                         <h1>{albumTitle}</h1>
-                    </div>
+                        <button onClick={this.playAlbum} className="btn btn-green" style={{display: "block", marginLeft: "auto", marginRight: "auto"}}>PLAY</button>
+                    </div>      
 
                     <div className="music-playlist">
                         <ol className="music-playlist-container">
@@ -98,7 +120,8 @@ const msp = (state, ownProps) => ({
 const mdp = (dispatch) => ({
     fetchAlbum: albumId => dispatch(fetchAlbum(albumId)),
     fetchSongsFromAlbum: albumId => dispatch(fetchSongsFromAlbum(albumId)),
-    playCurrentSong: current_song => dispatch(playCurrentSong(current_song))
+    playCurrentSong: current_song => dispatch(playCurrentSong(current_song)),
+    receiveSongList: songs => dispatch(receiveSongList(songs))
 });
 
 

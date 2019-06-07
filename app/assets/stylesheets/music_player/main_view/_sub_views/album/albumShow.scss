@@ -23,7 +23,7 @@
             box-sizing: border-box;
             color: $standard_white;
             width: 75%;
-            padding: 30px;
+            padding: 30px 40px;
 
             .music-playlist-container{
                 
@@ -33,17 +33,24 @@
                     align-items: center;
                     background-color: transparent;
                     transition: background-color .3s;
+                    font-weight: 300;
                     cursor: default;
 
                     .song-left {
                         display: flex;
                         align-items: center;
                         width: 100%;
-                        height: 40px;
+                        height: 56px;
+
+                        .fas{
+                            font-family: 'Font Awesome 5 Free';
+                            font-weight: 900;
+                            margin: 0 20px;
+                        }
                     }
 
                     .song-title {
-                        margin-left: 15px;
+                        margin: 0 20px;
                     }
 
                     &:hover {

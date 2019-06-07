@@ -9,7 +9,7 @@ const convertTime = (timeStamp) => {
 
 
 
-export default ({ togglePlay, playStatus, currentTime, durationTime, setCurrentTime }) => {
+export default ({ togglePlay, playStatus, currentTime, durationTime, setCurrentTime, playNext, playPrevious }) => {
 
     let playBtnClass = null;
 
@@ -32,9 +32,9 @@ export default ({ togglePlay, playStatus, currentTime, durationTime, setCurrentT
             <div className="player-controls">
                 <div className="player-controls-buttons">
                     <button className="player-btn player-icon player-icon-shuffle" title="Enable Shuffle"></button>
-                    <button className="player-btn player-icon player-icon-backward" title="Previous"></button>
+                    <button className="player-btn player-icon player-icon-backward" onClick={playPrevious} title="Previous"></button>
                     <button className={playBtnClass} onClick={() => togglePlay()} title="Play"></button>
-                    <button className="player-btn player-icon player-icon-forward" title="Next"></button>
+                    <button className="player-btn player-icon player-icon-forward" onClick={playNext} title="Next"></button>
                     <button className="player-btn player-icon player-icon-repeat" title="Enable repeat"></button>
                 </div>
             </div>

@@ -1,0 +1,32 @@
+.search-content {
+    height: inherit;
+
+    .search-content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: inherit;
+
+        .no-search {
+            display: block;
+
+            h1 {
+                color: $standard_white;
+                font-size: 28px;
+                line-height: 36px;
+                letter-spacing: -.005em;
+                text-transform: none;
+                color: $standard_white;
+                width: 100%;
+                overflow-wrap: break-word;
+                text-align: center;
+            }
+
+            p {
+                padding-top: 10px;
+                color: $spotify_gray;
+                font-weight: 300;
+            }
+        }
+    }
+}
