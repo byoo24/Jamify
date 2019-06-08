@@ -12,6 +12,8 @@
 #  produced_by  :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  duration     :string
+#  artist_id    :integer
 #
 
 class Song < ApplicationRecord
@@ -20,9 +22,7 @@ class Song < ApplicationRecord
     belongs_to :genre
 
     belongs_to :album
-    has_one :artist,
-        through: :album,
-        source: :artist
+    has_one :artist
 
     belongs_to :featured_artist,
         foreign_key: :featured_id,
@@ -34,5 +34,5 @@ class Song < ApplicationRecord
         through: :playlist_songs,
         source: :playlist
 
-    has_one_attached :audio_file
+    # has_one_attached :audio_file
 end

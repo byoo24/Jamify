@@ -19,5 +19,5 @@ class Genre < ApplicationRecord
         source: :albums
 
 
-    has_one_attached :genre_cover
+    # has_one_attached :genre_cover
 end

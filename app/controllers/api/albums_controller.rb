@@ -1,7 +1,8 @@
 class Api::AlbumsController < ApplicationController
 
     def index
-        @rand_albums = Album.limit(8).with_attached_cover_image
+        # @rand_albums = Album.limit(8).with_attached_cover_image
+        @rand_albums = Album.limit(8)
         
         if @rand_albums
             render :index

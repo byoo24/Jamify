@@ -1,7 +1,8 @@
 class Api::ArtistsController < ApplicationController
 
     def index
-        @rand_artists = Artist.limit(8).with_attached_artist_images
+        @rand_artists = Artist.limit(8)
+        # @rand_artists = Artist.limit(8).with_attached_artist_images
         if @rand_artists
             render :index
         else
@@ -12,7 +13,8 @@ class Api::ArtistsController < ApplicationController
 
 
     def show
-        @artist = Artist.with_attached_artist_images.find(params[:id])
+        @artist = Artist.find(params[:id])
+        # @artist = Artist.with_attached_artist_images.find(params[:id])
         
         if @artist
             render :show
@@ -28,7 +30,8 @@ class Api::ArtistsController < ApplicationController
 
     def album_index
         artist_id = params[:artist_id]
-        @albums = Artist.find(artist_id).albums.with_attached_cover_image
+        @albums = Artist.find(artist_id).albums
+        # @albums = Artist.find(artist_id).albums.with_attached_cover_image
         if @albums
             render :album_index
         else
