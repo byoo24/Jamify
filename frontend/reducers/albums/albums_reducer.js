@@ -1,4 +1,12 @@
-import { RECEIVE_ALBUM, RECEIVE_ALBUMS, RECEIVE_ALBUMS_FROM_ARTIST } from '../../actions/album_actions';
+import { 
+    RECEIVE_ALBUM, 
+    RECEIVE_ALBUMS, 
+} from '../../actions/album_actions';
+
+import {
+    RECEIVE_ARTIST
+} from '../../actions/artist_actions';
+
 import { merge } from 'lodash';
 
 
@@ -6,8 +14,8 @@ const albumsReducer = (state = {}, action) => {
     Object.freeze(state);
 
     switch (action.type) {
-        case RECEIVE_ALBUMS_FROM_ARTIST:
         case RECEIVE_ALBUMS:
+        case RECEIVE_ARTIST:
             return merge({}, state, action.albums);
         case RECEIVE_ALBUM:
             return merge({}, state, {[action.album.id]: action.album});

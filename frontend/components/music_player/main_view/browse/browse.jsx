@@ -29,7 +29,6 @@ class Browse extends React.Component {
         return(
             <div className="Root__main_view_container">
                 <div className="collection-header">
-
                     <div className="sub-nav">
                         <ul className="sub-nav-container">
                             <li><NavLink to="/browse/featured" className="sub-nav-item">Featured</NavLink></li>
@@ -40,16 +39,16 @@ class Browse extends React.Component {
                             <li><NavLink to="/browse/discover" className="sub-nav-item">Discover</NavLink></li>
                         </ul>
                     </div>
-
-                    <Switch>
-                        <Route exact path="/browse/featured" render={() => <Featured changeBg={this.changeBg} />} />
-                        <Route exact path="/browse/podcasts" render={() => <Podcasts changeBg={this.changeBg} />} />
-                        <Route exact path="/browse/charts" render={() => <Charts changeBg={this.changeBg} />} />
-                        <Route exact path="/browse/genres" render={() => <Genres changeBg={this.changeBg} />} />
-                        <Route exact path="/browse/newreleases" render={() => <NewReleases changeBg={this.changeBg} />} />
-                        <Route exact path="/browse/discover" render={() => <Discover changeBg={this.changeBg} />} />
-                    </Switch>
                 </div>
+
+                <Switch>
+                    <Route exact path="/browse/featured" render={() => <Featured changeBg={this.changeBg} />} />
+                    <Route exact path="/browse/podcasts" render={() => <Podcasts changeBg={this.changeBg} />} />
+                    <Route exact path="/browse/charts" render={() => <Charts changeBg={this.changeBg} />} />
+                    <Route exact path="/browse/genres" render={() => <Genres changeBg={this.changeBg} />} />
+                    <Route exact path="/browse/newreleases" render={() => <NewReleases changeBg={this.changeBg} />} />
+                    <Route exact path="/browse/discover" render={() => <Discover changeBg={this.changeBg} />} />
+                </Switch>
             </div>
         );
     }

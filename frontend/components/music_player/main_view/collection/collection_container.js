@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { openModal } from '../../../../../actions/modal_action';
+import { openModal } from '../../../../actions/modal_action';
 import Collection from './collection';
 
 

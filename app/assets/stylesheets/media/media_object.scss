@@ -1,0 +1,114 @@
+.media-object {
+    display: inline-block;
+    margin: 0 0.5em 2.5em;
+
+    
+    .media-object-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        color: $spotify_gray;
+        background-color: #282828;
+        box-shadow: 0 0 10px rgba(0,0,0,.3);
+        cursor: default;
+
+        &.media-medium {
+            width: 180px;
+            height: 180px;
+
+            [class^="spoticon-"]:before,
+            [class*=" spoticon-"]:before {
+                font-size: 56px;
+            }
+
+            [class^="spoticon-play-"]:before,
+            [class*=" spoticon-play-"]:before,
+            [class^="spoticon-pause-"]:before,
+            [class*=" spoticon-pause-"]:before {
+                font-size: 40px;
+                color: $standard_white;
+            }
+
+            @media screen and (min-width: $desktop_width){
+                width: 220px;
+                height: 220px;
+            }
+        }
+
+        &.media-large {
+            width: 320px;
+            height: 320px;
+
+            [class^="spoticon-"]:before,
+            [class*=" spoticon-"]:before {
+                font-size: 88px;
+            }
+
+            [class^="spoticon-play-"]:before,
+            [class*=" spoticon-play-"]:before,
+            [class^="spoticon-pause-"]:before,
+            [class*=" spoticon-pause-"]:before {
+                font-size: 56px;
+                color: $standard_white;
+            }
+        }
+
+        &.media-artist { border-radius: 500px; }
+
+        .media-play { display: none; }
+    }
+
+    &.active {
+        .media-object-container {
+
+            [class^="spoticon-"],
+            [class*=" spoticon-"] {
+                display: none;
+            }
+
+            .media-play{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+                border: 1px solid $spotify_gray;
+                border-radius: 500px;
+                box-shadow: inset 0 0 0 1px #b3b3b3;
+                transition-property: border-color, scale;
+                transition-duration: .2s;
+
+                [class^="spoticon-play-"],
+                [class*=" spoticon-play-"] {
+                    display: block;
+                }
+
+                
+                &:hover {
+                    border-color: $standard_white;
+                    transform: scale(1.1);
+                }
+            } // .media-play
+        }
+    }
+
+    .media-info {
+        color: $standard-white;
+        margin: 1em 0;
+        text-align: center;
+
+        h1.media-title{
+            font-size: 28px;
+        }
+
+        .media-title {
+            margin-bottom: 10px;
+        }
+
+        .media-author {
+            opacity: .6;
+            font-weight: 300;
+        }
+    }
+
+} // .media-object

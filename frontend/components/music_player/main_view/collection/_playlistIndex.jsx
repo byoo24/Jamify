@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchPlaylists } from '../../../../../actions/playlist_actions';
+import { fetchPlaylists } from '../../../../actions/playlist_actions';
 import PlaylistIndexItem from './_playlistIndexItem';
+
+import Media from '../media';
 
 class PlaylistIndex extends React.Component {
 
@@ -15,16 +17,25 @@ class PlaylistIndex extends React.Component {
     render() {
         const { playlists } = this.props;
 
-        const allPlaylists = playlists.map((playlist) => {
+        const playlistList = playlists.map((playlist) => {
             return (
-                <li key={playlist.id}><PlaylistIndexItem playlist={playlist} /></li>
+                <Media
+                    key={playlist.id}
+                    media={playlist}
+                    icon='playlist'
+                    size='medium'
+                    view='index'
+                    path={`/playlist/${playlist.id}`}
+                />
             )
         });
 
         return(
-            <div className="playlist-index">
-                <ul className="playlist-index-container">
-                    {allPlaylists}
+            <div className="media-index-root">
+                <ul className="media-index-container">
+                    <div className="media-index">
+                        {playlistList}
+                    </div>
                 </ul>
             </div>
         )

@@ -1,0 +1,21 @@
+.media-index-root {
+    max-width: $desktop_width;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    .media-index-container {
+        display: block;
+        padding: 1.5em;
+
+        .media-index-label {
+            color: $standard_white;
+            margin: 10px 0 20px;
+        }
+
+        .media-index {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+    }
+}

@@ -2,26 +2,28 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 // Browse
-import Browse from './sub_views/browse/browse';
+import Browse from './browse/browse';
 
 // Search
-import Recent from './sub_views/search/recent';
+import Recent from './search/recent';
 
 // Collection
-import Collection from './sub_views/collection/collection_container';
+import Collection from './collection/collection_container';
 
 // Playlist
-import Playlist from './sub_views/playlists/playlistShow';
+import Playlist from './playlists/playlistShow';
 
 // Artist
-import Artist from './sub_views/artists/artistShow';
+import Artist from './artists/artistShow';
 
 // Artist
-import Album from './sub_views/albums/albumShow';
+import Album from './albums/albumShow';
 
 
 class MainView extends React.Component {
     render() {
+
+
 
         return (
             <div className="Root__main_view">

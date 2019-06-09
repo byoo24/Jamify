@@ -28,13 +28,6 @@
             .music-playlist-container{
                 
                 li {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    background-color: transparent;
-                    transition: background-color .3s;
-                    font-weight: 300;
-                    cursor: default;
 
                     .song-left {
                         display: flex;
@@ -53,9 +46,6 @@
                         margin: 0 20px;
                     }
 
-                    &:hover {
-                        background-color: rgba(0, 0, 0, .5);
-                    }
                 }
             }
         }

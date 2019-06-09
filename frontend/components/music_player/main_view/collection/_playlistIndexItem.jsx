@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Media from '../media';
 
 class PlaylistIndexItem extends React.Component {
 

@@ -1,0 +1,23 @@
+.playlist-show{
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    .playlist-show-container{
+        display: flex;
+        padding: 2em 32px;
+        margin: 0 auto;
+        max-width: $desktop_width;
+        height: 100%;
+
+        .playlist-info {
+            flex-basis: 33%;
+            text-align: center;
+        }
+    
+    
+        .music-playlist {
+            flex-basis: 67%;
+        }
+    }
+}

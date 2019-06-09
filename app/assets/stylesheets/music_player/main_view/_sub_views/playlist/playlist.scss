@@ -32,31 +32,5 @@
 }
 
 
-.playlist-show{
-    display: block;
-    width: 100%;
-    height: 100%;
 
-    .playlist-container{
-        display: flex;
-        padding: 0 32px;
-        margin: 0 auto;
-        max-width: 1480px;
-        height: 100%;
-
-        .playlist-left {
-            flex-basis: 33%;
-            text-align: center;
-
-            .album-large {
-                margin:0 auto;
-            }
-        }
-    
-    
-        .playlist-right {
-            flex-basis: 67%;
-        }
-    }
-}
 

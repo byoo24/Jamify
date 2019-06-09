@@ -1,0 +1,56 @@
+.track-row {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    font-weight: 300;
+    width: 100%;
+    background-color: transparent;
+    transition: background-color .3s;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, .5);
+    }
+
+    .track-col {
+        display: block;
+        color: $spotify_gray;
+
+        &.control {
+            padding: 10px;
+        }
+
+        &.info {
+            flex: 1;
+            padding: 10px;
+
+            .info-title,
+            .info-artist {
+                display: block;
+                margin: 5px 10px;
+            }
+        }
+
+        &.more {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // padding: 10px 20px;
+            width: 60px;
+
+            .more-menu:hover {
+                &:before {
+                    font-size: 36px;
+                }
+            }
+
+            
+        }
+
+        &.duration {
+            display: block;
+            // padding: 10px 20px;
+            text-align:center;
+            width: 70px;
+        }
+    }
+} // .track-row

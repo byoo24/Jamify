@@ -54,7 +54,7 @@
 
 #site-info{
     .info-container{
-        width: $desktop_container;
+        width: $desktop_width;
         margin: 0 auto;
     }
 
@@ -76,7 +76,7 @@
                 width: 100%;
                 height: 100%;
 
-                .icon{ display: block; width: calc($desktop_container * 33%); height: 100%; background-size: contain; background-position: center; background-repeat: no-repeat;}
+                .icon{ display: block; width: calc($desktop_width * 33%); height: 100%; background-size: contain; background-position: center; background-repeat: no-repeat;}
                 .react-icon { background-image: image-url("icons/React-icon.svg"); }
                 .redux-icon { background-image: image-url("icons/Redux-icon.svg"); }
                 .ruby-icon { background-image: image-url("icons/Ruby-icon.svg"); }

@@ -1,8 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {fetchArtist} from '../../../../../actions/artist_actions';
-import { fetchAlbumsFromArtist } from '../../../../../actions/album_actions';
+import { connect } from 'react-redux';
+import { fetchArtist } from '../../../../actions/artist_actions';
 import { withRouter, Link } from 'react-router-dom';
+import Media from '../media';
 
 class ArtistShow extends React.Component {
 
@@ -12,8 +12,7 @@ class ArtistShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchArtist(this.props.match.params.artistId);
-        debugger
-        this.props.fetchAlbumsFromArtist(this.props.match.params.artistId);
+        // this.props.fetchAlbumsFromArtist(this.props.match.params.artistId);
 
     }
 
@@ -37,28 +36,38 @@ class ArtistShow extends React.Component {
         }
 
         
-        debugger
+        const albumsList = albums.length > 0 ? (
+            albums.map((album) => (
+                <Media
+                    key={album.id}
+                    media={album}
+                    icon={'album'}
+                    size='medium'
+                    view='index'
+                />
+            ))
+        ) : null;
 
-        if (albums.length > 0) {
-            albumList = albums.filter((album) => album.artist_id == artistId);
-            albumList = albumList.map((album) => {
-                return (
-                    <li key={album.id}>
-                        <div className="album-wrap">
-                            <Link to={{ pathname: `/album/${album.id}` }} className="album-medium">
-                                <div className="icon-container box-shadow">
-                                    <div className="icon icon-music"></div>
-                                </div>
-                                <div className="album-cover-medium" style={{ backgroundImage: `url(${album.cover_image})` }}></div>
-                            </Link>
-                            <div className="mo-info">
-                                <span className="playlist-title">{album.title}</span>
-                            </div>
-                        </div>
-                    </li>
-                )
-            });
-        }
+        // if (albums.length > 0) {
+        //     albumList = albums.filter((album) => album.artist_id == artistId);
+        //     albumList = albumList.map((album) => {
+        //         return (
+        //             <li key={album.id}>
+        //                 <div className="album-wrap">
+        //                     <Link to={{ pathname: `/album/${album.id}` }} className="album-medium">
+        //                         <div className="icon-container box-shadow">
+        //                             <div className="icon icon-music"></div>
+        //                         </div>
+        //                         <div className="album-cover-medium" style={{ backgroundImage: `url(${album.cover_image})` }}></div>
+        //                     </Link>
+        //                     <div className="mo-info">
+        //                         <span className="playlist-title">{album.title}</span>
+        //                     </div>
+        //                 </div>
+        //             </li>
+        //         )
+        //     });
+        // }
 
 
         return(
@@ -82,14 +91,11 @@ class ArtistShow extends React.Component {
                     </div>
                 </div>
 
-                <div className="featured-list">
-                    <div className="featured-container">
-                        <div className="playlist-index">
-                            <ul className="playlist-index-container">
-                                {albumList}
-                            </ul>
+                <div className="media-index-root">
+                    <div className="media-index-container">
+                        <div className="media-index">
+                            {albumsList}
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -99,17 +105,19 @@ class ArtistShow extends React.Component {
 
 
 const msp = (state, ownProps) => {
-    
+    const artistId = ownProps.match.params.artistId;
+    const albums = Object.values(state.entities.albums).filter((album) => album.artist_id == artistId);
+
     return {
-        artist: state.entities.artists[ownProps.match.params.artistId],
-        albums: Object.values(state.entities.albums)
+        artist: state.entities.artists[artistId],
+        albums
     }
 }
 
 const mdp = dispatch => {
     return {
         fetchArtist: id => dispatch(fetchArtist(id)),
-        fetchAlbumsFromArtist: artistId => dispatch(fetchAlbumsFromArtist(artistId))
+        // fetchAlbumsFromArtist: artistId => dispatch(fetchAlbumsFromArtist(artistId))
     }
 }
 
