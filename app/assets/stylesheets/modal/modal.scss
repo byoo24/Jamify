@@ -1,19 +1,21 @@
 @import 'modal_playlist';
+@import 'contextMenu';
 
 .modal-background {
     display: block;
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
+    position: fixed;
+    height: 100%;
+    width: 100%;
     background: $standard_black;
     background: rgba(0,0,0,.75);
     z-index: 2030;
+    overflow-y: scroll;
 
 
     .modal-child {
         display: block;
-        width: inherit;
-        height: inherit;
+        height: 100%;
+        width: 100%;
     }
 
 

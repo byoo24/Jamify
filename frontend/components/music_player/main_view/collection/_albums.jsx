@@ -14,7 +14,7 @@ class Albums extends React.Component {
                 <EmptyState
                     title={"Save your favourite albums"}
                     subtitle={"Save albums you love to build the collection of your dreams."}
-                    iconType="archive"
+                    iconType="album"
                 />
             </div>
         )

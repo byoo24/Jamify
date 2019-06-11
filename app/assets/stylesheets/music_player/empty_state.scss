@@ -12,8 +12,11 @@
 
         .empty-state-icon {
             display: inline-block;
-            font-size: 50px;
             padding: 20px;
+
+            i:before {
+                font-size: 50px;
+            }
         }
 
         .empty-state-title {

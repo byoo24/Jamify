@@ -14,7 +14,7 @@ class Charts extends React.Component {
                 <EmptyState
                     title={"Featured charts will appear here."}
                     subtitle={"Find the best of the best here."}
-                    iconType="archive"
+                    iconType="chart"
                 />
             </div>
         )

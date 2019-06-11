@@ -1,4 +1,6 @@
 import * as PlaylistAPIUtil from '../util/playlist_api_util';
+import * as PlaylistSongAPIUtil from '../util/playlist_songs_api_util';
+
 
 export const RECEIVE_PLAYLIST = "RECEIVE_PLAYLIST";
 export const RECEIVE_PLAYLISTS = "RECEIVE_PLAYLISTS";
@@ -75,3 +77,9 @@ export const createPlaylist = (currentUserId, playlist) => {
 //         playlist_id => dispatch(delete_id(playlist_id))
 //     )
 // );
+
+
+
+export const addSongToPlaylist = (playlistId, songId) => (
+    PlaylistSongAPIUtil.addSongToPlaylist(playlistId, songId)
+);

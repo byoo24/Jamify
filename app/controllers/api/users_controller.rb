@@ -14,8 +14,6 @@ class Api::UsersController < ApplicationController
             errors << 'email'
         end
 
-
-        
         if errors.length > 0
             render json: errors, status: 422
             return

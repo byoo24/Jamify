@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { fetchPlaylists } from '../../../../actions/playlist_actions';
 import PlaylistIndexItem from './_playlistIndexItem';
 
+import EmptyState from '../empty_state';
 import Media from '../media';
 
 class PlaylistIndex extends React.Component {
@@ -17,18 +18,29 @@ class PlaylistIndex extends React.Component {
     render() {
         const { playlists } = this.props;
 
-        const playlistList = playlists.map((playlist) => {
-            return (
-                <Media
-                    key={playlist.id}
-                    media={playlist}
-                    icon='playlist'
-                    size='medium'
-                    view='index'
-                    path={`/playlist/${playlist.id}`}
-                />
-            )
-        });
+        const playlistList = (playlists.length < 1) ? (
+            <EmptyState
+                title={"Your playlists will appear here."}
+                subtitle={"Save your favorite songs in a new playlist."}
+                iconType="playlist"
+            />
+        ) : (
+            playlists.map((playlist) => {
+                return (
+                    <Media
+                        key={playlist.id}
+                        media={playlist}
+                        type='playlist'
+                        size='medium'
+                        view='index'
+                        path={`/playlist/${playlist.id}`}
+                    />
+                )
+            })
+        );
+        
+        
+        
 
         return(
             <div className="media-index-root">

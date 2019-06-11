@@ -16,23 +16,7 @@
         margin: 0 auto;
         padding: 0 15px;
 
-        div.logo {
-            display: flex;
-            align-items: center;
-
-            .fa-spotify {
-                position: absolute;
-                font-size: 40px;
-                font-weight: 400;
-                line-height: inherit;
-                margin-right: 5px;
-            }
-
-            .brand {
-                font-size: 23px;
-                padding-left: 45px;
-            }
-        }
+        
 
         .nav-main{
             display: flex;
@@ -92,3 +76,29 @@
 
     } // #nav-container
 }
+
+
+
+div.logo {
+
+    .logo-wrap{
+        display: flex;
+        align-items: center;
+        color: $standard_white;
+        font-size: 24px;
+        text-decoration: none;
+    }
+
+    .logo-icon {
+        height: 100%;
+
+        &:before {
+            font-size: 40px;
+        }
+    }
+
+    .brand {
+        font-size: 23px;
+        padding-left: 8px;
+    }
+} // div.logo

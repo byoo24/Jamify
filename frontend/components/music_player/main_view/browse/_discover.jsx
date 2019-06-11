@@ -13,7 +13,7 @@ class Discover extends React.Component {
                 <EmptyState
                     title={"Explore new music."}
                     subtitle={"We have a song for every occasion."}
-                    iconType="astronaut"
+                    iconType="discover"
                 />
             </div>
         )

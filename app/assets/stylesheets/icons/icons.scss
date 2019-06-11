@@ -27,6 +27,12 @@
     }
 }
 
+.spoticon-play-16:hover,
+.spoticon-pause-16:hover,
+.circled:hover {
+    transform: scale(1.1);
+}
+
 
 .player-icon {
     font-size: 16px;
@@ -43,11 +49,7 @@
 
    
 
-    &.player-icon-play:hover,
-    &.player-icon.pause:hover,
-    &.circled:hover {
-        transform: scale(1.1);
-    }
+    
 }
 
 

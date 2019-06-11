@@ -11,12 +11,12 @@ json.albums do
 end
 
 
-json.songs do
-    @albums.map do |album|
-        album.songs.map do |song|
-            json.set! song.id do
-                json.extract! song, :id, :title, :album_id, :artist_id, :featured_id, :genre_id, :duration
-            end
-        end
-    end
-end
+# json.songs do
+#     @albums.map do |album|
+#         album.songs.map do |song|
+#             json.set! song.id do
+#                 json.extract! song, :id, :title, :album_id, :artist_id, :featured_id, :genre_id, :duration
+#             end
+#         end
+#     end
+# end

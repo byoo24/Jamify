@@ -101,7 +101,7 @@
                                 }
 
                                 .brand {
-                                    font-size: 1.5em;
+                                    font-size: 1em;
                                 }
                             }
                         } // .logo
@@ -135,8 +135,9 @@
 
                         
 
-                        .fas{
-                            padding-right: 1em;
+                        .nav-icon:before{
+                            font-size: 22px;
+                            padding-right: 14px;
                         }
 
                         .navbar-text{
@@ -153,10 +154,14 @@
                 margin: 0 1em;
                 border-top: 1px solid $spotify_gray_dark;
 
+                .nav-icon:before {
+                    font-size: 22px;
+                    padding-right: 16px;
+                }
+
                 a {
                     display: flex;
                     align-items: center;
-                    font-size: 16px;
                     padding: 12px 10px;
 
                     .far {
@@ -170,14 +175,11 @@
                 }
 
                 .user-logout {
-                    display: block;
+                    display: flex;
+                    align-items: center;
                     padding: 12px 10px;
                     font-weight: 300;
                     cursor: pointer;
-
-                    .fas {
-                        padding-right: 10px;
-                    }
 
                     &:hover {
                         color: darken(red, 15%);

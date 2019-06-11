@@ -15,8 +15,8 @@ class Api::SongsController < ApplicationController
 
     def album_index
         album_id = params[:album_id]
-        # @songs = Album.find(album_id).songs.with_attached_audio_file
-        @songs = Album.find(album_id).songs
+        @songs = Album.find(album_id).songs.with_attached_audio_file
+        # @songs = Album.find(album_id).songs
 
         if @songs
             render :album_index

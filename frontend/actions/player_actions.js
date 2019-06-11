@@ -1,25 +1,22 @@
 export const PLAY_CURRENT_SONG = "PLAY_CURRENT_SONG";
-export const PAUSE_CURRENT_SONG = "PAUSE_CURRENT_SONG";
-export const SET_VOLUME = "SET_VOLUME";
-export const MUTE_VOLUME = "MUTE_VOLUME";
+export const UPDATE_PLAY_STATUS = "UPDATE_PLAY_STATUS";
+export const PLAY_CURRENT_LIST = "PLAY_CURRENT_LIST";
 
-export const playCurrentSong = current_song => ({
+export const playCurrentSong = song => ({
     type: PLAY_CURRENT_SONG,
-    current_song
+    song
+});
+
+export const playCurrentList = playlist => ({
+    type: PLAY_CURRENT_LIST,
+    playlist
 });
 
 
-export const pauseCurrentSong = () => ({
-    type: PAUSE_CURRENT_SONG
-});
+export const updatePlayStatus = status => ({
+    type: UPDATE_PLAY_STATUS,
+    status
+})
 
 
-export const setVolume = volume => ({
-    type: SET_VOLUME,
-    volume
-});
 
-
-// export const muteVolume = () => ({
-//     type: 
-// })

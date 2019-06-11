@@ -1,5 +1,8 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import { playCurrentList } from '../../../actions/player_actions';
+import { fetchAlbum } from '../../../actions/album_actions';
+import { connect } from 'react-redux';
 
 class Media extends React.Component {
     constructor(props) {
@@ -10,6 +13,7 @@ class Media extends React.Component {
         this.activeMedia = this.activeMedia.bind(this);
         this.inactiveMedia = this.inactiveMedia.bind(this);
         this.goToPath = this.goToPath.bind(this);
+        this.playThisPlaylist = this.playThisPlaylist.bind(this);
     }
 
     activeMedia() {
@@ -22,7 +26,9 @@ class Media extends React.Component {
         mediaComponent.classList.remove('active');
     }
 
-    goToPath() {
+    goToPath(e) {
+        e.preventDefault();
+        
         if(this.props.view == 'show' && !this.props.path) {
             return;
         }
@@ -30,20 +36,40 @@ class Media extends React.Component {
         this.props.history.push(path);
     }
 
+    playThisPlaylist() {
+        const { media, type, songs } = this.props;
+        const { songIds } = media;
+        let playlist = Object.values(songs);
+        
+        const that = this;
+
+        if(playlist.length > 0) {
+            this.props.playCurrentList(playlist);
+        } else if (type == 'album') {
+            this.props.fetchAlbum(media.id)
+                .then((payload) => {
+                    debugger
+                    playlist = Object.values(payload.songs);
+                }).then(() => this.props.playCurrentList(playlist));
+        }
+
+    }
+
+
     render() {
-        const { media, icon, user, size, view, path } = this.props;
+        const { media, type, user, size, view, path, playThisPlaylist } = this.props;
         let containerClassNames = null;
         let spotIcon = null;
         let mediaInfo = null;
 
-        switch( icon ){
+        switch( type ){
             case 'playlist':
                 containerClassNames = `media-object-container media-${size}`;
-                spotIcon = <span className="spoticon-collaborative-playlist-32"></span>; 
+                spotIcon = <span className="spoticon-playlist-32"></span>; 
                 break;
             case 'genre':
                 containerClassNames = `media-object-container media-${size}`;
-                spotIcon = <span className="spoticon-collaborative-playlist-32"></span>;
+                spotIcon = <span className="spoticon-playlist-32"></span>;
                 break;
             case 'album':
                 containerClassNames = `media-object-container media-${size}`;
@@ -86,16 +112,18 @@ class Media extends React.Component {
         return(
             <div className="media-object" 
                 ref={this.mediaControl} 
-                onClick={this.goToPath}
                 onMouseEnter={this.activeMedia} 
                 onMouseLeave={this.inactiveMedia}>
 
-                <Link to={path} className={containerClassNames}>
+                <div className={containerClassNames}>
                     {spotIcon}
                     <span className="media-play">
-                        <span className="spoticon-play-32"></span>
+                        <span className="spoticon-play-32"
+                            onClick={this.playThisPlaylist}></span>
                     </span>
-                </Link>
+                    <Link to={path} className="media-link"></Link>
+                </div>
+
                 <div className="media-info">
                     { mediaInfo }
                 </div>
@@ -104,4 +132,14 @@ class Media extends React.Component {
     }
 }
 
-export default withRouter(Media);
+const msp = state => ({
+    songs: state.entities.songs
+});
+
+
+const mdp = dispatch => ({
+    fetchAlbum: albumId => dispatch(fetchAlbum(albumId)),
+    playCurrentList: playlistIds => dispatch(playCurrentList(playlistIds))
+});
+
+export default withRouter(connect(msp, mdp)(Media));

@@ -1,0 +1,41 @@
+.context-menu {
+    display: none;
+    position: fixed;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    color: $standard-white;
+    background-color: #282828;
+    border: 1px solid #333;
+    border-radius: 5px;
+    // min-height: 100px;
+
+    .context-menu-wrap {
+        list-style: none;
+
+        li {
+            padding: 3px 20px;
+            line-height: 32px;
+            font-weight: 300;
+            white-space: nowrap;
+            cursor: default;
+        }
+
+        .context-menu-title {
+            color: $standard_white;
+            border-bottom: $spotify_black;    
+            font-style: italic;        
+            font-weight: 400;
+            // border-bottom: 1px solid $spotify_gray_dark;
+        }
+
+        .context-menu-item {
+            color: $spotify_gray;
+            &:hover { 
+                color: $standard_white; 
+                background-color: #333;
+                border-color: #333;
+            }
+        }
+    }
+} // .context-menu

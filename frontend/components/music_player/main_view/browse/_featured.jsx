@@ -26,7 +26,7 @@ class Featured extends React.Component {
                 <Media 
                     key={album.id}
                     media={album}
-                    icon='album'
+                    type='album'
                     size='medium'
                     view='index'
                     path={`/album/${album.id}`}
@@ -39,7 +39,7 @@ class Featured extends React.Component {
                 <Media
                     key={artist.id}
                     media={artist}
-                    icon='artist'
+                    type='artist'
                     size='medium'
                     view='index'
                     path={`/artist/${artist.id}`}

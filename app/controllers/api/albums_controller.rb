@@ -15,8 +15,10 @@ class Api::AlbumsController < ApplicationController
 
     def show
         @album = Album.find(params[:id])
+        
 
         if @album
+            # @songs = @album.songs.with_attached_audio_file
             render :show
         else
             render json: ['That album doesn\'t exist.'], status: 422

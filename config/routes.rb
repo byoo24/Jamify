@@ -14,10 +14,17 @@ Rails.application.routes.draw do
     resources :artists, only: [:index, :show]
     resources :albums, only: [:index, :show]
     resources :songs, only: [:show]
+
+
+    resources :playlist_songs, only: [:create, :destroy]
     
-    get '/genres/:genre_id/songs', to: 'songs#genre_index'
-    get '/albums/:album_id/songs', to: 'songs#album_index'
-    get '/artists/:artist_id/albums', to: 'artists#album_index'
+    # get '/genres/:genre_id/songs', to: 'songs#genre_index'
+    # get '/albums/:album_id/songs', to: 'songs#album_index'
+    # get '/artists/:artist_id/albums', to: 'artists#album_index'
+
+
+    post '/playlists/:playlist_id/songs/:song_id', to: 'playlist_songs#create'
+    delete '/playlists/:playlist_id/songs/:song_id', to: 'playlist_songs#delete'
 
   end # namespace
 

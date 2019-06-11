@@ -14,7 +14,7 @@ class NewReleases extends React.Component {
                 <EmptyState
                     title={"The newest songs will appear here."}
                     subtitle={"Be the first to hear the next greatest hit."}
-                    iconType="disc"
+                    iconType="release"
                 />
             </div>
         )

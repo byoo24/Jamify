@@ -39,12 +39,8 @@
   *
   * Styleguide 1.2.4
   */
-@font-face {
-  font-family: "glue1-spoticon";
-  src: url("https://d2j0f09xqmv212.cloudfront.net/fonts/spoticon_c352fadfc25a3646b28ed254e8a6dff7.svg") format("svg"), url("https://d2j0f09xqmv212.cloudfront.net/fonts/spoticon_c352fadfc25a3646b28ed254e8a6dff7.woff") format("woff"), url("https://d2j0f09xqmv212.cloudfront.net/fonts/spoticon_c352fadfc25a3646b28ed254e8a6dff7.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+
+
 [class^="spoticon-"]:before,
 [class*=" spoticon-"]:before {
   font-family: "glue1-spoticon";
@@ -57,6 +53,7 @@
   display: inline-block;
   text-decoration: inherit;
 }
+
 .spoticon-add-to-playlist-16:before {
   content: "\f164";
   font-size: 16px;

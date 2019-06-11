@@ -41,9 +41,10 @@ class ArtistShow extends React.Component {
                 <Media
                     key={album.id}
                     media={album}
-                    icon={'album'}
+                    type={'album'}
                     size='medium'
                     view='index'
+                    path={`/album/${album.id}`}
                 />
             ))
         ) : null;

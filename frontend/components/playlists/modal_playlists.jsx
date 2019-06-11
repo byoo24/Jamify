@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_action';
 import { connect } from 'react-redux';
 
 import AddPlaylistForm from './add_playlist_form';
+import AddSongToPlaylist from './add_songToPlaylist';
 
 
 function ModalPlaylists({modal, closeModal}) {
@@ -12,8 +13,11 @@ function ModalPlaylists({modal, closeModal}) {
     let component;
     
     switch (modal) {
-        case 'new':
+        case 'newPlaylist':
             component = <AddPlaylistForm />;
+            break;
+        case 'addSong':
+            component = <AddSongToPlaylist />;
             break;
         default:
             return null;

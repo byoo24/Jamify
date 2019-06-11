@@ -4,7 +4,11 @@ import { connect } from 'react-redux';
 import Track from '../track';
 
 import { fetchAlbum } from '../../../../actions/album_actions';
-import { playCurrentSong } from '../../../../actions/player_actions';
+import { playCurrentList } from '../../../../actions/player_actions';
+
+import { openContextMenu } from '../../../../actions/contextMenu_actions';
+
+import { openModal } from '../../../../actions/modal_action';
 
 import Media from '../media';
 
@@ -12,8 +16,11 @@ class AlbumShow extends React.Component {
 
     constructor(props){
         super(props);
-        this.playAlbum = this.playAlbum.bind(this);
+        this.moreMenu = React.createRef();
+
         // this.playThisSong = this.playThisSong.bind(this);
+        // this.playThisPlaylist = this.playThisPlaylist.bind(this);
+        this.showContextMenu = this.showContextMenu.bind(this);
     }
 
     componentDidMount() {
@@ -36,67 +43,61 @@ class AlbumShow extends React.Component {
         }
     }
 
-    playAlbum() {
-        
-        const albumId = this.props.match.params.albumId;
-        let songList;
-        const that = this;
-
-        if (this.props.songs instanceof Object) {
-            songList = Object.values(this.props.songs);
-        } else {
-            songList = this.props.songs;
+    showContextMenu(songId) {
+        debugger
+        return e => {
+            e.preventDefault();
+            let menu = this.moreMenu.current;
+            this.props.openContextMenu('track');
+            debugger
+            menu.style.left = e.clientX + 'px';
+            menu.style.top = e.clientY + 'px';
         }
-
-        const stuff = songList.filter((song) => (
-            song.album_id == that.props.match.params.albumId
-        ));
-        this.props.receiveSongList(stuff);
     }
+    
     // playThisSong(song) {
     //     return this.props.playCurrentSong(song);
     // }
 
 
+
     render() {
-        const { album, artist, songs } = this.props;
-
-        // if (album) {
-        //     albumTitle = album.title;
-            
-        //     coverImg = album.cover_image;
-        // }
-
+        const { album, artist, songs, contextMenu } = this.props;
         
-        
-        const albumTitle = album ? album.title : null;
-        const coverImg = album ? album.cover_image : null;
-        const artistName = artist ? artist.name : null;
-
         const songList = songs ? (
             songs.map((song) => (
                 <li key={song.id}>
                     <Track 
                         song={song}
+                        action={this.showContextMenu}
                     />
                 </li>)
             )
         ) : null
 
+        
+        const contextMenuStyle = contextMenu == 'track' ? ({
+            display: 'block'
+        }) : ({
+            display: 'none'
+        })
     
 
         return (
+
+
             <div className="playlist-show">
                 <div className="playlist-show-container">
                     <div className="playlist-info">
                         <Media 
                             media={album}
-                            icon='album'
+                            type='album'
                             user={artist}
                             size="large"
                             view="show"
+                            path={`/album/${this.props.match.params.albumId}`}
                         />
-                        <button onClick={this.playAlbum} className="btn btn-green" style={{display: "block", marginLeft: "auto", marginRight: "auto"}}>PLAY</button>
+                        <button onClick={this.playThisPlaylist} className="btn btn-green" style={{display: "block", marginLeft: "auto", marginRight: "auto"}}>PLAY</button>
                     </div>
 
                     <div className="music-playlist">
@@ -105,6 +106,15 @@ class AlbumShow extends React.Component {
                         </ol>
                     </div>
 
+                </div>
+
+                <div className="context-menu"
+                    ref={this.moreMenu}
+                    style={contextMenuStyle}>
+                    <ul className="context-menu-wrap">
+                        <li className="context-menu-title">Song Options</li>
+                        <li className="context-menu-item" onClick={this.props.openModal}>Add to Playlist</li>
+                    </ul>
                 </div>
             </div>
         )
@@ -115,29 +125,36 @@ class AlbumShow extends React.Component {
 const msp = (state, ownProps) => {
     const album = state.entities.albums[ownProps.match.params.albumId];
     let songs, artist;
+    const contextMenu = state.ui.contextMenu
     
     
     if (album) {
         // songs = Object.keys(state.entities.songs).map(key => state.entities.songs[key]);
-        songs = [...album.songIds] = Object.values(state.entities.songs);
+        songs = Object.values(state.entities.songs);
         artist = state.entities.artists[album.artist_id];
     }
-    
+
     
     return {
         album,
         artist,
-        songs
+        songs,
+        contextMenu
     }
 }
 
 
 
+
 const mdp = (dispatch) => ({
+    openContextMenu: context => dispatch(openContextMenu(context)),
+    openModal: () => dispatch(openModal('addSong')),
+
     fetchAlbum: albumId => dispatch(fetchAlbum(albumId)),
     // fetchSongsFromAlbum: albumId => dispatch(fetchSongsFromAlbum(albumId)),
-    playCurrentSong: current_song => dispatch(playCurrentSong(current_song)),
-    // receiveSongList: songs => dispatch(receiveSongList(songs))
+    playCurrentSong: songId => dispatch(playCurrentSong(songId)),
+    // receiveSongList: songs => dispatch(receiveSongList(songs)),
+    playCurrentList: playlist => dispatch(playCurrentList(playlist))
 });
 
 

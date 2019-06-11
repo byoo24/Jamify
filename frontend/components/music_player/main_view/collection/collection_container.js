@@ -5,7 +5,7 @@ import Collection from './collection';
 
 
 const mdp = dispatch => ({
-    openModal: () => dispatch(openModal('new'))
+    openModal: () => dispatch(openModal('newPlaylist'))
 });
 
 export default connect(null, mdp)(Collection);

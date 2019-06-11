@@ -6,10 +6,13 @@ import NowPlayingCenter from './_parts/now_playing_center.jsx';
 import NowPlayingRight from './_parts/now_playing_right';
 import { connect } from 'react-redux';
 
+import { updatePlayStatus } from '../../../actions/player_actions';
 import { fetchAlbum } from '../../../actions/album_actions';
 import { fetchArtist } from '../../../actions/artist_actions';
 import { setVolume, playCurrentSong, pauseCurrentSong } from '../../../actions/player_actions';
 import { nextSong, previousSong } from '../../../actions/queue_actions';
+
+import { isEmpty } from 'lodash';
 
 
 class NowPlaying extends React.Component {
@@ -21,12 +24,15 @@ class NowPlaying extends React.Component {
             playStatus: 'play',
             currentTime: 0,
             durationTime: 0,
-            album_image: "",
-            artist_name: "",
+            queueIndex: 0,
+
             volumeStatus: "unmute",
             volume: 0.5,
             prevVolume: 0.5,
-            queueIndex: 0
+
+            album_image: "",
+            artist_name: "",
+            
         }
         
         this.controls = React.createRef();
@@ -34,43 +40,57 @@ class NowPlaying extends React.Component {
         this.playAudio = this.playAudio.bind(this);
 
         this.togglePlay = this.togglePlay.bind(this);
-        this.updateTime = this.updateTime.bind(this);
         this.setCurrentTime = this.setCurrentTime.bind(this);
-        this.setVolume = this.setVolume.bind(this);
-        this.toggleMute = this.toggleMute.bind(this);
+        this.updateTime = this.updateTime.bind(this);
         this.playNext = this.playNext.bind(this);
         this.playPrevious = this.playPrevious.bind(this);
+
+        this.setVolume = this.setVolume.bind(this);
+        this.toggleMute = this.toggleMute.bind(this);
     }
 
     componentDidUpdate(prevProps) {
+
         if (prevProps.currentSong.id !== this.props.currentSong.id) {
             let audio = this.controls.current;
+            // debugger
 
             audio.onloadedmetadata = function () {
                 this.setState({ durationTime: audio.duration });
             }.bind(this);
 
-            const that = this;
-
-            this.props.fetchAlbum(this.props.currentSong.album_id).then(
-                (albumObj) => {
-                    let { album } = albumObj;
-
-                    that.setState({ album_image: album.cover_image});
-                    that.props.fetchArtist(album.artist_id).then(
-                        (artistObj) => {
-                            let {artist} = artistObj;
-                            that.setState({ artist_name: artist.name })
-                        }
-                    )
-                }
-            );
             this.playAudio();
         }
+
+    //     if (prevProps.currentSong.id !== this.props.currentSong.id) {
+    //         let audio = this.controls.current;
+
+    //         audio.onloadedmetadata = function () {
+    //             this.setState({ durationTime: audio.duration });
+    //         }.bind(this);
+
+    //         const that = this;
+
+    //         this.props.fetchAlbum(this.props.currentSong.album_id).then(
+    //             (albumObj) => {
+    //                 let { album } = albumObj;
+
+    //                 that.setState({ album_image: album.cover_image});
+    //                 that.props.fetchArtist(album.artist_id).then(
+    //                     (artistObj) => {
+    //                         let {artist} = artistObj;
+    //                         that.setState({ artist_name: artist.name })
+    //                     }
+    //                 )
+    //             }
+    //         );
+    //         this.playAudio();
+    //     }
     }
 
 
-
+    // CENTER CONTROLS
+    // ====================
     updateTime(timestamp) {
         timestamp = Math.floor(timestamp);
         this.setState({ currentTime: timestamp });
@@ -80,11 +100,62 @@ class NowPlaying extends React.Component {
     setCurrentTime(e) {
         let audio = this.controls.current;
         let newTime = Number(e.target.value) / 100 * this.state.durationTime;
-        console.log(newTime);
+        // console.log(newTime);
 
         this.setState({ currentTime: newTime })
         audio.currentTime = newTime;
     }
+
+
+    togglePlay() {
+        let status = this.state.playStatus;
+        let audio = this.controls.current;
+
+        if (!this.props.currentSong) {
+            status = 'play';
+            this.setState({ playStatus: status });
+            return;
+        }
+
+        if (status === 'play') {
+            status = 'pause';
+
+            this.playAudio();
+        } else {
+            status = 'play';
+            audio.pause();
+        }
+
+        this.setState({ playStatus: status });
+    }
+
+
+    playNext() {
+        if (this.state.queueIndex === this.props.queue.length - 1) {
+            return;
+        }
+
+        let newIndex = this.state.queueIndex + 1;
+
+        this.setState({ queueIndex: newIndex });
+        this.props.playCurrentSong(this.props.queue[newIndex]);
+    }
+
+    playPrevious() {
+        if (this.state.queueIndex === 0) {
+            return;
+        }
+
+        let newIndex = this.state.queueIndex - 1;
+        this.setState({ queueIndex: newIndex });
+        this.props.playCurrentSong(this.props.queue[newIndex]);
+    }
+
+    // ====================
+
+
+    // RIGHT CONTROLS
+    // =====================
 
     setVolume(e) {
         let audio = this.controls.current;
@@ -92,7 +163,6 @@ class NowPlaying extends React.Component {
         this.setState({ volumeStatus: 'unmute' })
         this.setState({ volume: newVolume });
         audio.volume = newVolume;
-        console.log(newVolume);
     }
 
     toggleMute() {
@@ -112,52 +182,12 @@ class NowPlaying extends React.Component {
             this.setState({ volume: prevVol });
             audio.volume = prevVol;
         }
-        
-        
     }
 
-    togglePlay() {
-        let status = this.state.playStatus;
-        let audio = this.controls.current;
-        if (!this.props.currentSong) {
-            status = 'play';
-            this.setState({ playStatus: status });
-            return;
-        }
-
-        if(status === 'play') {
-            status = 'pause';
-            
-            this.playAudio();
-
-        } else {
-            status = 'play';
-            audio.pause();
-        }
+    // =====================
     
-        this.setState({ playStatus: status });
-    }
 
-    playNext() {
-        if (this.state.queueIndex === this.props.queue.length - 1) {
-            return;
-        }
-
-        let newIndex = this.state.queueIndex + 1;
-        
-        this.setState({ queueIndex: newIndex });
-        this.props.playCurrentSong(this.props.queue[newIndex]);
-    }
-
-    playPrevious() {
-        if (this.state.queueIndex === 0) {
-            return;
-        }
-
-        let newIndex = this.state.queueIndex - 1;
-        this.setState({ queueIndex: newIndex });
-        this.props.playCurrentSong(this.props.queue[newIndex]);
-    }
+    
 
 
 
@@ -180,39 +210,46 @@ class NowPlaying extends React.Component {
     }
 
     render() {
-
-        const { currentSong } = this.props;
-        const { audio_url } = currentSong;
-
         
+        const { currentSong, 
+                currentArtist, 
+                currentAlbum 
+            } = this.props;
+
+        const {audio_url} = currentSong;
+
+        // debugger
+
         return(
             <div className="Root__now-playing-bar">
                 <footer className="now-playing-bar-container">
                     <div className="now-playing-bar">
-                        <NowPlayingLeft 
-                            title={currentSong.title}
-                            artist_name={this.state.artist_name}
-                            album_image={this.state.album_image} />
-
+                        <NowPlayingLeft />
                         <NowPlayingCenter 
-                            togglePlay={this.togglePlay} 
+                            togglePlay={this.togglePlay}
                             playStatus={this.state.playStatus}
-                            durationTime={this.state.durationTime}
                             currentTime={this.state.currentTime}
-                            scrubberPercent={this.state.scrubberPercent}
+                            durationTime={this.state.durationTime}
                             setCurrentTime={this.setCurrentTime}
                             playNext={this.playNext}
                             playPrevious={this.playPrevious} />
-
+                        
                         <NowPlayingRight 
                             volume={this.state.volume}
-                            setVolume={this.setVolume} 
-                            toggleMute={this.toggleMute} 
-                            volumeStatus={this.state.volumeStatus} />
+                            volumeStatus={this.state.volumeStatus}
+                            setVolume={this.setVolume}
+                            toggleMute={this.toggleMute} />
 
+                        {/* <NowPlayingLeft 
+                            title={currentSong.title}
+                            artist_name={this.state.artist_name}
+                            album_image={this.state.album_image} /> */}
 
-
-                        <audio id="now-playing-player" ref={this.controls} preload="metadata" src={audio_url}>
+                            
+                        <audio id="now-playing-player" 
+                                ref={this.controls} 
+                                preload="metadata" 
+                                src={audio_url}>
                             
                         </audio>
 
@@ -228,29 +265,48 @@ class NowPlaying extends React.Component {
 
 
 
-
 const msp = (state) => {
-    
-    return{
-        currentSong: state.musicPlayer.currentSong,
-        playStatus: state.musicPlayer.controls.playStatus,
-        volume: state.musicPlayer.controls.volume,
-        queue: state.musicPlayer.queue,
-        queueIndex: 0
+    let playlist = null;
+    let currentSong = null;
+    let currentArtist = null;
+    let currentAlbum = null;
+    // const queueIds = state.nowPlaying.queueIds;
+    // const currentSongId = state.nowPlaying.currentSongId;
 
+    
+    // if ( !isEmpty(state.entities.songs) ) {
+    //     const songs = Object.values(state.entities.songs);
+    //     playlist = songs.filter((song) => queueIds.includes(song.id));
+    //     currentSong = state.entities.songs[currentSongId];
+
+    //     if (currentSong) {
+    //         currentArtist = state.entities.artists[currentSong.artist_id];
+    //         currentAlbum = state.entities.albums[currentSong.album_id];
+    //     }
+    // }
+
+    return{
+        // currentSongId,
+        currentSong: state.nowPlaying.currentSong,
+        currentArtist,
+        currentAlbum,
+        queue: state.nowPlaying.queue,
+        // playlist,
+        playStatus: state.nowPlaying.playStatus,
     }
 };
 
 
 const mdp = (dispatch) => ({
-    setVolume: (volume) => dispatch(setVolume(volume)),
-    fetchAlbum: albumId => dispatch(fetchAlbum(albumId)),
-    fetchArtist: artistId => dispatch(fetchArtist(artistId)),
-    playCurrentSong: song => dispatch(playCurrentSong(song)),
-    nextSong: num => dispatch(nextSong(num)),
-    previousSong: num => dispatch(previousSong(num))
+    // setVolume: (volume) => dispatch(setVolume(volume)),
+    // fetchAlbum: albumId => dispatch(fetchAlbum(albumId)),
+    // fetchArtist: artistId => dispatch(fetchArtist(artistId)),
+    playCurrentSong: songId => dispatch(playCurrentSong(songId)),
+    updatePlayStatus: status => dispatch(updatePlayStatus(status))
+    // nextSong: num => dispatch(nextSong(num)),
+    // previousSong: num => dispatch(previousSong(num))
 
 })
 
 
-export default withRouter(connect(msp, mdp)(NowPlaying));
+export default connect(msp, mdp)(NowPlaying);

@@ -32,7 +32,7 @@ class Genres extends React.Component {
                 <Media 
                     key={genre.id}
                     media={genre}
-                    icon="genre"
+                    type="genre"
                     size='medium'
                     view='index'
                     path={``}

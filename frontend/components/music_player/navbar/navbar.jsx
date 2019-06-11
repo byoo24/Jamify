@@ -19,14 +19,14 @@ class Navbar extends React.Component {
         const displayUser = currentUser ? (
             <div className="navbar-user">
                 <Link to='/browse'>
-                    <i className="far fa-user"></i>
+                    <i className="nav-icon spoticon-user-16"></i>
                     <span className="navbar-username">{currentUser.username}</span>
                 </Link>
 
                 <span 
                     onClick={() => this.logoutUser()} 
                     className="user-logout">
-                    <i className="fas fa-door-open"></i>
+                    <i className="nav-icon spoticon-arrow-left-16"></i>
                         logout</span>
             </div>
         ) : (
@@ -44,20 +44,20 @@ class Navbar extends React.Component {
                             <Logo />
                         </li>
                         <li>
-                            <NavLink  to='/browse/featured' activeClassName="active">
-                                <i className="fas fa-home"></i>
+                            <NavLink  to='/browse' activeClassName="active">
+                                <i className="nav-icon spoticon-home-16"></i>
                                 <span className="navbar-text navbar-search">Home</span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to='/search' activeClassName="active">
-                                <i className="fas fa-search"></i>
+                                <i className="nav-icon spoticon-search-16"></i>
                                 <span className="navbar-text navbar-search">Search</span>
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='/collection/playlists' activeClassName="active">
-                                <i className="fas fa-book"></i>
+                            <NavLink to='/collection' activeClassName="active">
+                                <i className="nav-icon spoticon-collection-16"></i>
                                 <span className="navbar-text navbar-library">Your Library</span>
                             </NavLink>
                         </li>

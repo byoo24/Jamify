@@ -53,6 +53,7 @@ class Collection extends React.Component {
                     <Route exact path="/collection/albums" render={() => <Albums changeBg={this.changeBg} />} />
                     <Route exact path="/collection/artists" render={() => <Artists changeBg={this.changeBg} />} />
                     <Route exact path="/collection/podcasts" render={() => <Podcasts changeBg={this.changeBg} />} />
+                    <Redirect to="/collection/playlists" />
                 </Switch>
             </div>
         );

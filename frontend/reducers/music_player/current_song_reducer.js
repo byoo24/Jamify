@@ -4,6 +4,7 @@ import { merge } from 'lodash';
 
 const currentSongReducer = (state = {}, action) => {
     Object.freeze(state);
+
     
     switch(action.type) {
         case PLAY_CURRENT_SONG:

@@ -33,6 +33,7 @@ class addPlaylistForm extends React.Component {
 
 
     render() {
+
         return (
             <div className="modal-playlist-container">
                 <div className="modal-playlist-wrapper">
@@ -65,9 +66,10 @@ const msp = state => {
     const { currentUser } = state.session;
     // const { playlists } = state.entities;
 
-    const playlists = Object.values(state.entities.playlists);
+    // const playlists = Object.values(state.entities.playlists);
     return {
         currentUserId: currentUser.id,
+        // playlists
         // newPlaylistId: playlists[playlists.length - 1].id
     }
 }

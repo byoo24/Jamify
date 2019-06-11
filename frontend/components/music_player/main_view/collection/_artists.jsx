@@ -13,7 +13,7 @@ class Artists extends React.Component {
                 <EmptyState
                     title={"Your artists will appear here."}
                     subtitle={"Follow artists you love to add them to Your Library."}
-                    iconType="astronaut"
+                    iconType="artist"
                 />
             </div>
         )

@@ -7,17 +7,29 @@ class EmptyState extends React.Component {
         let icon;
 
         switch(iconType) {
+            case "playlist":
+                icon = (<i className="spoticon-playlist-folder-32"></i>);
+                break;
+            case "discover":
+                icon = (<i className="spoticon-discover-32"></i>);
+                break;
+            case "release":
+                icon = (<i className="spoticon-released-32"></i>);
+                break;
+            case "chart":
+                icon = (<i className="spoticon-chart-new-32"></i>);
+                break;
             case "disc":
-                icon = (<i className="fas fa-compact-disc"></i>);
+                icon = (<i className="spoticon-album-32"></i>);
                 break;
-            case "archive":
-                icon = (<i className="fas fa-archive"></i>);
+            case "album":
+                icon = (<i className="spoticon-album-contained-32"></i>);
                 break;
-            case "astronaut":
-                icon = (<i className="fas fa-user-astronaut"></i>);
+            case "artist":
+                icon = (<i className="spoticon-artist-32"></i>);
                 break;
             case "podcast":
-                icon = (<i className="fas fa-podcast"></i>);
+                icon = (<i className="spoticon-podcasts-32"></i>);
                 break;
             default:
                 icon = null;

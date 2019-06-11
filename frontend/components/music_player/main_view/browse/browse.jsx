@@ -48,6 +48,7 @@ class Browse extends React.Component {
                     <Route exact path="/browse/genres" render={() => <Genres changeBg={this.changeBg} />} />
                     <Route exact path="/browse/newreleases" render={() => <NewReleases changeBg={this.changeBg} />} />
                     <Route exact path="/browse/discover" render={() => <Discover changeBg={this.changeBg} />} />
+                    <Redirect to="/browse/featured" />
                 </Switch>
             </div>
         );

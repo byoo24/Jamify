@@ -15,10 +15,10 @@ export default ({ togglePlay, playStatus, currentTime, durationTime, setCurrentT
 
     switch (playStatus) {
         case 'pause':
-            playBtnClass = "player-btn player-icon circled player-icon-pause"
+            playBtnClass = "player-btn spoticon-play-16 circled"
             break;
         default:
-            playBtnClass = "player-btn player-icon circled player-icon-play"
+            playBtnClass = "player-btn spoticon-pause-16 circled"
     }
 
     let scrubberPercent = Math.floor((currentTime / durationTime) * 100);
@@ -31,11 +31,11 @@ export default ({ togglePlay, playStatus, currentTime, durationTime, setCurrentT
         <div className="now-playing-bar-center">
             <div className="player-controls">
                 <div className="player-controls-buttons">
-                    <button className="player-btn player-icon player-icon-shuffle" title="Enable Shuffle"></button>
-                    <button className="player-btn player-icon player-icon-backward" onClick={playPrevious} title="Previous"></button>
+                    <button className="player-btn spoticon-shuffle-16" title="Enable Shuffle"></button>
+                    <button className="player-btn spoticon-skip-back-16" onClick={playPrevious} title="Previous"></button>
                     <button className={playBtnClass} onClick={() => togglePlay()} title="Play"></button>
-                    <button className="player-btn player-icon player-icon-forward" onClick={playNext} title="Next"></button>
-                    <button className="player-btn player-icon player-icon-repeat" title="Enable repeat"></button>
+                    <button className="player-btn spoticon-skip-forward-16" onClick={playNext} title="Next"></button>
+                    <button className="player-btn spoticon-repeat-16" title="Enable repeat"></button>
                 </div>
             </div>
             <div className="playback-bar">

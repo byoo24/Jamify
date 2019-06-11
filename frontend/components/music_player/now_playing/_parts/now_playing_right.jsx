@@ -6,9 +6,9 @@ export default ({ volume, setVolume, volumeStatus, toggleMute }) => {
     let muteStyle;
 
     if (volumeStatus === 'mute') {
-        muteStyle = ("player-btn player-icon player-icon-mute");
+        muteStyle = ("player-btn spoticon-volume-off-16");
     } else {
-        muteStyle = ( "player-btn player-icon player-icon-unmute" );
+        muteStyle = ( "player-btn spoticon-volume-onewave-16" );
     }
 
 
@@ -16,7 +16,7 @@ export default ({ volume, setVolume, volumeStatus, toggleMute }) => {
         <div className="now-playing-bar-right">
             <div className="now-playing-bar-right-extra-controls">
                 <div className="queue-list">
-                    <button className="player-btn player-icon player-icon-queue" title="Queue"></button>
+                    <button className="player-btn spoticon-queue-16" title="Queue"></button>
                 </div>
                 <div className="volume-bar">
                     <button className={muteStyle} onClick={toggleMute} aria-label="Mute"></button>
