@@ -21,3 +21,30 @@
         }
     }
 }
+
+
+.playlist-error,
+.playlist-success {
+    display: block;
+    position: absolute;
+    padding: 10px 20px;
+    top: 0;
+    right: 0;
+    color: white;
+    left: 0;
+    z-index: 3000;
+}
+
+
+.playlist-success {
+    background: $spotify_green;
+}
+
+.playlist-error {
+    background: red;
+}
+
+
+
+
+    

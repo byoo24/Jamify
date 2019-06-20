@@ -16,7 +16,7 @@ class PlaylistIndex extends React.Component {
     }
 
     render() {
-        const { playlists } = this.props;
+        const { playlists, songIds } = this.props;
 
         const playlistList = (playlists.length < 1) ? (
             <EmptyState
@@ -33,6 +33,7 @@ class PlaylistIndex extends React.Component {
                         type='playlist'
                         size='medium'
                         view='index'
+                        songIds={songIds}
                         path={`/playlist/${playlist.id}`}
                     />
                 )

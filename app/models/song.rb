@@ -34,5 +34,5 @@ class Song < ApplicationRecord
         through: :playlist_songs,
         source: :playlist
 
-    # has_one_attached :audio_file
+    has_one_attached :audio_file
 end

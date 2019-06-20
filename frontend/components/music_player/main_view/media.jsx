@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { playCurrentList } from '../../../actions/player_actions';
 import { fetchAlbum } from '../../../actions/album_actions';
+import { fetchPlaylist } from '../../../actions/playlist_actions';
 import { connect } from 'react-redux';
 
 class Media extends React.Component {
@@ -18,7 +19,9 @@ class Media extends React.Component {
 
     activeMedia() {
         let mediaComponent = this.mediaControl.current;
-        mediaComponent.classList.add('active');
+        if (mediaComponent !== null){
+            mediaComponent.classList.add('active');
+        }
     }
 
     inactiveMedia(){
@@ -37,20 +40,41 @@ class Media extends React.Component {
     }
 
     playThisPlaylist() {
-        const { media, type, songs } = this.props;
-        const { songIds } = media;
-        let playlist = Object.values(songs);
+        const { media, type, songs, songIds, albumId } = this.props;
+        // const { songIds } = media;
+        let playlist = []; //fallback
+
         
         const that = this;
-
-        if(playlist.length > 0) {
+        
+        if ((songs !== undefined && songIds !== undefined) && (songs.length > 0 && songIds.length > 0)) {
+            playlist = songs.filter((song) => songIds.includes(song.id));
             this.props.playCurrentList(playlist);
+
+        } else if ((songs !== undefined && albumId !== undefined) && (songs.length > 0 && typeof albumId === 'number' )) {
+            playlist = songs.filter((song) => song.album_id === albumId);
+            this.props.playCurrentList(playlist);
+
         } else if (type == 'album') {
             this.props.fetchAlbum(media.id)
                 .then((payload) => {
-                    debugger
                     playlist = Object.values(payload.songs);
                 }).then(() => this.props.playCurrentList(playlist));
+                
+        } else if (type == 'playlist') {
+            const { currentUserId } = this.props;
+            this.props.fetchPlaylist(currentUserId, media.id)
+                .then((payload) => {
+                    playlist = Object.values(payload.songs);
+                    that.props.playCurrentList(playlist);
+                });
+
+        } else if (type == 'artist') {
+            this.props.fetchAlbum(media.albumIds[0])
+                .then((payload) => {
+                    playlist = Object.values(payload.songs);
+                    that.props.playCurrentList(playlist);
+                });
         }
 
     }
@@ -121,7 +145,13 @@ class Media extends React.Component {
                         <span className="spoticon-play-32"
                             onClick={this.playThisPlaylist}></span>
                     </span>
-                    <Link to={path} className="media-link"></Link>
+                    {
+                        path === undefined ? (
+                            <div className="media-link"></div>
+                        ) : (
+                            <Link to={path} className="media-link"></Link>
+                        )
+                    }
                 </div>
 
                 <div className="media-info">
@@ -132,14 +162,19 @@ class Media extends React.Component {
     }
 }
 
-const msp = state => ({
-    songs: state.entities.songs
-});
+const msp = state => {
+    return {
+        songs: Object.values(state.entities.songs),
+        currentUserId: state.session.currentUser.id
+    }
+};
 
 
 const mdp = dispatch => ({
     fetchAlbum: albumId => dispatch(fetchAlbum(albumId)),
-    playCurrentList: playlistIds => dispatch(playCurrentList(playlistIds))
+    fetchPlaylist: (currentUserId, playlistId) => dispatch(fetchPlaylist(currentUserId, playlistId)),
+    playCurrentList: playlistIds => dispatch(playCurrentList(playlistIds)),
+
 });
 
 export default withRouter(connect(msp, mdp)(Media));

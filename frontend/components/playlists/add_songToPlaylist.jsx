@@ -5,6 +5,8 @@ import { closeModal, openModal } from '../../actions/modal_action';
 import { createPlaylist, fetchPlaylists } from '../../actions/playlist_actions';
 import { addSongToPlaylist } from '../../actions/playlist_actions';
 
+
+
 class addPlaylistForm extends React.Component {
     constructor(props) {
         super(props);
@@ -12,7 +14,12 @@ class addPlaylistForm extends React.Component {
             name: ""
         }
         this.changeName = this.changeName.bind(this);
+        this.mediaControl = React.createRef();
+        this.activeMedia = this.activeMedia.bind(this);
+        this.inactiveMedia = this.inactiveMedia.bind(this);
+
         // this.newPlaylist = this.newPlaylist.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -24,6 +31,26 @@ class addPlaylistForm extends React.Component {
         this.setState({
             name: e.target.value
         });
+    }
+
+
+    activeMedia() {
+        let mediaComponent = this.mediaControl.current;
+        mediaComponent.classList.add('active');
+    }
+
+    inactiveMedia() {
+        // let mediaComponent = this.mediaControl.current;
+        // mediaComponent.classList.remove('active');
+    }
+
+    
+    handleClick(playlistId) {
+        const songId = this.props.songToBeAdded;
+        this.props.addSongToPlaylist(playlistId, songId).then(
+            () => { this.props.closeModal(); }
+        );
+
     }
 
     // newPlaylist() {
@@ -40,16 +67,18 @@ class addPlaylistForm extends React.Component {
 
     render() {
         const { playlists } = this.props;
-
         const allPlaylists = (
             playlists.map((playlist) => {
-                debugger
                 return (
-                    <div className="media-object" key={playlist.id}>
+                    <div className="media-object addPlaylist-object" 
+                        key={playlist.id} 
+                        ref={this.mediaControl}
+                        onClick={() => this.handleClick(playlist.id)}>
+                            
                         <div className="media-object-container media-medium">
                             <span className="spoticon-playlist-32"></span>
                             <span className="media-play">
-                                <span className="spoticon-play-32"></span>
+                                <span className="spoticon-add-to-playlist-32"></span>
                             </span>
                         </div>
                         <div className="media-info">
@@ -89,12 +118,12 @@ class addPlaylistForm extends React.Component {
 
 const msp = state => {
     const { currentUser } = state.session;
-    // const { playlists } = state.entities;
-
     const playlists = Object.values(state.entities.playlists);
+    const songToBeAdded = state.ui.songToBeAdded;
     return {
         currentUserId: currentUser.id,
-        playlists
+        playlists,
+        songToBeAdded
         // newPlaylistId: playlists[playlists.length - 1].id
     }
 }
@@ -103,7 +132,7 @@ const mdp = dispatch => ({
     openModal: () => dispatch(openModal('newPlaylist')),
     closeModal: () => dispatch(closeModal()),
     fetchPlaylists: (currentUserId) => dispatch(fetchPlaylists()),
-    addSongToPlaylist: (playlistId, songId) => addSongToPlaylist(playlistId, songId)
+    addSongToPlaylist: (playlistId, songId) => dispatch(addSongToPlaylist(playlistId, songId))
 });
 
 export default withRouter(connect(msp, mdp)(addPlaylistForm));

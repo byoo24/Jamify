@@ -15,10 +15,10 @@ export default ({ togglePlay, playStatus, currentTime, durationTime, setCurrentT
 
     switch (playStatus) {
         case 'pause':
-            playBtnClass = "player-btn spoticon-play-16 circled"
+            playBtnClass = "player-btn spoticon-pause-16 circled"
             break;
         default:
-            playBtnClass = "player-btn spoticon-pause-16 circled"
+            playBtnClass = "player-btn spoticon-play-16 circled"
     }
 
     let scrubberPercent = Math.floor((currentTime / durationTime) * 100);

@@ -12,10 +12,9 @@ export const receiveAlbum = ({ album, artist, songs }) => ({
 });
 
 
-export const receiveAlbums = ({albums, songs}) => ({
+export const receiveAlbums = ({albums}) => ({
     type: RECEIVE_ALBUMS,
-    albums,
-    songs
+    albums
 })
 
 export const receiveAlbumsFromArtist = albums => ({
@@ -26,7 +25,7 @@ export const receiveAlbumsFromArtist = albums => ({
 
 export const fetchAlbum = id => dispatch => (
     AlbumAPIUtil.fetchAlbum(id).then(
-        album => dispatch(receiveAlbum(album))
+        payload => dispatch(receiveAlbum(payload))
     )
 );
 
@@ -35,11 +34,5 @@ export const fetchAlbum = id => dispatch => (
 export const fetchAlbums = () => dispatch => (
     AlbumAPIUtil.fetchAlbums().then(
         payload => dispatch(receiveAlbums(payload))
-    )
-);
-
-export const fetchAlbumsFromArtist = artist_id => dispatch => (
-    AlbumAPIUtil.fetchAlbumsFromArtist(artist_id).then(
-        albums => dispatch(receiveAlbumsFromArtist(albums))
     )
 );

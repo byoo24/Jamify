@@ -31,6 +31,9 @@ class EmptyState extends React.Component {
             case "podcast":
                 icon = (<i className="spoticon-podcasts-32"></i>);
                 break;
+            case "genre":
+                icon = (<i className="spoticon-star-32"></i>);
+                break;
             default:
                 icon = null;
         }

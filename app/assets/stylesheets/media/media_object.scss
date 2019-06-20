@@ -60,6 +60,7 @@
         .media-play { display: none; }
     }
 
+    &.addPlaylist-object:hover,
     &.active {
         .media-object-container {
 
@@ -81,7 +82,9 @@
                 z-index: 20;
 
                 [class^="spoticon-play-"],
-                [class*=" spoticon-play-"] {
+                [class*=" spoticon-play-"],
+                [class^="spoticon-add-to-playlist-"],
+                [class*=" spoticon-add-to-playlist-"] {
                     display: block;
                 }
 

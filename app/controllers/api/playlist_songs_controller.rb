@@ -1,20 +1,23 @@
-class Api::PlaylistSongs < ApplicationController
+class Api::PlaylistSongsController < ApplicationController
+
 
     def create
-        @playlist_song = PlaylistSong.new(playlist_songs_params)
-
+        @playlist_song = PlaylistSong.new()
+        @playlist_song.playlist_id = params[:playlist_id]
+        @playlist_song.song_id = params[:song_id]
+        
         if @playlist_song.save
-            render json: ['Song successfully added']
+            render json: ['Track was added to your playlist.']
         else
-            render json: @playlist_song.errors.full_messages, status: 422
+            render json: ['Sorry something went wrong. Can\'t add duplicate songs.'], status: 422
         end
     end
 
 
     private
 
-    def playlist_songs_params
-        params.require(:playlistSong).permit(:playlist_id, :song_id)
-    end
+    # def playlist_songs_params
+    #     params.require(:playlistSong).permit(:playlist_id, :song_id)
+    # end
 
 end

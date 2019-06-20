@@ -1,52 +1,21 @@
 import React from 'react';
-import { fetchGenres } from '../../../../actions/genre_actions';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import EmptyState from '../empty_state';
 
-import Media from '../media';
 
 class Genres extends React.Component {
-    constructor(props) {
-        super(props);
-        this.setCoverStyle = this.setCoverStyle.bind(this);
-    }
 
     componentDidMount() {
-        this.props.changeBg('red-gradient');
-        this.props.fetchGenres();
-    }
-
-    setCoverStyle(genre) {
-        return {
-            backgroundImage: `url(${genre.genre_cover})`
-        }
+        this.props.changeBg('indigo-gradient');
     }
 
     render() {
-        const { genres } = this.props;
-
-        const genreList = genres.map((genre) => {
-        const coverStyle = this.setCoverStyle(genre);
-
-            return (
-                <Media 
-                    key={genre.id}
-                    media={genre}
-                    type="genre"
-                    size='medium'
-                    view='index'
-                    path={``}
-                />
-            )
-        });
-
         return (
-            <div className="media-index-root">
-                <div className="media-index-container">
-                    <div className="media-index">
-                        {genreList}
-                    </div>
-                </div>
+            <div className="collection-artists">
+                <EmptyState
+                    title={"Genres will appear here."}
+                    subtitle={"Find your favorite songs based on your mood."}
+                    iconType="genre"
+                />
             </div>
         )
     }
@@ -57,14 +26,4 @@ class Genres extends React.Component {
 
 
 
-const msp = state => ({
-    genres: Object.values(state.entities.genres)
-});
-
-
-const mdp = dispatch => ({
-    fetchGenres: () => dispatch(fetchGenres())
-});
-
-
-export default connect(msp, mdp)(Genres);
+export default Genres;

@@ -10,22 +10,31 @@ export const receiveArtist = ({artist, albums}) => ({
 });
 
 
-export const receiveArtists = artists => ({
+export const receiveArtists = ({artists}) => ({
     type: RECEIVE_ARTISTS,
     artists
 });
 
 
 
-export const fetchArtist = artist_id => dispatch => (
-    ArtistAPIUtil.fetchArtist(artist_id).then(
-        payload => dispatch(receiveArtist(payload))
+// export const fetchArtist = artist_id => dispatch => (
+//     ArtistAPIUtil.fetchArtist(artist_id).then(
+//         payload => dispatch(receiveArtist(payload))
+//     )
+// );
+
+export const fetchArtist = artist_id => dispatch => {
+    return ArtistAPIUtil.fetchArtist(artist_id).then(
+        payload => {
+            return dispatch(receiveArtist(payload))
+        }
     )
-);
+}
+
 
 
 export const fetchArtists = () => dispatch => (
     ArtistAPIUtil.fetchArtists().then(
-        artists => dispatch(receiveArtists(artists))
+        payload => dispatch(receiveArtists(payload))
     )
 );

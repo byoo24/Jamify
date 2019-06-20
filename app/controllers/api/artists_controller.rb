@@ -1,9 +1,9 @@
 class Api::ArtistsController < ApplicationController
 
     def index
-        @rand_artists = Artist.limit(8)
-        # @rand_artists = Artist.limit(8).with_attached_artist_images
-        if @rand_artists
+        @artists = Artist.includes(:albums, :songs).limit(8)
+        # @artists = Artist.includes(:albums, :songs).limit(8).with_attached_artist_images
+        if @artists
             render :index
         else
             render json: @rand_artists.errors.full_messages, status: 422
@@ -13,10 +13,11 @@ class Api::ArtistsController < ApplicationController
 
 
     def show
-        @artist = Artist.find(params[:id])
-        # @artist = Artist.with_attached_artist_images.find(params[:id])
+        @artist = Artist.includes(:albums, :songs).find(params[:id])
         
+        # @artist = Artist.with_attached_artist_images.find(params[:id])
         if @artist
+            # @albums = @artist.albums.includes(:songs)
             render :show
         else
             render json: ['That artist doesn\'t exist.'], status: 422
@@ -35,7 +36,7 @@ class Api::ArtistsController < ApplicationController
         if @albums
             render :album_index
         else
-            render json: ['That artist deson\'t exist'], status: 422
+            render json: ['That artist doesn\'t exist'], status: 422
         end
     end
 

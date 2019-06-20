@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
 
-import Featured from './_featured';
-import Podcasts from './_podcasts';
+import Artists from './_artists';
+import Albums from './_albums';
 import Charts from './_charts';
 import Genres from './_genres';
 import NewReleases from './_new_releases';
@@ -31,8 +31,8 @@ class Browse extends React.Component {
                 <div className="collection-header">
                     <div className="sub-nav">
                         <ul className="sub-nav-container">
-                            <li><NavLink to="/browse/featured" className="sub-nav-item">Featured</NavLink></li>
-                            <li><NavLink to="/browse/podcasts" className="sub-nav-item">Podcasts</NavLink></li>
+                            <li><NavLink to="/browse/artists" className="sub-nav-item">Artists</NavLink></li>
+                            <li><NavLink to="/browse/albums" className="sub-nav-item">Albums</NavLink></li>
                             <li><NavLink to="/browse/charts" className="sub-nav-item">Charts</NavLink></li>
                             <li><NavLink to="/browse/genres" className="sub-nav-item">Genres Moods</NavLink></li>
                             <li><NavLink to="/browse/newreleases" className="sub-nav-item">New Releases</NavLink></li>
@@ -42,13 +42,13 @@ class Browse extends React.Component {
                 </div>
 
                 <Switch>
-                    <Route exact path="/browse/featured" render={() => <Featured changeBg={this.changeBg} />} />
-                    <Route exact path="/browse/podcasts" render={() => <Podcasts changeBg={this.changeBg} />} />
+                    <Route exact path="/browse/artists" render={() => <Artists changeBg={this.changeBg} />} />
+                    <Route exact path="/browse/albums" render={() => <Albums changeBg={this.changeBg} />} />
                     <Route exact path="/browse/charts" render={() => <Charts changeBg={this.changeBg} />} />
                     <Route exact path="/browse/genres" render={() => <Genres changeBg={this.changeBg} />} />
                     <Route exact path="/browse/newreleases" render={() => <NewReleases changeBg={this.changeBg} />} />
                     <Route exact path="/browse/discover" render={() => <Discover changeBg={this.changeBg} />} />
-                    <Redirect to="/browse/featured" />
+                    <Redirect to="/browse/artists" />
                 </Switch>
             </div>
         );

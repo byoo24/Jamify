@@ -11,7 +11,11 @@ class ArtistShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchArtist(this.props.match.params.artistId);
+        const artistId = this.props.match.params.artistId;
+        if (artistId !== undefined) {
+            this.props.fetchArtist(artistId);
+
+        }
         // this.props.fetchAlbumsFromArtist(this.props.match.params.artistId);
 
     }
@@ -117,8 +121,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
     return {
-        fetchArtist: id => dispatch(fetchArtist(id)),
-        // fetchAlbumsFromArtist: artistId => dispatch(fetchAlbumsFromArtist(artistId))
+        fetchArtist: id => dispatch(fetchArtist(id))
     }
 }
 

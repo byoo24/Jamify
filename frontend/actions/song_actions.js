@@ -2,6 +2,22 @@ import * as SongAPIUtil from '../util/song_api_util';
 
 export const RECEIVE_SONG = "RECEIVE_SONG";
 export const RECEIVE_SONGS_FROM_ALBUM = "RECEIVE_SONGS_FROM_ALBUM";
+export const RECEIVE_SONG_ID = "RECEIVE_SONG_ID";
+export const CLEAR_SONG_ID = "CLEAR_SONG_ID";
+
+
+
+export const receiveSongId = songId => ({
+    type: RECEIVE_SONG_ID,
+    songId
+});
+
+
+export const clearSongId = () => ({
+    type: CLEAR_SONG_ID
+})
+
+
 
 export const receiveSong = song => ({
     type: RECEIVE_SONG,

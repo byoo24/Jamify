@@ -53,7 +53,6 @@ class NowPlaying extends React.Component {
 
         if (prevProps.currentSong.id !== this.props.currentSong.id) {
             let audio = this.controls.current;
-            // debugger
 
             audio.onloadedmetadata = function () {
                 this.setState({ durationTime: audio.duration });
@@ -100,7 +99,6 @@ class NowPlaying extends React.Component {
     setCurrentTime(e) {
         let audio = this.controls.current;
         let newTime = Number(e.target.value) / 100 * this.state.durationTime;
-        // console.log(newTime);
 
         this.setState({ currentTime: newTime })
         audio.currentTime = newTime;
@@ -217,8 +215,6 @@ class NowPlaying extends React.Component {
             } = this.props;
 
         const {audio_url} = currentSong;
-
-        // debugger
 
         return(
             <div className="Root__now-playing-bar">
