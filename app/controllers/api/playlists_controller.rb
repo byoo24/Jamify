@@ -57,11 +57,11 @@ class Api::PlaylistsController < ApplicationController
     #     end
     # end
 
-    # def destroy
-    #     @playlist = current_user.playlists.find(params[:id])
-    #     @playlist.destroy()
-    #     render json: @playlist.id
-    # end
+    def destroy
+        @playlist = current_user.playlists.find(params[:id])
+        @playlist.destroy()
+        render json: @playlist.id
+    end
 
     private
 

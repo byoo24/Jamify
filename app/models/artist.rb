@@ -22,5 +22,5 @@ class Artist < ApplicationRecord
         foreign_key: :featured_id,
         class_name: :Song
 
-    # has_many_attached :artist_images
+    has_many_attached :artist_images
 end

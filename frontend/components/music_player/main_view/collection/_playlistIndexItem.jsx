@@ -9,8 +9,6 @@ class PlaylistIndexItem extends React.Component {
     render() {
         const {id, name} = this.props.playlist;
         return(
-
-
             <div className="album-wrap">
                 <Link to={{pathname: `/playlist/${id}`}} className="album-medium">
                     <div className="icon-container box-shadow">

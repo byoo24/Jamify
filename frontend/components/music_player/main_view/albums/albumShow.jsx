@@ -90,7 +90,7 @@ class AlbumShow extends React.Component {
 
 
     render() {
-        const { album, artist, songs, contextMenu } = this.props;
+        const { album, artist, songs, contextMenu, cover_image } = this.props;
         const songIds = album ? album.songIds : undefined;
         
         const songList = songs ? (
@@ -106,6 +106,7 @@ class AlbumShow extends React.Component {
         ) : null
 
         
+        const thumbnail_url = album ? album.cover_image : null;
     
 
         return (
@@ -121,6 +122,7 @@ class AlbumShow extends React.Component {
                             size="large"
                             view="show"
                             songIds={songIds}
+                            thumbnail_url={thumbnail_url}
                             path={`/album/${this.props.match.params.albumId}`}
                         />
                         <button onClick={this.playThisPlaylist} className="btn btn-green" style={{display: "block", marginLeft: "auto", marginRight: "auto"}}>PLAY</button>
@@ -154,12 +156,16 @@ class AlbumShow extends React.Component {
 
 const msp = (state, ownProps) => {
     const album = state.entities.albums[ownProps.match.params.albumId];
-    let songs, artist;    
+    let artist = null, songs = null;    
     
     if (album) {
         // songs = Object.keys(state.entities.songs).map(key => state.entities.songs[key]);
-        songs = Object.values(state.entities.songs);
+        const music = Object.values(state.entities.songs);
         artist = state.entities.artists[album.artist_id];
+        
+        songs = music.length > 0 ? (
+            music.filter(song => album.songIds.includes(song.id))
+        ) : ( null )
     }
 
     

@@ -37,7 +37,7 @@ export const receivePlaylist = ({playlist, songs}) => {
 
 
 
-export const deletePlaylist = playlistId => ({
+export const destroyPlaylist = playlistId => ({
     type: DELETE_PLAYLIST,
     playlistId
 });
@@ -99,11 +99,11 @@ export const createPlaylist = (currentUserId, playlist) => {
 // );
 
 
-// export const destroyPlaylist = (user_id, playlist_id) => dispatch => (
-//     PlaylistAPIUtil.destroyPlaylist(user_id, playlist_id).then(
-//         playlist_id => dispatch(delete_id(playlist_id))
-//     )
-// );
+export const deletePlaylist = (user_id, playlist_id) => dispatch => (
+    PlaylistAPIUtil.deletePlaylist(user_id, playlist_id).then(
+        playlist_id => dispatch(destroyPlaylist(playlist_id))
+    )
+);
 
 
 

@@ -5,7 +5,7 @@ import { fetchAlbum } from '../../../actions/album_actions';
 import { fetchPlaylist } from '../../../actions/playlist_actions';
 import { connect } from 'react-redux';
 
-class Media extends React.Component {
+class MediaPlaylist extends React.Component {
     constructor(props) {
         super(props);
 
@@ -19,20 +19,20 @@ class Media extends React.Component {
 
     activeMedia() {
         let mediaComponent = this.mediaControl.current;
-        if (mediaComponent !== null){
+        if (mediaComponent !== null) {
             mediaComponent.classList.add('active');
         }
     }
 
-    inactiveMedia(){
+    inactiveMedia() {
         let mediaComponent = this.mediaControl.current;
         mediaComponent.classList.remove('active');
     }
 
     goToPath(e) {
         e.preventDefault();
-        
-        if(this.props.view == 'show' && !this.props.path) {
+
+        if (this.props.view == 'show' && !this.props.path) {
             return;
         }
         const path = this.props.path;
@@ -44,14 +44,14 @@ class Media extends React.Component {
         // const { songIds } = media;
         let playlist = []; //fallback
 
-        
+
         const that = this;
-        
+
         if ((songs !== undefined && songIds !== undefined) && (songs.length > 0 && songIds.length > 0)) {
             playlist = songs.filter((song) => songIds.includes(song.id));
             this.props.playCurrentList(playlist);
 
-        } else if ((songs !== undefined && albumId !== undefined) && (songs.length > 0 && typeof albumId === 'number' )) {
+        } else if ((songs !== undefined && albumId !== undefined) && (songs.length > 0 && typeof albumId === 'number')) {
             playlist = songs.filter((song) => song.album_id === albumId);
             this.props.playCurrentList(playlist);
 
@@ -60,7 +60,7 @@ class Media extends React.Component {
                 .then((payload) => {
                     playlist = Object.values(payload.songs);
                 }).then(() => this.props.playCurrentList(playlist));
-                
+
         } else if (type == 'playlist') {
             const { currentUserId } = this.props;
             this.props.fetchPlaylist(currentUserId, media.id)
@@ -81,22 +81,15 @@ class Media extends React.Component {
 
 
     render() {
-        const { media, type, user, size, view, path, thumbnail_url } = this.props;
+        const { media, type, user, size, view, path, playThisPlaylist } = this.props;
         let containerClassNames = null;
         let spotIcon = null;
         let mediaInfo = null;
-        
-        let coverImgClass = "media-cover";
 
-        let coverImgBG = {
-            backgroundImage: `url(${thumbnail_url})`,
-        }
-
-
-        switch( type ){
+        switch (type) {
             case 'playlist':
                 containerClassNames = `media-object-container media-${size}`;
-                spotIcon = <span className="spoticon-playlist-32"></span>; 
+                spotIcon = <span className="spoticon-playlist-32"></span>;
                 break;
             case 'genre':
                 containerClassNames = `media-object-container media-${size}`;
@@ -109,24 +102,22 @@ class Media extends React.Component {
             case 'artist':
                 containerClassNames = `media-object-container media-${size} media-artist`;
                 spotIcon = <span className="spoticon-artist-32"></span>;
-                coverImgBG = { backgroundImage: `url(${thumbnail_url})`, borderRadius: '500px' };
-                coverImgClass = "media-cover media-artist";
                 break;
         }
 
         if (media) {
-            switch( view ) {
+            switch (view) {
                 case 'show':
                     mediaInfo = (
                         <>
-                        <h1 className='media-title'>
-                            {media ? media.title : null}
-                            {media ? media.name : null}
-                            {media ? media.category_name : null}
-                        </h1>
-                        <span className='media-author'>
-                            {user ? user.name : null}
-                        </span>
+                            <h1 className='media-title'>
+                                {media ? media.title : null}
+                                {media ? media.name : null}
+                                {media ? media.category_name : null}
+                            </h1>
+                            <span className='media-author'>
+                                {user ? user.name : null}
+                            </span>
                         </>
                     );
                     break;
@@ -142,31 +133,29 @@ class Media extends React.Component {
             }
         }
 
-        return(
-            <div className="media-object" 
-                ref={this.mediaControl} 
-                onMouseEnter={this.activeMedia} 
+        return (
+            <div className="media-object"
+                ref={this.mediaControl}
+                onMouseEnter={this.activeMedia}
                 onMouseLeave={this.inactiveMedia}>
 
                 <div className={containerClassNames}>
-                    
+                    {spotIcon}
                     <span className="media-play">
                         <span className="spoticon-play-32"
                             onClick={this.playThisPlaylist}></span>
                     </span>
-                    <div className={coverImgClass} style={coverImgBG}></div>
-                    {spotIcon}
                     {
                         path === undefined ? (
                             <div className="media-link"></div>
                         ) : (
-                            <Link to={path} className="media-link"></Link>
-                        )
+                                <Link to={path} className="media-link"></Link>
+                            )
                     }
                 </div>
 
                 <div className="media-info">
-                    { mediaInfo }
+                    {mediaInfo}
                 </div>
             </div>
         )
@@ -188,4 +177,4 @@ const mdp = dispatch => ({
 
 });
 
-export default withRouter(connect(msp, mdp)(Media));
+export default withRouter(connect(msp, mdp)(MediaPlaylist));

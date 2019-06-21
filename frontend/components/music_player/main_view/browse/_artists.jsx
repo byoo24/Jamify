@@ -20,7 +20,10 @@ class Artists extends React.Component {
     render() {
         const { artists } = this.props;
 
-        const listArtists = artists.map((artist) => {
+        const listArtists = artists ? artists.map((artist) => {
+            
+            let albumId = artist.albumIds !== undefined ? artist.albumIds[0] : null;
+
             return (
                 <Media
                     key={artist.id}
@@ -28,11 +31,12 @@ class Artists extends React.Component {
                     type='artist'
                     size='medium'
                     view='index'
-                    albumId={artist.albumIds[0]}
+                    thumbnail_url={artist.image_url}
+                    albumId={albumId}
                     path={`/artist/${artist.id}`}
                 />
             )
-        });
+        }) : null;
 
         let showArtists = !(artists) ? (
             <EmptyState

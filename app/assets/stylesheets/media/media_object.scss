@@ -58,6 +58,19 @@
         &.media-artist { border-radius: 500px; }
 
         .media-play { display: none; }
+
+
+        .media-cover{
+            display: block;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+
+            &:before {
+                display: none;
+            }
+        }
     }
 
     &.addPlaylist-object:hover,
@@ -94,6 +107,25 @@
                     transform: scale(1.1);
                 }
             } // .media-play
+
+            .media-cover:before{
+                display: block;
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,.5);
+            }
+
+            .media-artist:before{
+                display: block;
+                position: absolute;
+                content: '';
+                border-radius: 500px;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,.5);
+            }
 
             .media-link {
                 display: block;

@@ -6,9 +6,7 @@ end
 json.albums do 
     @artist.albums.each do |album|
         json.set! album.id do
-            json.extract! album, :id, :title, :artist_id
-            # json.cover_image url_for(album.cover_image)
-            json.songIds album.songs.pluck(:id)
+            json.partial! 'api/albums/album', album: album
         end
     end
 

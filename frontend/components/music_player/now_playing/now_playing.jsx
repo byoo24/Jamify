@@ -29,10 +29,6 @@ class NowPlaying extends React.Component {
             volumeStatus: "unmute",
             volume: 0.5,
             prevVolume: 0.5,
-
-            album_image: "",
-            artist_name: "",
-            
         }
         
         this.controls = React.createRef();
@@ -52,11 +48,23 @@ class NowPlaying extends React.Component {
     componentDidUpdate(prevProps) {
 
         if (prevProps.currentSong.id !== this.props.currentSong.id) {
+            const { currentArtist, currentAlbum } = this.props;
+
             let audio = this.controls.current;
+
+            // this.setState({
+            //     artist_name: currentArtist.name
+            // });
+
+            // this.setState({
+            //     album_image: currentAlbum.cover_image
+            // });
 
             audio.onloadedmetadata = function () {
                 this.setState({ durationTime: audio.duration });
             }.bind(this);
+
+
 
             this.playAudio();
         }
@@ -215,12 +223,18 @@ class NowPlaying extends React.Component {
             } = this.props;
 
         const {audio_url} = currentSong;
+        const artistName = currentArtist ? currentArtist.name : null;
+        const albumImg = currentAlbum ? currentAlbum.cover_image : null;
 
         return(
             <div className="Root__now-playing-bar">
                 <footer className="now-playing-bar-container">
                     <div className="now-playing-bar">
-                        <NowPlayingLeft />
+                        <NowPlayingLeft
+                            title={currentSong.title}
+                            artist_name={artistName}
+                            album_image={albumImg} />
+
                         <NowPlayingCenter 
                             togglePlay={this.togglePlay}
                             playStatus={this.state.playStatus}
@@ -263,11 +277,16 @@ class NowPlaying extends React.Component {
 
 const msp = (state) => {
     let playlist = null;
-    let currentSong = null;
+    let currentSong = state.nowPlaying.currentSong;
     let currentArtist = null;
     let currentAlbum = null;
     // const queueIds = state.nowPlaying.queueIds;
     // const currentSongId = state.nowPlaying.currentSongId;
+
+    if (currentSong) {
+        currentArtist = state.entities.artists[currentSong.artist_id];
+        currentAlbum = state.entities.albums[currentSong.album_id];
+    }
 
     
     // if ( !isEmpty(state.entities.songs) ) {
@@ -282,12 +301,10 @@ const msp = (state) => {
     // }
 
     return{
-        // currentSongId,
-        currentSong: state.nowPlaying.currentSong,
+        currentSong,
         currentArtist,
         currentAlbum,
         queue: state.nowPlaying.queue,
-        // playlist,
         playStatus: state.nowPlaying.playStatus,
     }
 };

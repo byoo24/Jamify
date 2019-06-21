@@ -48,6 +48,7 @@ class ArtistShow extends React.Component {
                     type={'album'}
                     size='medium'
                     view='index'
+                    thumbnail_url={album.cover_image}
                     path={`/album/${album.id}`}
                 />
             ))
