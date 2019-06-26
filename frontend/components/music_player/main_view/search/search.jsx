@@ -40,7 +40,7 @@ class Search extends React.Component {
 
 
     render() {
-        debugger
+        
         const artists = Object.values(this.state.artists);
         const albums = Object.values(this.state.albums);
         // debugger
@@ -106,7 +106,7 @@ class Search extends React.Component {
             </div>
         ) : null;
         
-        debugger
+        
 
         const displayResults = resultArtists || resultAlbums ? (
             <>
