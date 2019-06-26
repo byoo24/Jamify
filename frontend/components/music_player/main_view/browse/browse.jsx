@@ -33,10 +33,8 @@ class Browse extends React.Component {
                         <ul className="sub-nav-container">
                             <li><NavLink to="/browse/artists" className="sub-nav-item">Artists</NavLink></li>
                             <li><NavLink to="/browse/albums" className="sub-nav-item">Albums</NavLink></li>
-                            <li><NavLink to="/browse/charts" className="sub-nav-item">Charts</NavLink></li>
                             <li><NavLink to="/browse/genres" className="sub-nav-item">Genres Moods</NavLink></li>
                             <li><NavLink to="/browse/newreleases" className="sub-nav-item">New Releases</NavLink></li>
-                            <li><NavLink to="/browse/discover" className="sub-nav-item">Discover</NavLink></li>
                         </ul>
                     </div>
                 </div>

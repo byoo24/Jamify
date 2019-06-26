@@ -6,6 +6,7 @@
         top: 0;
         left: 230px;
         right: 0;
+        z-index: 50;
 
         .search-input-container {
             padding: 0 32px;
@@ -26,4 +27,9 @@
             }
         }
     }
+}
+
+
+.search-results {
+    top: 60px;
 }

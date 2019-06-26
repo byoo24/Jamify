@@ -37,7 +37,6 @@ class Collection extends React.Component {
                             <li><NavLink to="/collection/tracks" className="sub-nav-item">Favorite Songs</NavLink></li>
                             <li><NavLink to="/collection/albums" className="sub-nav-item">Albums</NavLink></li>
                             <li><NavLink to="/collection/artists" className="sub-nav-item">Artists</NavLink></li>
-                            <li><NavLink to="/collection/podcasts" className="sub-nav-item">Podcasts</NavLink></li>
                         </ul>
                     </div>
                     

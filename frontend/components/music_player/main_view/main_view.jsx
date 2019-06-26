@@ -5,7 +5,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Browse from './browse/browse';
 
 // Search
-import Recent from './search/recent';
+import Search from './search/search_container';
 
 // Collection
 import Collection from './collection/collection_container';
@@ -30,7 +30,7 @@ class MainView extends React.Component {
                 <Switch>
                     <Route path="/browse" component={Browse} />
                     <Route path="/collection" component={Collection} />
-                    <Route path="/search" component={Recent} />
+                    <Route path="/search" component={Search} />
                     <Route exact path="/playlist/:playlistId" component={Playlist} />
                     <Route exact path="/artist/:artistId" component={Artist} />
                     <Route exact path="/album/:albumId" component={Album} />

@@ -157,92 +157,78 @@ require "open-uri"
 # ALBUM
 # ====================================
 
+katy_perry = Artist.find_by(name: "Katy Perry")
 
-# bruno_mars = Artist.find_by(name: "Bruno Mars")
+prism = katy_perry.albums.create(title: "PRISM")
 
-# magic24k = bruno_mars.albums.create(title: "24K Magic")
-
-# magic24k_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Bruno+Mars/24k_magic.jpeg')
-# magic24k.cover_image.attach(io: magic24k_cover,filename: '24k_magic.jpeg')
-# magic24k.save!
-
-
-# jukebox = bruno_mars.albums.create(title: "Unorthodox Jukebox")
-
-# jukebox_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Bruno+Mars/unorthodox_jukebox.jpeg')
-# jukebox.cover_image.attach(io: jukebox_cover, filename: "unorthodox_jukebox.jpeg")
-# jukebox.save!
+prism_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Katy+Perry/PRISM.jpeg')
+prism.cover_image.attach(io: prism_cover, filename: 'prism.jpeg')
+prism.save!
 
 
-# ====================================
+
+witness = katy_perry.albums.create(title: "Witness")
+
+witness_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Katy+Perry/witness.jpeg')
+witness.cover_image.attach(io: witness_cover, filename: 'witness.jpeg')
+witness.save!
 
 
 
 
-camila_cabello = Artist.find_by(name: "Camila Cabello")
+michael_jackson = Artist.find_by(name: "Michael Jackson")
 
-camila = camila_cabello.albums.create(title: "Camila")
+bad = michael_jackson.albums.create(title: "Bad")
 
-camila_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Camila+Cabello/camila.jpeg')
-camila.cover_image.attach(io: camila_cover, filename: 'camila.jpeg')
-camila.save!
-
-
+bad_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Michael+Jackson/Bad.jpeg')
+bad.cover_image.attach(io: bad_cover, filename: 'bad.jpeg')
+bad.save!
 
 
 
 
+this_is_it = michael_jackson.albums.create(title: "This Is It")
 
-ed_sheeran = Artist.find_by(name: "Ed Sheeran")
-
-deluxe = ed_sheeran.albums.create(title: "Deluxe")
-
-deluxe_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Ed+Sheeran/divide.jpeg')
-deluxe.cover_image.attach(io: deluxe_cover, filename: 'deluxe.jpeg')
-deluxe.save!
-
-
-plus = ed_sheeran.albums.create(title: "Plus")
-
-plus_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Ed+Sheeran/plus_album.jpeg')
-plus.cover_image.attach(io: plus_cover, filename: 'plus.jpeg')
-plus.save!
-
-
-
-x = ed_sheeran.albums.create(title: "X")
-
-x_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Ed+Sheeran/x_album.jpeg')
-x.cover_image.attach(io: x_cover, filename: 'x.jpeg')
-x.save!
+this_is_it_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Michael+Jackson/This+Is+It.jpeg')
+this_is_it.cover_image.attach(io: this_is_it_cover, filename: 'this_is_it.jpeg')
+this_is_it.save!
 
 
 
 
 
+taylor_swift = Artist.find_by(name: "Taylor Swift")
 
-justin_bieber = Artist.find_by(name: "Justin Bieber")
+red = taylor_swift.albums.create(title: "Red")
 
-believe = justin_bieber.albums.create(title: "Believe")
-
-believe_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Justin+Bieber/believe.jpeg')
-believe.cover_image.attach(io: believe_cover, filename: 'believe.jpeg')
-believe.save!
-
-
-love_yourself = justin_bieber.albums.create(title: "Love Yourself")
-
-love_yourself_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Justin+Bieber/lover_yourself.jpeg')
-love_yourself.cover_image.attach(io: love_yourself_cover, filename: 'love_yourself.jpeg')
-love_yourself.save!
+red_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Taylor+Swift/red.jpeg')
+red.cover_image.attach(io: red_cover, filename: 'red.jpeg')
+red.save!
 
 
 
-purpose = justin_bieber.albums.create(title: "Purpose")
 
-purpose_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Justin+Bieber/purpose.jpeg')
-purpose.cover_image.attach(io: purpose_cover, filename: 'purpose.jpeg')
-purpose.save!
+reputation = taylor_swift.albums.create(title: "Reputation")
+
+reputation_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Taylor+Swift/reputation.jpeg')
+reputation.cover_image.attach(io: reputation_cover, filename: 'reputation.jpeg')
+reputation.save!
+
+
+
+
+
+speak_now = taylor_swift.albums.create(title: "Speak Now")
+
+speak_now_cover = open('https://jamify-data.s3.amazonaws.com/album_covers/Taylor+Swift/Speak+Now.jpeg')
+speak_now.cover_image.attach(io: speak_now_cover, filename: 'speak_now.jpeg')
+speak_now.save!
+
+
+
+
+
+
 
 
 
@@ -436,614 +422,802 @@ purpose.save!
 
 
 
-
-
-
-
-# ARTIST: CAMILA CABELLO
-# ALBUM: Camila
+# ARTIST: Katy Perry
+# ALBUM: PRISM
 # =============================
-camilaAlbum = Album.find_by(title: "Camila")
 
-camila1 = camilaAlbum.songs.create(
-    title: "All These Years",
-    genre_id: camilaAlbum.genre.id
+
+prismAlbum = Album.find_by(title: "PRISM")
+
+prism1 = prismAlbum.songs.create(
+    title: "Deja Vu",
+    genre_id: prismAlbum.genre.id,
+    duration: "3:18",
+    artist_id: katy_perry.id
 )
 
-camila1_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Camila+Cabello/Camila/Camila+Cabello+-+All+These+Years+(Official+Audio).mp3')
-camila1.audio_file.attach(io: camila1_url, filename:'camila_camila1.mp3')
-camila1.save!
+prism1_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Katy+Perry/PRISM/Katy+Perry+-+Deja+Vu+(Clean).mp3")
+prism1.audio_file.attach(io: prism1_url, filename:'prism1.mp3')
+prism1.save!
 
 
 
-camila2 = camilaAlbum.songs.create(
-    title: "Consequences",
-    genre_id: camilaAlbum.genre.id
+
+
+
+prism2 = prismAlbum.songs.create(
+    title: "It Takes Two",
+    genre_id: prismAlbum.genre.id,
+    duration: "3:55",
+    artist_id: katy_perry.id
 )
 
-camila2_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Camila+Cabello/Camila/Camila+Cabello+-+Consequences+(Official+Audio).mp3')
-camila2.audio_file.attach(io: camila2_url, filename:'camila_camila2.mp3')
-camila2.save!
+prism2_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Katy+Perry/PRISM/Katy+Perry+-+It+Takes+Two+(Clean).mp3")
+prism2.audio_file.attach(io: prism2_url, filename:'prism2.mp3')
+prism2.save!
 
 
 
-camila3 = camilaAlbum.songs.create(
-    title: "In The Dark",
-    genre_id: camilaAlbum.genre.id
+
+
+
+
+prism3 = prismAlbum.songs.create(
+    title: "Rise",
+    genre_id: prismAlbum.genre.id,
+    duration: "3:24",
+    artist_id: katy_perry.id
 )
 
-camila3_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Camila+Cabello/Camila/Camila+Cabello+-+In+the+Dark+(Official+Audio).mp3')
-camila3.audio_file.attach(io: camila3_url, filename:'camila_camila3.mp3')
-camila3.save!
+prism3_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Katy+Perry/PRISM/Katy+Perry+-+Rise+(Clean).mp3")
+prism3.audio_file.attach(io: prism3_url, filename:'prism3.mp3')
+prism3.save!
 
 
 
-camila4 = camilaAlbum.songs.create(
-    title: "Inside Out",
-    genre_id: camilaAlbum.genre.id
+
+
+
+prism4 = prismAlbum.songs.create(
+    title: "Walking On Air",
+    genre_id: prismAlbum.genre.id,
+    duration: "4:21",
+    artist_id: katy_perry.id
 )
 
-camila4_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Camila+Cabello/Camila/Camila+Cabello+-+Inside+Out+(Official+Audio).mp3')
-camila4.audio_file.attach(io: camila4_url, filename:'camila_camila4.mp3')
-camila4.save!
+prism4_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Katy+Perry/PRISM/Katy+Perry+-+Walking+On+Air+(Extended).mp3")
+prism4.audio_file.attach(io: prism4_url, filename:'prism4.mp3')
+prism4.save!
 
 
 
-camila5 = camilaAlbum.songs.create(
-    title: "Never Be the Same",
-    genre_id: camilaAlbum.genre.id
+
+
+
+
+prism5 = prismAlbum.songs.create(
+    title: "Swish Swish",
+    genre_id: prismAlbum.genre.id,
+    duration: "4:02",
+    artist_id: katy_perry.id
 )
 
-camila5_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Camila+Cabello/Camila/Camila+Cabello+-+Never+Be+the+Same+(Official+Audio).mp3')
-camila5.audio_file.attach(io: camila5_url, filename:'camila_camila5.mp3')
-camila5.save!
+prism5_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Katy+Perry/PRISM/Katy+Perry+ft+Nicki+Minaj+-+Swish+Swish+(Clean).mp3")
+prism5.audio_file.attach(io: prism5_url, filename:'prism5.mp3')
+prism5.save!
 
 
 
-camila6 = camilaAlbum.songs.create(
-    title: "Real Friends",
-    genre_id: camilaAlbum.genre.id
+
+ 
+
+prism6 = prismAlbum.songs.create(
+    title: "365",
+    genre_id: prismAlbum.genre.id,
+    duration: "3:02",
+    artist_id: katy_perry.id
 )
 
-camila6_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Camila+Cabello/Camila/Camila+Cabello+-+Real+Friends+(Official+Audio).mp3')
-camila6.audio_file.attach(io: camila6_url, filename:'camila_camila6.mp3')
-camila6.save!
+prism6_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Katy+Perry/PRISM/Zedd+%26+Katy+Perry+-+365+(Clean).mp3")
+prism6.audio_file.attach(io: prism6_url, filename:'prism6.mp3')
+prism6.save!
 
 
 
-camila7 = camilaAlbum.songs.create(
-    title: "She Loves Control",
-    genre_id: camilaAlbum.genre.id
+
+
+# ARTIST: Katy Perry
+# ALBUM: Witness
+# =============================
+
+
+prism7 = witness.songs.create(
+    title: "Hey Hey Hey",
+    genre_id: witness.genre.id,
+    duration: "3:35",
+    artist_id: katy_perry.id
 )
 
-camila7_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Camila+Cabello/Camila/Camila+Cabello+-+She+Loves+Control+(Official+Audio).mp3')
-camila7.audio_file.attach(io: camila7_url, filename:'camila_camila7.mp3')
-camila7.save!
+prism7_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Katy+Perry/Witness/Katy+Perry+-+Hey+Hey+Hey+(Clean).mp3")
+prism7.audio_file.attach(io: prism7_url, filename:'prism7.mp3')
+prism7.save!
 
 
 
-camila8 = camilaAlbum.songs.create(
-    title: "Havana (Remix)",
-    genre_id: camilaAlbum.genre.id
+
+
+prism8 = witness.songs.create(
+    title: "Never Really Over",
+    genre_id: witness.genre.id,
+    duration: "3:44",
+    artist_id: katy_perry.id
 )
 
-camila8_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Camila+Cabello/Camila/Camila+Cabello%2C+Daddy+Yankee+-+Havana+(Remix)+(Official+Audio).mp3')
-camila8.audio_file.attach(io: camila8_url, filename:'camila_camila8.mp3')
-camila8.save!
+prism8_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Katy+Perry/Witness/Katy+Perry+-+Never+Really+Over+(Clean).mp3")
+prism8.audio_file.attach(io: prism8_url, filename:'prism8.mp3')
+prism8.save!
 
 
 
 
 
-
-
-
-deluxeAlbum = Album.find_by(title: "Deluxe")
-
-deluxe1 = deluxeAlbum.songs.create(
-    title: "Barcelona",
-    genre_id: deluxeAlbum.genre.id
+prism9 = witness.songs.create(
+    title: "Pendulum",
+    genre_id: witness.genre.id,
+    duration: "4:00",
+    artist_id: katy_perry.id
 )
 
-deluxe1_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Deluxe/Ed+Sheeran+-+Barcelona+(Clean).mp3')
-deluxe1.audio_file.attach(io: deluxe1_url, filename:'deluxe1.mp3')
-deluxe1.save!
+prism9_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Katy+Perry/Witness/Katy+Perry+-+Pendulum+(Clean).mp3")
+prism9.audio_file.attach(io: prism9_url, filename:'prism9.mp3')
+prism9.save!
 
 
 
 
-deluxe2 = deluxeAlbum.songs.create(
-    title: "Galway Girl",
-    genre_id: deluxeAlbum.genre.id
+prism10 = witness.songs.create(
+    title: "Save As Draft",
+    genre_id: witness.genre.id,
+    duration: "3:48",
+    artist_id: katy_perry.id
 )
 
-deluxe2_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Deluxe/Ed+Sheeran+-+Galway+Girl+(Clean).mp3')
-deluxe2.audio_file.attach(io: deluxe2_url, filename:'deluxe2.mp3')
-deluxe2.save!
+prism10_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Katy+Perry/Witness/Katy+Perry+-+Save+As+Draft+(Clean).mp3")
+prism10.audio_file.attach(io: prism10_url, filename:'prism10.mp3')
+prism10.save!
 
 
 
-deluxe3 = deluxeAlbum.songs.create(
-    title: "Happier",
-    genre_id: deluxeAlbum.genre.id
+
+
+prism11 = witness.songs.create(
+    title: "Witness",
+    genre_id: witness.genre.id,
+    duration: "4:11",
+    artist_id: katy_perry.id
 )
 
-deluxe3_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Deluxe/Ed+Sheeran+-+Happier+(Clean).mp3')
-deluxe3.audio_file.attach(io: deluxe3_url, filename:'deluxe3.mp3')
-deluxe3.save!
+prism11_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Katy+Perry/Witness/Katy+Perry+-+Witness+(Dirty).mp3")
+prism11.audio_file.attach(io: prism11_url, filename:'prism11.mp3')
+prism11.save!
 
 
 
-deluxe4 = deluxeAlbum.songs.create(
-    title: "How Would You Feel",
-    genre_id: deluxeAlbum.genre.id
+
+
+
+
+# ARTIST: Michael Jackson
+# ALBUM: Bad
+# =============================
+
+
+bad1 = bad.songs.create(
+    title: "I Just Can't Stop Loving You",
+    genre_id: bad.genre.id,
+    duration: "4:13",
+    artist_id: michael_jackson.id
 )
 
-deluxe4_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Deluxe/Ed+Sheeran+-+How+Would+You+Feel+(Paean)+(Clean).mp3')
-deluxe4.audio_file.attach(io: deluxe4_url, filename:'deluxe4.mp3')
-deluxe4.save!
+bad1_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/Bad/Michael+Jackson+-+I+Just+Can't+Stop+Loving+You+(Clean).mp3")
+bad1.audio_file.attach(io: bad1_url, filename:'bad1.mp3')
+bad1.save!
 
 
 
 
 
-deluxe5 = deluxeAlbum.songs.create(
-    title: "I'm a Mess",
-    genre_id: deluxeAlbum.genre.id
+bad2 = bad.songs.create(
+    title: "I Wanna Be Where You Are",
+    genre_id: bad.genre.id,
+    duration: "3:05",
+    artist_id: michael_jackson.id
 )
 
-deluxe5_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Deluxe/Ed+Sheeran+-+I'm+a+Mess+(Clean).mp3")
-deluxe5.audio_file.attach(io: deluxe5_url, filename:'deluxe5.mp3')
-deluxe5.save!
+bad2_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/Bad/Michael+Jackson+-+I+Wanna+Be+Where+You+Are+(Clean)+(Extended).mp3")
+bad2.audio_file.attach(io: bad2_url, filename:'bad2.mp3')
+bad2.save!
 
 
 
 
 
-
-deluxe6 = deluxeAlbum.songs.create(
-    title: "One",
-    genre_id: deluxeAlbum.genre.id
+bad3 = bad.songs.create(
+    title: "Rock With You",
+    genre_id: bad.genre.id,
+    duration: "3:22",
+    artist_id: michael_jackson.id
 )
 
-deluxe6_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Deluxe/Ed+Sheeran+-+One+(Clean).mp3")
-deluxe6.audio_file.attach(io: deluxe6_url, filename:'deluxe6.mp3')
-deluxe6.save!
+bad3_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/Bad/Michael+Jackson+-+Rock+With+You+(Clean).mp3")
+bad3.audio_file.attach(io: bad3_url, filename:'bad3.mp3')
+bad3.save!
 
 
 
 
 
-deluxe7 = deluxeAlbum.songs.create(
-    title: "Perfect",
-    genre_id: deluxeAlbum.genre.id
+
+bad4 = bad.songs.create(
+    title: "Speed Demon",
+    genre_id: bad.genre.id,
+    duration: "5:13",
+    artist_id: michael_jackson.id
 )
 
-deluxe7_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Deluxe/Ed+Sheeran+-+Perfect+(Clean).mp3")
-deluxe7.audio_file.attach(io: deluxe7_url, filename:'deluxe7.mp3')
-deluxe7.save!
+bad4_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/Bad/Michael+Jackson+-+Spead+Demon+(Extended).mp3")
+bad4.audio_file.attach(io: bad4_url, filename:'bad4.mp3')
+bad4.save!
 
 
 
 
-deluxe8 = deluxeAlbum.songs.create(
-    title: "Photograph",
-    genre_id: deluxeAlbum.genre.id
+
+
+
+bad5 = bad.songs.create(
+    title: "Wanna Be Startin' Somethin'",
+    genre_id: bad.genre.id,
+    duration: "6:00",
+    artist_id: michael_jackson.id
 )
 
-deluxe8_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Deluxe/Ed+Sheeran+-+Photograph+(Clean).mp3")
-deluxe8.audio_file.attach(io: deluxe8_url, filename:'deluxe8.mp3')
-deluxe8.save!
+bad5_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/Bad/Michael+Jackson+-+Wanna+Be+Startin'+Somethin'+(Clean).mp3")
+bad5.audio_file.attach(io: bad5_url, filename:'bad5.mp3')
+bad5.save!
 
 
 
-deluxe9 = deluxeAlbum.songs.create(
-    title: "Save Myself",
-    genre_id: deluxeAlbum.genre.id
+
+bad6 = bad.songs.create(
+    title: "Say Say Say",
+    genre_id: bad.genre.id,
+    duration: "3:50",
+    artist_id: michael_jackson.id
 )
 
-deluxe9_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Deluxe/Ed+Sheeran+-+Save+Myself+(Clean).mp3")
-deluxe9.audio_file.attach(io: deluxe9_url, filename:'deluxe9.mp3')
-deluxe9.save!
+bad6_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/Bad/Paul+McCartney+ft+Michael+Jackson+-+Say+Say+Say+(Clean).mp3")
+bad6.audio_file.attach(io: bad6_url, filename:'bad6.mp3')
+bad6.save!
 
 
 
 
 
 
+# ARTIST: Michael Jackson
+# ALBUM: This is it
+# =============================
 
-plusAlbum = Album.find_by(title: "Plus")
 
-plus1 = plusAlbum.songs.create(
-    title: "Afire Love",
-    genre_id: plusAlbum.genre.id
+
+this_is_it1 = this_is_it.songs.create(
+    title: "Blood On The Dancefloor",
+    genre_id: this_is_it.genre.id,
+    duration: "4:06",
+    artist_id: michael_jackson.id
 )
 
-plus1_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Plus/Ed+Sheeran+-+Afire+Love+(Clean).mp3')
-plus1.audio_file.attach(io: plus1_url, filename:'plus1.mp3')
-plus1.save!
+this_is_it1_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/This+is+It/Michael+Jackson+-+Blood+On+The+Dancefloor+(Clean).mp3")
+this_is_it1.audio_file.attach(io: this_is_it1_url, filename:'this_is_it1.mp3')
+this_is_it1.save!
 
 
 
 
-plus2 = plusAlbum.songs.create(
-    title: "Castle On The Hill",
-    genre_id: plusAlbum.genre.id
+
+this_is_it2 = this_is_it.songs.create(
+    title: "Human Nature",
+    genre_id: this_is_it.genre.id,
+    duration: "4:03",
+    artist_id: michael_jackson.id
 )
 
-plus2_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Plus/Ed+Sheeran+-+Castle+On+The+Hill+(Clean).mp3')
-plus2.audio_file.attach(io: plus2_url, filename:'plus2.mp3')
-plus2.save!
+this_is_it2_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/This+is+It/Michael+Jackson+-+Human+Nature+(Clean).mp3")
+this_is_it2.audio_file.attach(io: this_is_it2_url, filename:'this_is_it2.mp3')
+this_is_it2.save!
 
 
 
 
-plus3 = plusAlbum.songs.create(
-    title: "Lego House",
-    genre_id: plusAlbum.genre.id
+
+this_is_it3 = this_is_it.songs.create(
+    title: "Maria (You Were The Only One)",
+    genre_id: this_is_it.genre.id,
+    duration: "3:42",
+    artist_id: michael_jackson.id
 )
 
-plus3_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Plus/Ed+Sheeran+-+Lego+House+(Clean).mp3')
-plus3.audio_file.attach(io: plus3_url, filename:'plus3.mp3')
-plus3.save!
+this_is_it3_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/This+is+It/Michael+Jackson+-+Maria+(You+Were+The+Only+One)+(Clean).mp3")
+this_is_it3.audio_file.attach(io: this_is_it3_url, filename:'this_is_it3.mp3')
+this_is_it3.save!
 
 
 
-plus4 = plusAlbum.songs.create(
-    title: "Supermarket Flowers",
-    genre_id: plusAlbum.genre.id
+
+this_is_it4 = this_is_it.songs.create(
+    title: "Smooth Criminal",
+    genre_id: this_is_it.genre.id,
+    duration: "4:04",
+    artist_id: michael_jackson.id
 )
 
-plus4_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Plus/Ed+Sheeran+-+Supermarket+Flowers+(Clean).mp3')
-plus4.audio_file.attach(io: plus4_url, filename:'plus4.mp3')
-plus4.save!
+this_is_it4_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/This+is+It/Michael+Jackson+-+Smooth+Criminal+(Ummet+Ozcan+Remix)+(Clean+Extended).mp3")
+this_is_it4.audio_file.attach(io: this_is_it4_url, filename:'this_is_it4.mp3')
+this_is_it4.save!
 
 
 
 
-plus5 = plusAlbum.songs.create(
-    title: "The Man",
-    genre_id: plusAlbum.genre.id
+this_is_it5 = this_is_it.songs.create(
+    title: "Thriller",
+    genre_id: this_is_it.genre.id,
+    duration: "5:57",
+    artist_id: michael_jackson.id
 )
 
-plus5_url = open('https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/Plus/Ed+Sheeran+-+The+Man+(Clean).mp3')
-plus5.audio_file.attach(io: plus5_url, filename:'plus5.mp3')
-plus5.save!
+this_is_it5_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/This+is+It/Michael+Jackson+-+Thriller+(Clean).mp3")
+this_is_it5.audio_file.attach(io: this_is_it5_url, filename:'this_is_it5.mp3')
+this_is_it5.save!
 
 
 
 
-
-
-
-
-
-xAlbum = Album.find_by(title: "X")
-
-x1 = xAlbum.songs.create(
-    title: "I Don't Care",
-    genre_id: xAlbum.genre.id
+this_is_it6 = this_is_it.songs.create(
+    title: "Somebody's Watching Me",
+    genre_id: this_is_it.genre.id,
+    duration: "3:28",
+    artist_id: michael_jackson.id
 )
 
-x1_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/X/Ed+Sheeran+%26+Justin+Bieber+-+I+Don't+Care+(Clean).mp3")
-x1.audio_file.attach(io: x1_url, filename:'x1.mp3')
-x1.save!
+this_is_it6_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/This+is+It/Rockwell+ft+Michael+Jackson+-+Somebody's+Watching+Me+(BPM+Supreme+Halloween+Slam+Edit)+(Clean+Extended).mp3")
+this_is_it6.audio_file.attach(io: this_is_it6_url, filename:'this_is_it6.mp3')
+this_is_it6.save!
 
 
 
 
-
-x2 = xAlbum.songs.create(
-    title: "Dive",
-    genre_id: xAlbum.genre.id
+this_is_it7 = this_is_it.songs.create(
+    title: "We Are The World",
+    genre_id: this_is_it.genre.id,
+    duration: "6:59",
+    artist_id: michael_jackson.id
 )
 
-x2_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/X/Ed+Sheeran+-+Dive+(Clean).mp3")
-x2.audio_file.attach(io: x2_url, filename:'x2.mp3')
-x2.save!
+this_is_it7_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Michael+Jackson/This+is+It/USA+For+Africa+-+We+Are+The+World+(Clean).mp3")
+this_is_it7.audio_file.attach(io: this_is_it7_url, filename:'this_is_it7.mp3')
+this_is_it7.save!
 
 
 
 
-x3 = xAlbum.songs.create(
-    title: "I See Fire",
-    genre_id: xAlbum.genre.id
+# ARTIST: Taylor Swift
+# ALBUM: Red
+# =============================
+
+red1 = red.songs.create(
+    title: "All Too Well",
+    genre_id: red.genre.id,
+    duration: "5:29",
+    artist_id: taylor_swift.id
 )
 
-x3_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/X/Ed+Sheeran+-+I+See+Fire+(Clean).mp3")
-x3.audio_file.attach(io: x3_url, filename:'x3.mp3')
-x3.save!
+red1_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Red/Taylor+Swift+-+All+Too+Well+(Clean).mp3")
+red1.audio_file.attach(io: red1_url, filename:'red1.mp3')
+red1.save!
 
 
 
 
-
-x4 = xAlbum.songs.create(
-    title: "Shape Of You",
-    genre_id: xAlbum.genre.id
+red2 = red.songs.create(
+    title: "All You Had To Do Was Stay",
+    genre_id: red.genre.id,
+    duration: "3:13",
+    artist_id: taylor_swift.id
 )
 
-x4_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/X/Ed+Sheeran+-+Shape+Of+You+(Clean).mp3")
-x4.audio_file.attach(io: x4_url, filename:'x4.mp3')
-x4.save!
+red2_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Red/Taylor+Swift+-+All+You+Had+To+Do+Was+Stay+(Clean).mp3")
+red2.audio_file.attach(io: red2_url, filename:'red2.mp3')
+red2.save!
 
 
 
 
 
-x5 = xAlbum.songs.create(
-    title: "Cross Me",
-    genre_id: xAlbum.genre.id
+
+red3 = red.songs.create(
+    title: "Back To December",
+    genre_id: red.genre.id,
+    duration: "4:10",
+    artist_id: taylor_swift.id
 )
 
-x5_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Ed+Sheeran/X/Ed+Sheeran+ft+Chance+The+Rapper+%26+PnB+Rock+-+Cross+Me+(Dirty).mp3")
-x5.audio_file.attach(io: x5_url, filename:'x5.mp3')
-x5.save!
+red3_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Red/Taylor+Swift+-+Back+To+December+(Clean).mp3")
+red3.audio_file.attach(io: red3_url, filename:'red3.mp3')
+red3.save!
 
 
 
 
 
 
-
-
-
-
-
-
-believeAlbum = Album.find_by(title: "Believe")
-
-believe1 = believeAlbum.songs.create(
-    title: "All In It",
-    genre_id: believeAlbum.genre.id
+red4 = red.songs.create(
+    title: "Change",
+    genre_id: red.genre.id,
+    duration: "4:40",
+    artist_id: taylor_swift.id
 )
 
-believe1_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Believe/Justin+Bieber+-+All+In+It+(Clean).mp3")
-believe1.audio_file.attach(io: believe1_url, filename:'believe1.mp3')
-believe1.save!
+red4_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Red/Taylor+Swift+-+Change+(Clean).mp3")
+red4.audio_file.attach(io: red4_url, filename:'red4.mp3')
+red4.save!
 
 
 
 
 
 
-believe2 = believeAlbum.songs.create(
-    title: "Alone",
-    genre_id: believeAlbum.genre.id
+red5 = red.songs.create(
+    title: "Delicate",
+    genre_id: red.genre.id,
+    duration: "4:25",
+    artist_id: taylor_swift.id
 )
 
-believe2_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Believe/Justin+Bieber+-+Alone+(Clean).mp3")
-believe2.audio_file.attach(io: believe2_url, filename:'believe2.mp3')
-believe2.save!
+red5_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Red/Taylor+Swift+-+Delicate+(BPM+Supreme+ReDrum)+(Clean+Extended).mp3")
+red5.audio_file.attach(io: red5_url, filename:'red5.mp3')
+red5.save!
 
 
 
 
 
-
-believe3 = believeAlbum.songs.create(
-    title: "Memphis",
-    genre_id: believeAlbum.genre.id
+red6 = red.songs.create(
+    title: "Eyes Open",
+    genre_id: red.genre.id,
+    duration: "4:05",
+    artist_id: taylor_swift.id
 )
 
-believe3_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Believe/Justin+Bieber+-+Memphis+(Clean).mp3")
-believe3.audio_file.attach(io: believe3_url, filename:'believe3.mp3')
-believe3.save!
+red6_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Red/Taylor+Swift+-+Eyes+Open.mp3")
+red6.audio_file.attach(io: red6_url, filename:'red6.mp3')
+red6.save!
 
 
 
 
 
-believe4 = believeAlbum.songs.create(
-    title: "What Do You Mean",
-    genre_id: believeAlbum.genre.id
+
+red7 = red.songs.create(
+    title: "I Know Places",
+    genre_id: red.genre.id,
+    duration: "3:16",
+    artist_id: taylor_swift.id
 )
 
-believe4_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Believe/Justin+Bieber+-+What+Do+You+Mean+(Clean).mp3")
-believe4.audio_file.attach(io: believe4_url, filename:'believe4.mp3')
-believe4.save!
+red7_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Red/Taylor+Swift+-+I+Know+Places+(Clean).mp3")
+red7.audio_file.attach(io: red7_url, filename:'red7.mp3')
+red7.save!
 
 
 
 
-
-believe5 = believeAlbum.songs.create(
-    title: "Fairytale",
-    genre_id: believeAlbum.genre.id
+red8 = red.songs.create(
+    title: "I Wish You Would",
+    genre_id: red.genre.id,
+    duration: "3:27",
+    artist_id: taylor_swift.id
 )
 
-believe5_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Believe/Justin+Bieber+feat+Jaden+Smith+-+Fairytale+(Main).mp3")
-believe5.audio_file.attach(io: believe5_url, filename:'believe5.mp3')
-believe5.save!
+red8_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Red/Taylor+Swift+-+I+Wish+You+Would+(Clean).mp3")
+red8.audio_file.attach(io: red8_url, filename:'red8.mp3')
+red8.save!
 
 
 
 
 
-believe6 = believeAlbum.songs.create(
-    title: "Baby",
-    genre_id: believeAlbum.genre.id
+
+
+
+red9 = red.songs.create(
+    title: "New Romantics",
+    genre_id: red.genre.id,
+    duration: "3:49",
+    artist_id: taylor_swift.id
 )
 
-believe6_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Believe/Justin+Bieber+ft+Ludacris+-+Baby+(Clean).mp3")
-believe6.audio_file.attach(io: believe6_url, filename:'believe6.mp3')
-believe6.save!
+red9_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Red/Taylor+Swift+-+New+Romantics+(Clean).mp3")
+red9.audio_file.attach(io: red9_url, filename:'red9.mp3')
+red9.save!
 
 
 
 
-
-
-
-
-
-
-
-
-lyAlbum = Album.find_by(title: "Love Yourself")
-
-love_yourself1 = lyAlbum.songs.create(
-    title: "Friends",
-    genre_id: lyAlbum.genre.id
+red10 = red.songs.create(
+    title: "Out Of The Woods",
+    genre_id: red.genre.id,
+    duration: "3:52",
+    artist_id: taylor_swift.id
 )
 
-love_yourself1_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Lover+Yourself/Justin+Bieber+%26+Bloodpop+-+Friends+(Clean).mp3")
-love_yourself1.audio_file.attach(io: love_yourself1_url, filename:'love_yourself1.mp3')
-love_yourself1.save!
+red10_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Red/Taylor+Swift+-+Out+Of+The+Woods+(Clean).mp3")
+red10.audio_file.attach(io: red10_url, filename:'red10.mp3')
+red10.save!
 
 
 
+# ARTIST: Taylor Swift
+# ALBUM: Speak Now
+# =============================
 
-
-love_yourself2 = lyAlbum.songs.create(
-    title: "Been You",
-    genre_id: lyAlbum.genre.id
+speak_now1 = speak_now.songs.create(
+    title: "Begin Again",
+    genre_id: speak_now.genre.id,
+    duration: "3:56",
+    artist_id: taylor_swift.id
 )
 
-love_yourself2_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Lover+Yourself/Justin+Bieber+-+Been+You+(Clean).mp3")
-love_yourself2.audio_file.attach(io: love_yourself2_url, filename:'love_yourself2.mp3')
-love_yourself2.save!
+speak_now1_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Speak+Now/Taylor+Swift+-+Begin+Again+(Main).mp3")
+speak_now1.audio_file.attach(io: speak_now1_url, filename:'speak_now1.mp3')
+speak_now1.save!
 
 
 
 
-love_yourself3 = lyAlbum.songs.create(
-    title: "New One",
-    genre_id: lyAlbum.genre.id
+speak_now2 = speak_now.songs.create(
+    title: "Delicate",
+    genre_id: speak_now.genre.id,
+    duration: "3:39",
+    artist_id: taylor_swift.id
 )
 
-love_yourself3_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Lover+Yourself/Justin+Bieber+-+New+One+(Dirty).mp3")
-love_yourself3.audio_file.attach(io: love_yourself3_url, filename:'love_yourself3.mp3')
-love_yourself3.save!
+speak_now2_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Speak+Now/Taylor+Swift+-+Delicate+(Sawyr+%26+Ryan+Tedder+Mix)+(Clean+Extended).mp3")
+speak_now2.audio_file.attach(io: speak_now2_url, filename:'speak_now2.mp3')
+speak_now2.save!
 
 
 
 
 
-love_yourself4 = lyAlbum.songs.create(
-    title: "Backpack",
-    genre_id: lyAlbum.genre.id
+speak_now3 = speak_now.songs.create(
+    title: "How You Get The Girl",
+    genre_id: speak_now.genre.id,
+    duration: "4:08",
+    artist_id: taylor_swift.id
 )
 
-love_yourself4_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Lover+Yourself/Justin+Bieber+ft+Lil+Wayne+-+Backpack+(Clean).mp3")
-love_yourself4.audio_file.attach(io: love_yourself4_url, filename:'love_yourself4.mp3')
-love_yourself4.save!
+speak_now3_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Speak+Now/Taylor+Swift+-+How+You+Get+The+Girl+(Clean).mp3")
+speak_now3.audio_file.attach(io: speak_now3_url, filename:'speak_now3.mp3')
+speak_now3.save!
 
 
 
 
 
-love_yourself5 = lyAlbum.songs.create(
-    title: "Let Me Love You vs Rock The Boat",
-    genre_id: lyAlbum.genre.id
+speak_now4 = speak_now.songs.create(
+    title: "I'm Only Me When I'm With You",
+    genre_id: speak_now.genre.id,
+    duration: "3:33",
+    artist_id: taylor_swift.id
 )
 
-love_yourself5_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Lover+Yourself/Justin+Bieber+vs+Aaliyah+-+Let+Me+Love+You+vs+Rock+The+Boat+(Hype+Intro+Kerry+Glass+Edit+V1)+(Clean).mp3")
-love_yourself5.audio_file.attach(io: love_yourself5_url, filename:'love_yourself5.mp3')
-love_yourself5.save!
+speak_now4_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Speak+Now/Taylor+Swift+-+I'm+Only+Me+When+I'm+With+You+(Clean).mp3")
+speak_now4.audio_file.attach(io: speak_now4_url, filename:'speak_now4.mp3')
+speak_now4.save!
 
 
 
 
 
 
-purposeAlbum = Album.find_by(title: "Purpose")
-
-purpose1 = purposeAlbum.songs.create(
-    title: "Heartbreaker",
-    genre_id: purposeAlbum.genre.id
+speak_now5 = speak_now.songs.create(
+    title: "Ready For It",
+    genre_id: speak_now.genre.id,
+    duration: "3:28",
+    artist_id: taylor_swift.id
 )
 
-purpose1_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Purpose/Justin+Bieber+-+Heartbreaker+(Clean).mp3")
-purpose1.audio_file.attach(io: purpose1_url, filename:'purpose1.mp3')
-purpose1.save!
+speak_now5_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Speak+Now/Taylor+Swift+-+Ready+For+It+(Clean).mp3")
+speak_now5.audio_file.attach(io: speak_now5_url, filename:'speak_now5.mp3')
+speak_now5.save!
 
 
 
 
-
-
-purpose2 = purposeAlbum.songs.create(
-    title: "Mark My Words",
-    genre_id: purposeAlbum.genre.id
+speak_now6 = speak_now.songs.create(
+    title: "Welcome To New York",
+    genre_id: speak_now.genre.id,
+    duration: "3:33",
+    artist_id: taylor_swift.id
 )
 
-purpose2_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Purpose/Justin+Bieber+-+Mark+My+Words+(Clean).mp3")
-purpose2.audio_file.attach(io: purpose2_url, filename:'purpose2.mp3')
-purpose2.save!
+speak_now6_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Speak+Now/Taylor+Swift+-+Welcome+To+New+York+(Clean).mp3")
+speak_now6.audio_file.attach(io: speak_now6_url, filename:'speak_now6.mp3')
+speak_now6.save!
 
 
 
 
-purpose3 = purposeAlbum.songs.create(
-    title: "Purpose",
-    genre_id: purposeAlbum.genre.id
+
+
+speak_now7 = speak_now.songs.create(
+    title: "End Game",
+    genre_id: speak_now.genre.id,
+    duration: "4:05",
+    artist_id: taylor_swift.id
 )
 
-purpose3_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Purpose/Justin+Bieber+-+Purpose+(Clean).mp3")
-purpose3.audio_file.attach(io: purpose3_url, filename:'purpose3.mp3')
-purpose3.save!
+speak_now7_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Speak+Now/Taylor+Swift+ft+Future+%26+Ed+Sheeran+-+End+Game+(Clean).mp3")
+speak_now7.audio_file.attach(io: speak_now7_url, filename:'speak_now7.mp3')
+speak_now7.save!
 
 
 
 
-purpose4 = purposeAlbum.songs.create(
-    title: "Recovery",
-    genre_id: purposeAlbum.genre.id
+speak_now8 = speak_now.songs.create(
+    title: "The Last Time",
+    genre_id: speak_now.genre.id,
+    duration: "4:59",
+    artist_id: taylor_swift.id
 )
 
-purpose4_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Purpose/Justin+Bieber+-+Recovery+(Clean).mp3")
-purpose4.audio_file.attach(io: purpose4_url, filename:'purpose4.mp3')
-purpose4.save!
+speak_now8_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/Speak+Now/Taylor+Swift+ft+Gary+Lightbody+-+The+Last+Time+(Clean).mp3")
+speak_now8.audio_file.attach(io: speak_now8_url, filename:'speak_now8.mp3')
+speak_now8.save!
 
 
 
 
 
 
-purpose5 = purposeAlbum.songs.create(
-    title: "The Feeling",
-    genre_id: purposeAlbum.genre.id
+# ARTIST: Taylor Swift
+# ALBUM: reputation
+# =============================
+
+reputation1 = reputation.songs.create(
+    title: "American Girl",
+    genre_id: reputation.genre.id,
+    duration: "4:12",
+    artist_id: taylor_swift.id
 )
 
-purpose5_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Purpose/Justin+Bieber+-+The+Feeling+(Clean).mp3")
-purpose5.audio_file.attach(io: purpose5_url, filename:'purpose5.mp3')
-purpose5.save!
+reputation1_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/reputation/Taylor+Swift+-+American+Girl+(Clean).mp3")
+reputation1.audio_file.attach(io: reputation1_url, filename:'reputation1.mp3')
+reputation1.save!
 
 
 
 
 
-purpose6 = purposeAlbum.songs.create(
-    title: "What's Hatnin'",
-    genre_id: purposeAlbum.genre.id
+reputation2 = reputation.songs.create(
+    title: "Gorgeous",
+    genre_id: reputation.genre.id,
+    duration: "3:30",
+    artist_id: taylor_swift.id
 )
 
-purpose6_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Purpose/Justin+Bieber+ft+Future+-+What's+Hatnin'+(Clean).mp3")
-purpose6.audio_file.attach(io: purpose6_url, filename:'purpose6.mp3')
-purpose6.save!
+reputation2_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/reputation/Taylor+Swift+-+Gorgeous+(Clean).mp3")
+reputation2.audio_file.attach(io: reputation2_url, filename:'reputation2.mp3')
+reputation2.save!
 
 
 
 
 
-purpose7 = purposeAlbum.songs.create(
-    title: "Never Say Never",
-    genre_id: purposeAlbum.genre.id
+reputation3 = reputation.songs.create(
+    title: "I Did Something Bad",
+    genre_id: reputation.genre.id,
+    duration: "3:58",
+    artist_id: taylor_swift.id
 )
 
-purpose7_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Purpose/Justin+Bieber+ft+Jaden+Smith+-+Never+Say+Never+(Clean).mp3")
-purpose7.audio_file.attach(io: purpose7_url, filename:'purpose7.mp3')
-purpose7.save!
+reputation3_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/reputation/Taylor+Swift+-+I+Did+Something+Bad+(Dirty).mp3")
+reputation3.audio_file.attach(io: reputation3_url, filename:'reputation3.mp3')
+reputation3.save!
 
 
 
 
-purpose8 = purposeAlbum.songs.create(
-    title: "That Should Be Me",
-    genre_id: purposeAlbum.genre.id
+
+
+reputation4 = reputation.songs.create(
+    title: "Look What You Made Me Do",
+    genre_id: reputation.genre.id,
+    duration: "3:31",
+    artist_id: taylor_swift.id
 )
 
-purpose8_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Justin+Bieber/Purpose/Justin+Bieber+ft+Rascal+Flatts+-+That+Should+Be+Me+(Clean).mp3")
-purpose8.audio_file.attach(io: purpose8_url, filename:'purpose8.mp3')
-purpose8.save!
+reputation4_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/reputation/Taylor+Swift+-+Look+What+You+Made+Me+Do+(Clean).mp3")
+reputation4.audio_file.attach(io: reputation4_url, filename:'reputation4.mp3')
+reputation4.save!
+
+
+
+
+
+
+
+reputation5 = reputation.songs.create(
+    title: "New Year's Day",
+    genre_id: reputation.genre.id,
+    duration: "3:56",
+    artist_id: taylor_swift.id
+)
+
+reputation5_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/reputation/Taylor+Swift+-+New+Year's+Day+(Clean).mp3")
+reputation5.audio_file.attach(io: reputation5_url, filename:'reputation5.mp3')
+reputation5.save!
+
+
+
+
+
+
+reputation6 = reputation.songs.create(
+    title: "Picture To Burn",
+    genre_id: reputation.genre.id,
+    duration: "2:55",
+    artist_id: taylor_swift.id
+)
+
+reputation6_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/reputation/Taylor+Swift+-+Picture+To+Burn+(Clean).mp3")
+reputation6.audio_file.attach(io: reputation6_url, filename:'reputation6.mp3')
+reputation6.save!
+
+
+
+
+
+
+reputation7 = reputation.songs.create(
+    title: "Tim McGraw",
+    genre_id: reputation.genre.id,
+    duration: "3:51",
+    artist_id: taylor_swift.id
+)
+
+reputation7_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/reputation/Taylor+Swift+-+Tim+McGraw+(Clean).mp3")
+reputation7.audio_file.attach(io: reputation7_url, filename:'reputation7.mp3')
+reputation7.save!
+
+
+
+
+
+
+
+reputation8 = reputation.songs.create(
+    title: "You Are In Love",
+    genre_id: reputation.genre.id,
+    duration: "4:26",
+    artist_id: taylor_swift.id
+)
+
+reputation8_url = open("https://jamify-data.s3.amazonaws.com/audio_files/Taylor+Swift/reputation/Taylor+Swift+-+You+Are+In+Love+(Clean).mp3")
+reputation8.audio_file.attach(io: reputation8_url, filename:'reputation8.mp3')
+reputation8.save!
+
+
+
+
