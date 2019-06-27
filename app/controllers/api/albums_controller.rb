@@ -2,7 +2,7 @@ class Api::AlbumsController < ApplicationController
 
     def index
         # @albums = Album.includes(:artist, :songs).limit(8)
-        @albums = Album.includes(:artist, :songs).with_attached_cover_image.sample(10)
+        @albums = Album.includes(:artist, :songs).with_attached_cover_image
         
         if @albums
             render :index

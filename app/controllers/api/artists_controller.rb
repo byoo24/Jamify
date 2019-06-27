@@ -1,7 +1,7 @@
 class Api::ArtistsController < ApplicationController
 
     def index
-        @artists = Artist.includes(:albums, :songs).with_attached_artist_images.sample(10)
+        @artists = Artist.includes(:albums, :songs).with_attached_artist_images
         if @artists
             render :index
         else
