@@ -12,32 +12,55 @@ class Search extends React.Component {
                 input: "",
             },
             artists: {},
-            albums: {}
+            albums: {},
+            myDebounce: this.myDebounce(1000)
         }
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.myDebounce = this.myDebounce.bind(this);
     }
 
-
+    // myDebounce
     handleChange(e){
-        this.setState({search: {input: e.target.value}})
+        const {myDebounce, search} = this.state;
+
+        this.setState({ search: { input: e.target.value } }, (res) => {
+            debugger
+            myDebounce(this.state.search);
+        });
     }
 
-    handleSubmit(e){
-        e.preventDefault();
-        
-        this.props.fetchSearchResults(this.state.search)
-            .then(({artists, albums}) => {
-                if (artists) this.setState({ artists });
-                if (albums) this.setState({ albums });
-            });
 
+    myDebounce(interval) {
+        let timeout;
+        const that = this;
 
-            
-        // console.log(this.state.input);
+        return (arg) => {
+
+            const fnCall = () => {
+                
+                timeout = null;
+                this.props.fetchSearchResults(arg)
+                    .then(({ artists, albums }) => {
+                        
+                        if (artists) {
+                            this.setState({ artists });
+                        } else {
+                            this.setState({ artists: {} });
+                        }
+
+                        if (albums) {
+                            this.setState({ albums });
+                        } else {
+                            this.setState({ albums: {} });
+                        }
+                    });
+            }
+
+            clearTimeout(timeout);
+            timeout = setTimeout(fnCall, interval);
+        }
     }
-
 
     render() {
         
@@ -122,8 +145,8 @@ class Search extends React.Component {
                 <div className="search-content">
                     <div className="search-content-container">
                         <div className="no-search">
-                            <h1>Search Spotify</h1>
-                            <p>Your search results will appear here.</p>
+                            <h1>Search Results Appear Here.</h1>
+                            <p>The Search is Case Sensitive.</p>
                         </div>
                     </div>
                 </div>
@@ -136,13 +159,11 @@ class Search extends React.Component {
                     <div className="search-header">
                         <div className="search-input">
                             <div className="search-input-container">
-                                <form onSubmit={this.handleSubmit}>
                                     <input 
                                         type="text" 
                                         className="SearchInputBox" 
                                         placeholder="Start typing..." 
                                         onChange={this.handleChange}/>
-                                </form>
                             </div>
                         </div>
                     </div>
