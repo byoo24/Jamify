@@ -65,7 +65,6 @@ class Search extends React.Component {
         
         const artists = Object.values(this.state.artists);
         const albums = Object.values(this.state.albums);
-        // debugger
 
         const listArtists = artists[0] ? artists.map((artist) => {
             let albumId = artist.albumIds !== undefined ? artist.albumIds[0] : null;

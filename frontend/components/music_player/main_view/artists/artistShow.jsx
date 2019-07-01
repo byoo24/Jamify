@@ -41,17 +41,21 @@ class ArtistShow extends React.Component {
 
         
         const albumsList = albums.length > 0 ? (
-            albums.map((album) => (
-                <Media
+            albums.map((album) => {
+                let songIds = album ? album.songIds : [];
+
+                return <Media
                     key={album.id}
                     media={album}
-                    type={'album'}
+                    type='album'
+                    user={artist}
                     size='medium'
                     view='index'
+                    songIds={songIds}
                     thumbnail_url={album.cover_image}
                     path={`/album/${album.id}`}
                 />
-            ))
+            })
         ) : null;
 
         // if (albums.length > 0) {
