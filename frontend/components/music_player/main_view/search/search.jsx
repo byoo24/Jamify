@@ -25,7 +25,6 @@ class Search extends React.Component {
         const {myDebounce, search} = this.state;
 
         this.setState({ search: { input: e.target.value } }, (res) => {
-            debugger
             myDebounce(this.state.search);
         });
     }

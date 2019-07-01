@@ -91,7 +91,7 @@ class AlbumShow extends React.Component {
 
     render() {
         const { album, artist, songs, contextMenu, cover_image } = this.props;
-        const songIds = album ? album.songIds : undefined;
+        const songIds = album ? album.songIds : [];
         
         const songList = songs ? (
             songs.map((song) => (
