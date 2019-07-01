@@ -161,11 +161,11 @@ const msp = (state, ownProps) => {
     if (album) {
         // songs = Object.keys(state.entities.songs).map(key => state.entities.songs[key]);
         const music = Object.values(state.entities.songs);
+        // debugger
         artist = state.entities.artists[album.artist_id];
+        let songIds = album.songIds ? album.songIds : [];
         
-        songs = music.length > 0 ? (
-            music.filter(song => album.songIds.includes(song.id))
-        ) : ( null )
+        songs = music.filter(song => songIds.includes(song.id))
     }
 
     
