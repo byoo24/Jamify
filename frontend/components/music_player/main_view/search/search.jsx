@@ -86,6 +86,7 @@ class Search extends React.Component {
 
 
         const listAlbums = albums[0] ? albums.map((album) => {
+            let songIds = album ? album.songIds : [];
             return (
                 <Media
                     key={album.id}
@@ -94,7 +95,7 @@ class Search extends React.Component {
                     size='medium'
                     view='index'
                     thumbnail_url={album.cover_image}
-                    songIds={album.songIds}
+                    songIds={songIds}
                     path={`/album/${album.id}`}
                 />
             )
