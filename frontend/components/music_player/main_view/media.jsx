@@ -47,15 +47,25 @@ class Media extends React.Component {
         
         const that = this;
         
-        if ((songs !== undefined && songIds !== undefined) && (songs.length > 0 && songIds.length > 0)) {
+        if (type == 'album' && (songs.length > 0 && songIds.length > 0)) {
             playlist = songs.filter((song) => songIds.includes(song.id));
-            this.props.playCurrentList(playlist);
 
-        } else if ((songs !== undefined && albumId !== undefined) && (songs.length > 0 && typeof albumId === 'number' )) {
+            if (playlist.length > 0){
+                this.props.playCurrentList(playlist);
+                return;
+            }
+
+        } else if (type == 'artist' && (songs.length > 0 && typeof albumId === 'number' )) {
             playlist = songs.filter((song) => song.album_id === albumId);
-            this.props.playCurrentList(playlist);
 
-        } else if (type == 'album') {
+            if (playlist.length > 0){
+                this.props.playCurrentList(playlist);
+                return;
+            }
+
+        }
+        
+        if (type == 'album') {
             this.props.fetchAlbum(media.id)
                 .then((payload) => {
                     playlist = Object.values(payload.songs);
@@ -185,7 +195,6 @@ const mdp = dispatch => ({
     fetchAlbum: albumId => dispatch(fetchAlbum(albumId)),
     fetchPlaylist: (currentUserId, playlistId) => dispatch(fetchPlaylist(currentUserId, playlistId)),
     playCurrentList: playlistIds => dispatch(playCurrentList(playlistIds)),
-
 });
 
 export default withRouter(connect(msp, mdp)(Media));

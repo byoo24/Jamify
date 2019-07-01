@@ -10,6 +10,5 @@ json.songs do
     # @album.songs.map do |song|
     @songs.map do |song|
         json.partial! 'api/songs/song', song: song
-
     end
 end

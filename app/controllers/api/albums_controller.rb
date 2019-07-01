@@ -19,6 +19,7 @@ class Api::AlbumsController < ApplicationController
         
 
         if @album
+            # @songs = @album.songs
             @songs = @album.songs.with_attached_audio_file
             render :show
         else

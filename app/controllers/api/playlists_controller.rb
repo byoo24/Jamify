@@ -1,6 +1,5 @@
 class Api::PlaylistsController < ApplicationController
 
-    # GOOD
     def index
         @playlists = current_user.playlists.includes(:songs)
 
@@ -13,7 +12,6 @@ class Api::PlaylistsController < ApplicationController
     end
 
 
-# Song.with_attached_###.joins(:playlist).where(playlist.id=?)
 
 
     def show

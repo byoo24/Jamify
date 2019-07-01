@@ -4,9 +4,10 @@ import configureStore from './store/store';
 
 import Root from './components/root';
 
-// TESTING
-// import { getAlbumsFromArtist} from './util/album_api_util';
 
+if (process.env.NODE_ENV !== 'production') {
+    console.log('Entered development mode!');
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     let preloadedState = undefined;
@@ -24,12 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const store = configureStore(preloadedState);
 
-
-
-    // window.getState = store.getState;
-    // window.dispatch = store.dispatch;
-
-    
     ReactDOM.render(
         <Root store={ store }/>,
         document.getElementById('root')

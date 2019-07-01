@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import EmptyState from '../empty_state';
-import { Link } from 'react-router-dom';
 import { fetchArtists } from '../../../../actions/artist_actions';
 import Media from '../media';
 
