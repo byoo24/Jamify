@@ -47,7 +47,7 @@ class Media extends React.Component {
         
         const that = this;
         
-        if (type == 'album' && (songs.length > 0 && songIds.length > 0)) {
+        if ((type == 'album' && songIds !== undefined) && (songs.length > 0 && songIds.length > 0)) {
             playlist = songs.filter((song) => songIds.includes(song.id));
 
             if (playlist.length > 0){

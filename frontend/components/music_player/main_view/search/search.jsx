@@ -86,7 +86,7 @@ class Search extends React.Component {
 
 
         const listAlbums = albums[0] ? albums.map((album) => {
-            let songIds = album ? album.songIds : [];
+            let songIds = album.songIds ? album.songIds : [];
             return (
                 <Media
                     key={album.id}
