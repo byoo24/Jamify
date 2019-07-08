@@ -101,7 +101,7 @@ class PlaylistShow extends React.Component {
             )
         ) : (
             <EmptyState
-                title={"It looks a big empty here."}
+                title={"It looks a bit empty here."}
                 subtitle={"Browse and find music you love."}
                 iconType="astronaut"
             />
