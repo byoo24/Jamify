@@ -13,7 +13,7 @@ class Search extends React.Component {
             },
             artists: {},
             albums: {},
-            myDebounce: this.myDebounce(1000)
+            myDebounce: this.myDebounce(250)
         }
 
         this.handleChange = this.handleChange.bind(this);
