@@ -145,7 +145,7 @@ class Search extends React.Component {
                     <div className="search-content-container">
                         <div className="no-search">
                             <h1>Search Results Appear Here.</h1>
-                            <p>The Search is Case Sensitive.</p>
+                            <p>The Search uses a debound function so you don't have to press enter</p>
                         </div>
                     </div>
                 </div>
